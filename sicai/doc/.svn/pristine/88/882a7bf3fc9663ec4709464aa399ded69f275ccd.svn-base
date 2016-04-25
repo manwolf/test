@@ -1,0 +1,566 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>数据库修改记录</title>
+</head>
+<body>
+<table border = "1" style="background-color:#B4EEB4" width="100%">
+<tr>
+	<td><h3>是否已更新</h3></td>
+	<td><h3>新增</h3></td>
+	<td><h3>姓名</h3></td>
+	<td><h3>时间</h3></td>
+	<td><h3>内容</h3></td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>新增表class_time_everyday</td>
+	<td>黄东</td>
+	<td>2015年08月04日</td>
+	<td>查询教师每天上课的时间段</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>新增表 teacher_artificial_evaluation</td>
+	<td>黄东</td>
+	<td>2015年08月05日</td>
+	<td>教师人工评价(手写)</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>新增表 container_info</td>
+	<td>孙广兢</td>
+	<td>2015年8月6日</td>
+	<td>移动框架中的容器信息</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>新增表 zip_info</td>
+	<td>孙广兢</td>
+	<td>2015年8月6日</td>
+	<td>移动框架中的小应用下载包的信息</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>新增表 adimg_info</td>
+	<td>陈梦帆</td>
+	<td>2015年8月7号</td>
+	<td>存放不同城市首页的三张图片的链接（url）</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>新增表 user_spelling_lesson</td>
+	<td>黄东</td>
+	<td>2015年08月13日</td>
+	<td>学生拼课信息表</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>新增表 invitation_info</td>
+	<td>孙广兢</td>
+	<td>2015年8月15日</td>
+	<td>邀请码的类型信息</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>新增表 invitation_use_list</td>
+	<td>孙广兢</td>
+	<td>2015年8月15日</td>
+	<td>邀请码的使用信息</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>新增表 spelling_lesson_discount</td>
+	<td> 黄东 </td>
+	<td>2015年8月19日 </td>
+	<td>拼课折扣信息表(该表需手动赋值 各城市的拼课折扣信息) </td>
+</tr>
+<tr>
+	<td></td>
+	<td>新增表high_quality_courses</td>
+	<td>黄东</td>
+	<td>2015年09月07日</td>
+	<td>精品课程基本信息表  (该表需赋值  各称城市的各种精品课程)</td>
+</tr>
+<tr>
+	<td></td>
+	<td>新增表high_quality_class_type</td>
+	<td>黄东</td>
+	<td>2015年09月10日</td>
+	<td>精品课上课类型  (该表需赋值  )</td>
+</tr>
+
+  <tr>
+	<td></td>
+	<td>新增表high_quality_class_way</td>
+	<td>黄东</td>
+	<td>2015年09月10日</td>
+	<td>各种精品课程的上课方式(该表需赋值 )</td>
+</tr>    
+  <tr>
+	<td></td>
+	<td>新增表class_quality_details</td>
+	<td>黄东</td>
+	<td>2015年09月10日</td>
+	<td>精品课详情(该表需赋值 )</td>
+</tr>  
+        
+    <tr>
+	<td></td>
+	<td>新增表week_time </td>
+	<td>黄东</td>
+	<td>2015年09月10日</td>
+	<td>一周上课状态(该表需赋值 )</td>
+</tr> 
+</table>
+<br/>
+<table border = "2" style="background-color:#FCBFCD" width="100%" >
+<tr>
+	<td><h3>是否已更新</h3></td>
+	<td><h3>删除</h3></td>
+	<td><h3>姓名</h3></td>
+	<td><h3>时间</h3></td>
+	<td><h3>内容</h3></td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>表class_list</td>
+	<td>黄东 </td>
+	<td>2015年8月06日</td>
+	<td>删除表中class_list_BEFORE_INSERT触发器   且将字段class_start_date 和 class_start_time 属性改为VARCHAR(16)</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>删除表teacher_rest </td>
+	<td>黄东</td>
+	<td>2015年7月24日</td>
+	<td>新增   create_time //教师申请时间<br>
+            属性 datetime  CURRENT_TIMESTAMP 之后删除表</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td> order_list中</td>
+	<td>黄东 </td>
+	<td> 2015年8月19日 </td>
+	<td>删除字段             user_grade  年级 字段    user_class 初中一年级     class_discount折扣</td>
+</tr>
+</table>
+<br/>
+<table border = "3" style="background-color:#9F79EE" width="100%">
+<tr>
+	<td><h3>是否已更新</h3></td>
+	<td><h3>修改表</h3></td>
+	<td><h3>姓名</h3></td>
+	<td><h3>时间</h3></td>
+	<td><h3>内容</h3></td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表teacher_schedule</td>
+	<td>黄东</td>
+	<td>2015年7月26日</td>
+	<td>新增 teacher_apply_date  //教师申请日期</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表kf_return_info</td>
+	<td>陈梦帆</td>
+	<td>2015年7月27号</td>
+	<td>将kf_potential_tid 改为 order_list_tid//回访客户次数</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表kf_admin_info</td>
+	<td>孙广兢</td>
+	<td>2015年7月29号</td>
+	<td>新增kf_admin_telephone//客服主管的登陆账号（手机号）</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表teacher_schedule</td>
+	<td>黄东</td>
+	<td>2015年7月31号</td>
+	<td>新增字段class_tid</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表class_list</td>
+	<td>黄东</td>
+	<td>2015年7月31号</td>
+	<td>修改after insert 触发器 ，对teacher_schedule表的class_tid赋值。</td>
+</tr>
+
+<tr>
+	<td>OK</td>
+	<td>修改表class_list</td>
+	<td>黄东</td>
+	<td>2015年7月31号</td>
+	<td>58数据库增加存储过程update_user_info<br>
+           创建event事件update_user_info <br>  
+           每月第一天零点30 自动初始化<br>  
+           学生次月调课和临时调课状态</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表class_list</td>
+	<td>黄东</td>
+	<td>2015年7月31号</td>
+	<td>新增字段user_classes_state//临时调课状态<br>
+            0为未调课  1为完成调课</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表order_list </td>
+	<td>黄东</td>
+	<td>2015年7月14号</td>
+	<td>新增字段order_original_price  //订单原价 FLOAT(10,2<br>)
+            新增字段user_spelling_lesson_tid  字段  拼课记录id<br>      
+            新增user_grade  年级 字段// user_class 初中一年级 <br>
+            新增order_name  订单联系人<br>
+            新增 spelling_lesson_type  0拼课发起人  1为参与者<br>   
+            添加字段class_discount //拼课折扣信息  随人数变化</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表teacher_detail_info</td>
+	<td>黄东</td>
+	<td>2015年08月05号</td>
+	<td>新增字段teacher_information_title_1  教师信息标题1 ,<br>
+                    teacher_information_1 教师信息内容1<br>
+                    teacher_information_title_2  教师信息标题2 ,<br>
+                    teacher_information_2  教师信息内容2<br>
+                    teacher_information_title_3  教师信息标题3 ,<br>
+                    teacher_information_3  教师信息内容3</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表container_info</td>
+	<td>孙广兢</td>
+	<td>2015年8月6日</td>
+	<td>新增字段（tid，int(11)，自增，主键）、<br>（container_name，varchar(45)，容器的名字，不含文件类型后缀）、<br>
+（container_filetype，varchar(10)，文件类型后缀,如zip、apk）、<br>
+（container_version，varchar(45)，容器的版本号）、<br>（container_detaile，varchar(500)，容器的详细描述）、<br>
+（container_position，varchar(200)，容器在服务器中的存放位置,<br>不含域名,不含文件名,例如:/framework/teacher/eteacher/）、<br>
+（container_force，int(1)，0:非强制更新,1:强制更新(默认) ）、<br>
+（container_platform,int(8),该容器可用平台,<br>ABCDEFGH,每个字母代表一类平台是否可用,<br>H表示安卓平台(0不可用,1可用),<br>G表示苹果平台(0不可用,1可用),<br>F表示为微信平台(0不可用,1可用),<br>
+E、D、C、B、A表示其他平台(暂时未确定，0不可用,1可用),<br>所有字母按顺序组合为一个二进制整数。<br>例如，仅安卓可用，表示为00000001,可简写为1;<br>仅苹果可用表示为00000010，可简写为2;安卓苹果均可用，<br>则表示为00000011，可简写为3;以此类推）</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表zip_info</td>
+	<td>孙广兢</td>
+	<td>2015年8月6日</td>
+	<td>新增字段（tid，int(11)，自增，下载包的主键）、<br>（zip_name，varchar(45)，下载包的名字，不含文件类型后缀）、<br>
+（zip_filetype，varchar(10)，文件类型后缀,如zip、apk）、<br>
+（zip_version，varchar(45)，下载包的版本号）、<br>（zip_detaile，varchar(500)，下载包的详细描述）、<br>
+（zip_position，varchar(200)，下载包在服务器中的存放位置,<br>不含域名,不含文件名,例如:/framework/teacher/base/）、<br>
+（zip_city,varchar(45),下载包的城市属性）<br>
+（zip_force，int(1)，0:非强制更新,1:强制更新(默认) ）、<br>
+（zip_platform,int(8),该下载包可用平台,ABCDEFGH,<br>每个字母代表一类平台是否可用,H表示安卓平台(0不可用,1可用),<br>G表示苹果平台(0不可用,1可用),<br>F表示为微信平台(0不可用,1可用),<br>
+E、D、C、B、A表示其他平台(暂时未确定，0不可用,1可用),<br>所有字母按顺序组合为一个二进制整数。<br>例如，仅安卓可用，表示为00000001,可简写为1;<br>仅苹果可用表示为00000010，可简写为2;安卓苹果均可用，<br>则表示为00000011，可简写为3;以此类推）<br>
+（container_tid,int(11),下载包所依赖的容器的tid）</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表jy_user_info</td>
+	<td>李坡</td>
+	<td>2015年08月06号</td>
+	<td>新增字段login_state  // 判断教研是否第一次登陆 默认值为0。</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表kf_user_info</td>
+	<td>李坡</td>
+	<td>2015年08月07号</td>
+	<td>新增字段login_state  // 判断客服专员是否第一次登陆 默认值为0。</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表sc_user_info</td>
+	<td>李坡</td>
+	<td>2015年08月07号</td>
+	<td>新增字段login_state  // 判断市场专员是否第一次登陆 默认值为0。</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表teacher_info</td>
+	<td>李坡</td>
+	<td>2015年08月06号</td>
+	<td>新增字段login_state  // 判断老师是否第一次登陆 默认值为0。</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表kf_potential_info</td>
+	<td>陈梦帆</td>
+	<td>2015年08月06号</td>
+	<td> 新增字段potential_register //客户是否注册 “0”为未注册，<br>“1”为已注册。默认值为零。</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表kf_return_info</td>
+	<td>陈梦帆 </td>
+	<td>2015年08月06号</td>
+	<td>将order_list_tid 改为 order_list_sum//回访客户次数<br>
+            新增字段return_order//客户是否有订单,<br>"0"表示无订单，“1”表示有订单。默认值为0.</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表kf_return_info</td>
+	<td>陈梦帆 </td>
+	<td>2015年08月12号</td>
+	<td>添加字段city//区分客户所在城市</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表sc_admin_info</td>
+	<td>孙广兢</td>
+	<td>2015年08月14号</td>
+	<td>添加字段sc_city//区分市场主管所在城市</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表pay_list</td>
+	<td>陈鸿润</td>
+	<td>2015年08月14号</td>
+	<td>添加字段invitation_code </td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改存储过程walletCtr_payByWallet</td>
+	<td>陈鸿润</td>
+	<td>2015年08月14号</td>
+	<td>修改部分内容 </td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表user_classes</td>
+	<td>孙广兢</td>
+	<td>2015年08月14号</td>
+	<td>添加字段create_time 类型datetime <br>默认值为 CURRENT_TIMESTAMP //创建申请调课的时间</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表invitation_info</td>
+	<td>孙广兢</td>
+	<td>2015年08月15号</td>
+	<td>新增字段
+（tid，int(11)，自增，主键）<br>
+（invitation_name，varchar(45)，邀请码的名字）、<br>
+（invitation_amount，int(11)，邀请码的总数量）、<br>
+（invitation_discount，varchar(11)，邀请码的折扣）、<br>
+（invitation_start_date，date，邀请码的起始日期）、<br>
+（invitation_end_date，date，邀请码的结束日期）、<br>
+（invitation_city，varchar(45)，邀请码的城市）、<br>
+（invitation_times，int(11)，邀请码的最大使用次数）、<br>
+（invitation_valid，int(1)，默认值：0；<br>邀请码是否有效，0：有效（默认值），1：失效）、<br>
+（create_time，timestamp，默认值：当前时间；邀请码的创建时间）</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表invitation_use_list</td>
+	<td>孙广兢</td>
+	<td>2015年08月15号</td>
+	<td>新增字段
+（tid，int(11)，自增，主键）<br>
+（invitation_code，varchar(45)，邀请码）、<br>
+（order_tid，int(11)，邀请码的订单tid）、<br>
+（invitation_info_tid，int(11)，邀请码属于哪一类别的tid）</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表invitation_info</td>
+	<td>孙广兢</td>
+	<td>2015年08月17号</td>
+	<td>修改内容
+（invitation_start_date，将原字段类型“date”改为“datetime”)、<br>
+（invitation_end_date，将原字段类型“date”改为“datetime”)</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表teacher_info</td>
+	<td>李坡</td>
+	<td>2015年08月17号</td>
+	<td>添加字段（teacher_num 老师编号，<br>teacher_hiredate 入职时间，post_status岗位状态 <br> 0实习1位在职 2为离职，teachers_level 教师等级<br> 0为初级教师 1为中级教师 2为高级教师 3为特级，<br>address老师地址，graduated_from毕业院校，<br>graduation_date毕业时间，teacher_major主修专业 <br>另 login_pwd默认值‘123456’）</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表teacher_detail_info</td>
+	<td>李坡</td>
+	<td>2015年08月17号</td>
+	<td>修改字段名teacher_information_1 为success_case教师案例<br>  修改 teacher_information_2为teaching_features 教学特色</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表kf_potential_info</td>
+	<td>陈梦帆 </td>
+	<td>2015年08月19号</td>
+	<td>修改字段potential_number的Datatype,将VARCHAR(45)改为INT(11)</td>
+</tr>
+
+<tr>
+	<td>OK</td>
+	<td>修改表class_price</td>
+	<td>黄东 </td>
+	<td> 2015年8月18日</td>
+	<td>添加   user_class   课程年级   1-12年级\学前   (该字段需手动赋值  如 1-12年级)</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表  order_list</td>
+	<td>黄东 </td>
+	<td> 2015年8月19日 </td>
+	<td>添加字段  class_price_tid //年级价格的tid </td>
+</tr>
+
+<tr>
+	<td>OK</td>
+	<td>修改表  user_info</td>
+	<td>黄东 </td>
+	<td>  2015年8月20日     </td>
+	<td>新增字段           spelling_class_state   拼课状态   0为未参与或发起拼课    1为正在拼课或者已发起拼课    默认为未发起拼课</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表   teacher_detail_info</td>
+	<td>黄东 </td>
+	<td>  2015年8月20日     </td>
+	<td>修改           teacher_information_1,teacher_information_2,teacher_information_3    由于空间太小修改字段属性为VARCHAR(2048)</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表user_spelling_lesson</td>
+	<td>陈鸿润 </td>
+	<td>2015年08月21号</td>
+	<td>添加字段longitude 和 latitude</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表invitation_use_list</td>
+	<td>孙广兢</td>
+	<td>2015年08月24号</td>
+	<td>删除字段order_tid</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改存储过程walletCtr_payByWallet</td>
+	<td>陈鸿润 </td>
+	<td>2015年08月21号</td>
+	<td>加入邀请码代码</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表invitation_info</td>
+	<td>孙广兢</td>
+	<td>2015年08月24号</td>
+	<td>添加字段invitation_code_prefix  varchar(45) 有序邀请码的前缀</td>
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表invitation_use_list</td>
+	<td>孙广兢</td>
+	<td>2015年08月24号</td>
+	<td>新增字段invitation_used_times int(11) 邀请码已经使用次数</td>	
+</tr>
+<tr>
+	<td>OK</td>
+	<td>修改表order_list</td>
+	<td>孙广兢</td>
+	<td>2015年08月24号</td>
+	<td>新增字段invitation_code varchar(20) 邀请码</td>	
+</tr>
+<tr>
+	<td></td>
+	<td>修改表kf_potential_info</td>
+	<td>陈梦帆</td>
+	<td>2015年08月31号</td>
+	<td>修改字段potential_phone的字段属性为 varchar(16)
+	             修改字段potential_date的字段属性为 DATETIME;Default为CURRENT_TIMESTAMP
+	             新增字段market_code（市场代码） 字段属性INT（11）</td>	
+</tr>
+<tr>
+	<td></td>
+	<td>修改表kf_return_info</td>
+	<td>陈梦帆</td>
+	<td>2015年08月31号</td>
+	<td>修改字段return_phone的字段属性为 varchar(16)
+                          修改字段return_content的字段属性为VARCHAR(225)
+                          修改字段return_remark的字段属性为VARCHAR(225)
+                          修改字段return_time的字段属性为 DATETIME;Default为CURRENT_TIMESTAMP
+                          新增字段user_tid 字段属性INT（11）</td>	
+</tr>
+<tr>
+	<td></td>
+	<td>修改表user_info</td>
+	<td>黄东</td>
+	<td>2015年9月01号</td>
+	<td>新增字段fast_count  INT(1) 快速约课次数，默认值为零。</td>
+</tr>
+
+<tr>
+<td></td>
+<td>修改表order_list</td>
+<td>黄东</td>
+<td>2015年9月07号</td>
+<td>新增字段class_types INT(1) 课程类型 0为普通课程 1为精品课程 默认0</td>
+</tr>
+<tr>
+<td></td>
+<td>修改表user_info</td>
+<td>黄东</td>
+<td>2015年9月07号</td>
+<td>新增字段sc_num varchar(3) 市场专员编号 只要不为空就表示该学生已有专门的市场专员不可再次填写其他的 市场专员</td>
+</tr>
+<tr>
+	<td></td>
+	<td>修改表container_info</td>
+	<td>陈梦帆</td>
+	<td>2015年09月8号</td>
+	<td>新增字段create_time 字段属性DATETIME，Default默认值为CURRENT_TIMESTAMP</td>	
+</tr>
+
+<tr>
+	<td></td>
+	<td>修改表order_list</td>
+	<td>黄东</td>
+	<td>2015年09月8号</td>
+	<td>新增high_quality_courses_tid  int（11）</td>	
+</tr>
+<tr>
+	<td></td>
+	<td>修改表user_spelling_lesson</td>
+	<td>黄东</td>
+	<td>2015年09月9号</td>
+	<td>新增class_quality int(1)拼客类型  0普通  1精品  默认0</td>	
+</tr>
+<tr>
+	<td></td>
+	<td>修改表user_spelling_lesson</td>
+	<td>黄东</td>
+	<td>2015年09月9号</td>
+	<td>新增字段high_quality_courses_tid   int(11)</td>	
+</tr>
+<tr>
+	<td></td>
+	<td>修改表invitation_info</td>
+	<td>孙广兢</td>
+	<td>2015年09月10号</td>
+	<td>新增字段sc_admin_tid   int(11)  NOT NULL COMMENT'创建该邀请码的市场主管的tid'</td>	
+</tr>
+<tr>
+	<td></td>
+	<td>修改表sc_admin_info</td>
+	<td>孙广兢</td>
+	<td>2015年09月10号</td>
+	<td>新增字段sc_name   VARCHAR(20) NOT NULL COMMENT '市场主管的姓名'</td>	
+</tr>
+<tr>
+	<td></td>
+	<td>修改表container_info</td>
+	<td>孙广兢</td>
+	<td>2015年09月10号</td>
+	<td>修改字段tid  设置为自增 AUTO_INCREMENT</td>	
+</tr>
+</table>
+</body>
+</html>

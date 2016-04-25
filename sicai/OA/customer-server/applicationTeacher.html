@@ -1,0 +1,106 @@
+<div class="pull-right login_out">
+    您好：<img src="./public/images/pubimages/user.png"/><span ng-bind="kf_name"></span>
+    <!--<img src="./public/images/pubimages/userid.png"/><span ng-bind="roles_name"></span>-->
+    <img src="./public/images/pubimages/edpwd.png"/><span ng-click="">修改密码</span>
+    <img src="./public/images/pubimages/loginout.png"/><a href="#/default">退出</a>
+</div>
+<a href="#/login"><img src="./public/images/default/eTeacher.png" class="imglogo"></a>
+<nav>
+    <div class="btn-group mycolor1">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            客户数据 <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#/customer_data">已有客户数据</a></li>
+            <li><a href='#/potentialCustomerData'>潜在客户数据</a></li>
+            <li><a href="#/SpellingLesson">拼课客户数据</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            服务管理<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#/return_record">回访记录</a></li>
+            <li><a href='#/arrangingCourse'>查询教师课程</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            待办事项<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href='#/applicationTransfer'>调课申请</a></li>
+            <li><a href='#/manageKf'>客服管理</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            积分管理<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href='#/pointManagement'> 积分管理</a></li>
+        </ul>
+    </div>
+    <div class="div"><h4>调课申请</h4></div>
+</nav>
+
+<div class="applicationTeacher">
+    <!-- 快速搜索 -->
+    <div class="speedsearch">
+        <div class="col search-ico">
+            <div class="col-lg-5"><input type="text" ng-model="teacher_name" class="username" placeholder="教师姓名">
+                <button class="btn btn-default" ng-click="applicationTeacherData(3)"><span
+                        class="glyphicon glyphicon-search"> 快速搜索:</span></button>
+            </div>
+        </div>
+    </div>
+    <div class="selectlist">
+        <!--申请人-->
+        <div class="row dotted">
+            <div class="col-xs-2">申请人：</div>
+            <div class="col-xs-2"><a href='#/applicationTransfer'>学生</a></div>
+            <div class="col-xs-2"><a href='#/applicationTeacher'>教师</a></div>
+        </div>
+        <!-- 申请时间 -->
+        <div class="row dotted">
+            <div class="col-xs-2">申请时间：</div>
+            <div class="col-xs-2"><a  ng-click="applicationTeacherData(1,1)">一天内</a></div>
+            <div class="col-xs-2"><a  ng-click="applicationTeacherData(1,3)">三天内</a></div>
+            <div class="col-xs-2"><a  ng-click="applicationTeacherData(1,7)">七天内</a></div>
+            <div class="col-xs-2"><a  ng-click="applicationTeacherData(1,8)">七天以上</a></div>
+        </div>
+        <!-- 申请状况 -->
+        <div class="row dotted">
+            <div class="col-xs-2">申请状况：</div>
+            <div class="col-xs-2"><a  ng-click="applicationTeacherData(2,1)">申请中</a></div>
+            <div class="col-xs-2"><a  ng-click="applicationTeacherData(2,2)">已批准</a></div>
+        </div>
+    </div>
+
+    <!-- 具体信息 -->
+    <div class="datalist">
+        <ul class="list-message">
+            <li>教师姓名</li>
+            <li>申请时间</li>
+            <li>调课时间</li>
+            <li>申请状态</li>
+            <li>申请审核</li>
+        </ul>
+        <div class="message-list" ng-repeat="item in lists">
+            <ul>
+                <li class="attr2"><span ng-bind="item.teacher_name"></span></li>
+                <li class="attr2"><span ng-bind="item.teacher_apply_date"></span></li>
+                <li class="attr2"><span ng-bind="item.schedule_date"></span></li>
+                <li class="attr2"><span ng-bind="item.teacher_entry_state"></span></li>
+                <li class="attr2"><span ng-show="item.teacher_entry_state=='未处理'"
+                                        ng-click="applicationTeacherAuditing(item)">同意</span></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+

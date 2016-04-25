@@ -1,0 +1,104 @@
+<div class="pull-right login_out">
+    您好：<img src="./public/images/pubimages/user.png"/><span ng-bind="kf_name"></span>
+    <!--<img src="./public/images/pubimages/userid.png"/><span ng-bind="roles_name"></span>-->
+    <img src="./public/images/pubimages/edpwd.png"/><span ng-click="">修改密码</span>
+    <img src="./public/images/pubimages/loginout.png"/><a href="#/default">退出</a>
+</div>
+<a href="#/login"><img src="./public/images/default/eTeacher.png" class="imglogo"></a>
+<nav>
+    <div class="btn-group mycolor1">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            客户数据 <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu " role="menu">
+            <li><a href="#/customer_data">已有客户数据</a></li>
+            <li><a href='#/potentialCustomerData'>潜在客户数据</a></li>
+            <li><a href="#/SpellingLesson">拼课客户数据</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            服务管理<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#/return_record">回访记录</a></li>
+            <li><a href='#/arrangingCourse'>查询教师课程</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            待办事项<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href='#/applicationTransfer'>调课申请</a></li>
+            <li><a href='#/manageKf'>客服管理</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+           积分管理<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href='#/pointManagement'> 积分管理</a></li>
+        </ul>
+    </div>
+    <div class="div"><h4>积分管理</h4></div>
+</nav>
+<div class="pointmanage">
+    <!--快速搜索-->
+    <div class="speedsearch">
+        <div class="search-ico">
+                <span class="sortcolor" ng-click="speedSearchSort(1)">注册时间<span class="glyphicon glyphicon-sort sortwidth"></span></span>
+                <span class="sortcolor" ng-click="speedSearchSort(2)">剩余课时<span class="glyphicon glyphicon-sort sortwidth"></span></span>
+                <span class="sortcolor" ng-click="speedSearchSort(3)">现有积分<span class="glyphicon glyphicon-sort sortwidth"></span></span>
+            <span style="width: 40%;margin-left: 20%">
+                <input type="text" ng-model="searchtelephne"  placeholder="联系电话" class="searchtel">
+                <input type="text" ng-model="searchname" placeholder="姓名" class="searchtel">
+                <button class="btn btn-default btn-sm"  style="margin-left: 2em;" ng-click="speedSearchSort(0)">
+                    <span class="glyphicon glyphicon-search"></span> 搜索
+                </button>
+            </span>
+
+
+        </div>
+    </div>
+    <table class="datatable">
+        <tr class="pointData_header">
+            <td>序号</td>
+            <td>姓名</td>
+            <td>性别</td>
+            <td>年级</td>
+            <td>电话</td>
+            <td>剩余课时</td>
+            <td>注册时间</td>
+            <td>现有积分</td>
+        </tr>
+        <tr class="pointdata" ng-repeat="item in lists">
+            <td ng-bind="item.tid">序号</td>
+            <td ng-bind="item.user_name">姓名</td>
+            <td ng-bind="item.user_sex">性别</td>
+            <td ng-bind="item.user_grade">年级</td>
+            <td ng-bind="item.telephone">电话</td>
+            <td ng-bind="item.surplus_period_no">剩余课时</td>
+            <td ng-bind="item.create_time">注册时间</td>
+            <td ng-bind="item.user_exchange_points">现有积分</td>
+        </tr>
+    </table>
+</div>
+<div class="container">
+    <table class="row col-xs-offset-1">
+        <tr>
+            <td class="col-xs-1">共<span ng-bind="pages"></span>页</td>
+            <!--<td>共条记录</td>-->
+            <td class="col-xs-1">当前第<span ng-bind="currentpage"></span> 页</td>
+            <td class="col-xs-1"><a  ng-click="goHome()">首页</a></td>
+            <td class="col-xs-1"><a  ng-click="prev()">上一页</a></td>
+            <td class="col-xs-1"><a  ng-click="next()">下一页</a></td>
+            <td class="col-xs-1"><a  ng-click="endpage()">尾页</a></td>
+            <td class="col-xs-3">跳转至第<input type="number" class="pageInput" value="2" min="1" max="pages"
+                                            ng-model="page">
+                页<input type="button" value="GO" class="gobtn" ng-click="goto()"></td>
+        </tr>
+    </table>
+    <br>
+</div>

@@ -1,0 +1,137 @@
+<div class="pull-right login_out">
+    您好：<img src="./public/images/pubimages/user.png"/><span ng-bind="kf_name"></span>
+    <!--<img src="./public/images/pubimages/userid.png"/><span ng-bind="roles_name"></span>-->
+    <img src="./public/images/pubimages/edpwd.png"/><span ng-click="">修改密码</span>
+    <img src="./public/images/pubimages/loginout.png"/><a href="#/default">退出</a>
+</div>
+<a href="#/login"><img src="./public/images/default/eTeacher.png" class="imglogo"></a>
+<nav>
+    <div class="btn-group mycolor1">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            客户数据 <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#/customer_data">已有客户数据</a></li>
+            <li><a href='#/potentialCustomerData'>潜在客户数据</a></li>
+            <li><a href="#/SpellingLesson">拼课客户数据</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            服务管理<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#/return_record">回访记录</a></li>
+            <li><a href='#/arrangingCourse'>查询教师课程</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            待办事项<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href='#/applicationTransfer'>调课申请</a></li>
+            <li><a href='#/manageKf'>客服管理</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            积分管理<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href='#/pointManagement'> 积分管理</a></li>
+        </ul>
+    </div>
+    <div class="div">
+        <div class="col-lg-2">
+            <h4>回访记录</h4>
+        </div>
+        <div class="col-lg-2 col-xs-offset-7">
+            <div>
+                <button class="btn btn-primary mybtn" data-toggle="modal"
+                        data-target="#my_Modal">+添加记录
+                </button>
+                <div class="modal fade bs-example-modal-lg" id="my_Modal" tabindex="-1" role="dialog"
+                     aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close mybtn" data-dismiss="modal"><span
+                                        aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">+添加记录</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    姓名：&nbsp;&nbsp;<input type="text" ng-model="return_name"/>
+                                    内容：&nbsp;&nbsp;<input type="text" ng-model="return_content"/>
+                                    <br><br>
+                                    备注：&nbsp;&nbsp;<input type="text" ng-model="return_remark"/>
+                                    手机：&nbsp;&nbsp;<input type="text" ng-model="return_phone"/>
+
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                </button>
+                                <button type="button" class="btn btn-primary" ng-click="addjilu()">保存</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="return_record">
+    <!--选择区域-->
+    <div class="selectlist">
+        <div class="row">
+            <div class="col-lg-3">
+                联系方式：<input type="text" ng-model="return_phone"/>
+            </div>
+            <div class="col-lg-3">
+                客户姓名：<input type="text" ng-model="return_name"/>
+            </div>
+            <div class="col-lg-1">
+                <button type="button" class="btn btn-default search_btn" value="查找" ng-click="find()">
+                    <span class="glyphicon glyphicon-search"></span>&nbsp;查找&nbsp;</button>
+            </div>
+        </div>
+    </div>
+    <div class="datalist">
+        <table class="mytable">
+            <tr class="backg">
+                <td>姓名</td>
+                <td>时间</td>
+                <td>内容</td>
+                <td>备注</td>
+                <td>联系方式</td>
+            </tr>
+            <tr ng-repeat="item in lists">
+                <td ng-bind="item.return_name"></td>
+                <td ng-bind="item.return_time"></td>
+                <td ng-bind="item.return_content"></td>
+                <td ng-bind="item.return_remark"></td>
+                <td ng-bind="item.return_phone"></td>
+            </tr>
+        </table>
+        <br/>
+    </div>
+    <div class="container">
+        <table class="row">
+            <tr>
+                <td class="col-xs-1">共<span ng-bind="pages"></span>页</td>
+                <!--<td>共条记录</td>-->
+                <td class="col-xs-1">当前第<span ng-bind="currentpage"></span> 页</td>
+                <td class="col-xs-1"><a  ng-click="goHome()">首页</a></td>
+                <td class="col-xs-1"><a  ng-click="prev()">上一页</a></td>
+                <td class="col-xs-1"><a  ng-click="next()">下一页</a></td>
+                <td class="col-xs-1"><a  ng-click="endpage()">尾页</a></td>
+                <td class="col-xs-2">跳转至第<input type="number" class="pageInput" value="2" min="1" max="pages"
+                                               ng-model="page">页<input type="button" value="GO" class="gobtn" ng-click="goto()">
+                </td>
+            </tr>
+        </table>
+        <br>
+    </div>
+</div>

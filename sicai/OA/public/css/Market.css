@@ -1,0 +1,656 @@
+/**
+ *OA市场端CSS代码
+ */
+/********************************OA市场登陆页面********************************/
+.scLogin .scLoginHeader {
+    background: #a6d9f4;
+    height: 175px;
+    width: 100%;
+    min-width: 878px;
+
+}
+
+.scLogin .scLoginHeader img {
+    margin: 0px auto;
+    display: block;
+    padding-top: 35px;
+    padding-bottom: 25px;
+}
+
+.scLogin .scLoginHeader p {
+    margin: 0px auto;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    margin-top: -58px;
+}
+
+.scLogin .scLoginBody {
+    background-color: #f4f3f1;
+    width: 100%;
+    height: auto;
+    padding-top: 7%;
+}
+
+.scLogin .scLoginBox {
+    background: url('../images/market/scLoginBg.png') no-repeat;
+    width: 878px;
+    height: 455px;
+    margin: 0px auto;
+}
+
+.scLogin .scLoginBox form {
+    width: 378px;
+    margin: 0px auto;
+    padding-top: 50px;
+}
+
+.scLogin .scLoginBox form p {
+    padding-left: 35px;
+    color: #8b8b8b;
+    font-size: 16px;
+    padding-top: 12px;
+}
+
+.scLogin .scLoginBox form input {
+    background-color: #efefef;
+    margin-left: 10px;
+    border: 1px solid #bbb;
+    height: 28px;
+    text-align: center;
+    border-radius: 3px;
+
+}
+
+.scLogin .scLoginBox form select {
+    margin-left: 6px;
+    background-color: #efefef;
+    border: 1px solid #bbb;
+    height: 26px;
+    border-radius: 3px;
+}
+
+.scLogin .scLoginBox form img {
+    position: relative;
+    left: 320px;
+    top: -64px;
+
+}
+
+.scLogin .scLoginLabel {
+    text-align: center;
+    color: #8b8b8b;
+    font-size: 16px;
+    margin-top: 7%;
+}
+
+/********************************邀请码管理页面********************************/
+.inviteManage {
+    width: 98%
+}
+
+.inviteManage li {
+    list-style: none;
+}
+
+/*选中的tab标题的样式*/
+.inviteManage .nav-tabs > li.active > a {
+    color: #000;
+    background-color: #c7ddef;
+}
+
+.inviteManage .newAndSearch {
+    height: 60px;
+    padding-top: 20px;
+}
+
+.inviteManage .new {
+    background: url('../images/market/new.png') no-repeat;
+    float: left;
+    width: 81px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.inviteManage .searchBox {
+    float: right;
+    width: 250px;
+    text-align: right;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.inviteManage .searchBox button {
+    border: none;
+    height: 28px;
+    position: relative;
+    left: -5px;
+}
+
+.inviteManage .searchBox input {
+    border: none;
+    width: 200px;
+    position: relative;
+    top: 2px;
+    font-size: 12px;
+    outline: medium
+}
+
+.inviteManage .top-message {
+    clear: both;
+    margin-top: 20px;
+    height: 45px;
+    background-color: #3596e1;
+    min-width: 1094px;
+}
+
+.inviteManage .top-message ul li {
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 45px;
+    color: #fff;
+}
+
+.messageList {
+    min-width: 1094px;
+}
+
+.inviteManage .invite-list li {
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 45px;
+    font-size: 13px;
+    border: 1px solid #fff;
+}
+
+.inviteManage .invite-list {
+    background-color: #fff;
+    height: 45px;
+    margin: 0px;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    float: left;
+}
+
+.inviteManage .col-lg-2 .bs-example-modal-lg .modal-header {
+    background: #3596e1;
+    height: 45px;
+    padding: 0px;
+    padding-top: 8px;
+    padding-left: 20px;
+    color: #fff;
+}
+
+.inviteManage .col-lg-2 .bs-example-modal-lg .close {
+    margin-top: 1px;
+    margin-right: 10px;
+}
+
+.inviteManage .col-lg-2 .bs-example-modal-lg .modal-dialog {
+    min-width: 740px;
+    width: 55%;
+}
+
+.inviteManage .col-lg-2 .bs-example-modal-lg hr {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    border: 0;
+    border-top: 1px solid #ccc;
+}
+
+.inviteManage .col-lg-2 .bs-example-modal-lg .basicMessage {
+    padding: 20px;
+}
+
+.inviteManage .col-lg-2 .bs-example-modal-lg .basicMessage span {
+    width: 200px;
+    text-align: right;
+}
+
+.inviteManage .col-lg-2 .bs-example-modal-lg .basicMessage .title {
+    max-width: 130px;
+    text-align: right;
+}
+
+.inviteManage .col-lg-2 .bs-example-modal-lg .basicMessage .row {
+    padding-top: 8px;
+}
+
+.inviteManage .col-lg-2 .bs-example-modal-lg .basicMessage input {
+    background-color: #efefef;
+}
+
+.inviteManage .col-lg-2 .bs-example-modal-lg .basicMessage span {
+    color: red;
+    font-size: 12px;
+}
+
+.inviteManage .col-lg-2 .bs-example-modal-lg .basicMessage select {
+    background-color: #efefef;
+}
+
+.inviteManage .col-lg-2 .bs-example-modal-lg .modal-footer {
+    text-align: center;
+}
+
+/*****************************************码库页面*****************************************/
+
+.inviteLibrary li {
+    list-style: none;
+}
+
+.inviteLibrary {
+    width: 98%
+}
+
+/*选中的tab标题的样式*/
+.inviteLibrary .nav-tabs > li.active > a {
+    color: #000;
+    background-color: #c7ddef
+}
+
+.inviteLibrary .newAndSearch {
+    height: 60px;
+    padding-top: 20px;
+}
+
+.inviteLibrary .export {
+    background: url('../images/market/out.png') no-repeat;
+    float: left;
+    width: 81px;
+    height: 30px;
+}
+
+.inviteLibrary .searchBox {
+    float: right;
+    width: 250px;
+    text-align: right;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.inviteLibrary .searchBox button {
+    border: none;
+    height: 28px;
+    position: relative;
+    left: -5px;
+}
+
+.inviteLibrary .searchBox input {
+    border: none;
+    width: 200px;
+    position: relative;
+    top: 2px;
+    font-size: 12px;
+    outline: medium
+}
+
+.inviteLibrary .top-message {
+    clear: both;
+    margin-top: 20px;
+    height: 45px;
+    background-color: #3596e1;
+    min-width: 1094px;
+
+}
+
+.inviteLibrary .top-message ul li {
+    width: 14.2%;
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 45px;
+    color: #fff;
+}
+
+.inviteLibrary .invite-list li {
+    width: 14.2%;
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 45px;
+    border: 1px solid #fff;
+}
+
+.inviteLibrary .invite-list {
+    background-color: #fff;
+    height: 45px;
+    margin: 0px;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    float: left;
+}
+
+.inviteLibrary .scPage ul li {
+    float: left;
+    width: 14.2%;
+}
+
+/*****************************************市场递推人员管理*****************************************/
+.scPromotorManage {
+    width: 98%
+}
+
+.scPromotoricon {
+    background-color: #fff;
+    min-width: 1150px;
+}
+
+.scPromotoricon p {
+    margin-top: 10px;
+    color: #1c9bfb;
+}
+
+.scPromotoricon ul {
+    float: left;
+    margin: 30px 100px 0 100px;
+}
+
+.scPromotoricon ul li {
+    float: left;
+    width: 118px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/*/!*选中的tab标题的样式*!/*/
+/*.scPromotorFilter > span.active > a {*/
+/*color: red;*/
+/*background-color: #c7ddef*/
+/*}*/
+.scPromotorManage .promotorListTitle {
+    float: left;
+    width: 100%;
+
+}
+
+.scPromotorManage .promotorListTitle li {
+    float: left;
+    width: 14.2%;
+    text-align: center;
+    color: #4f92c5;
+}
+
+.scPromotorManage .promotorList {
+    float: left;
+    width: 100%;
+    color: #666666;
+    background-color: #fff;
+    min-width: 1180px;
+}
+
+.scPromotorManage .promotorList li {
+    float: left;
+    width: 14.2%;
+    text-align: center;
+    border: 1px solid #fff;
+
+}
+
+#addPromotorModal input {
+    width: 185px;
+    height: 28px;
+    text-align: center;
+}
+
+.addPromotor li {
+    padding-bottom: 15px;
+
+}
+
+.addPromotor {
+    padding-top: 15px;
+
+}
+
+#addPromotorModal .modal-dialog {
+    width: 350px;
+}
+
+#addPromotorModal .addPre {
+    width: 85px;
+    text-align: right;
+    float: left;
+}
+
+#addPromotorModal .modal-footer {
+    text-align: center;
+}
+
+#changJobState ul {
+
+}
+
+#changJobState li {
+    padding: 15px;
+}
+
+#changJobState .modal-dialog {
+    width: 324px;
+}
+
+/*****************************************市场首页滚动图片管理*****************************************/
+.scScrollingPicture {
+    width: 98%
+}
+
+/*公用部分*/
+/*****************************************市场确认Modal*****************************************/
+.scConfirmModal .modal-content {
+    overflow: hidden;
+    text-align: center;
+}
+
+.scConfirmModal .modal-dialog {
+    width: 20%;
+    min-width: 210px;
+    margin: 0 auto;
+}
+
+.scConfirmModal .modal-footer {
+    padding: 0;
+}
+
+.scConfirmModal .modal-footer .btn {
+    margin: 0;
+    border: none;
+    border-radius: 0px;
+    color: #2dacea;
+}
+
+.scConfirmModal .modal-footer .btn + .btn {
+    border-left: 1px solid #ccc;
+}
+
+/*****************************************市场header*****************************************/
+
+.scLanderMsg {
+    padding-top: 15px;
+    color: #6B6B75;
+    font-size: 13px;
+}
+
+.scQuit a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    color: #6B6B75;
+}
+
+.scQuit a:hover {
+    color: #1374be;
+}
+
+.scInviteTitle {
+    width: 100%;
+    height: 48px;
+    background: #3596e1;
+    color: #fff;
+    margin-top: 10px;
+    min-width: 1180px;
+}
+
+.scInviteTitle button {
+    background: #3596e1;
+    vertical-align: middle;
+    line-height: 36px;
+    border: none;
+    font-size: 17px;
+    color: #fff;
+    padding-left: 30px;
+}
+
+.scPromotorTitle {
+    text-align: center;
+    line-height: 32px;
+    background-color: #c4e3f3;
+    color: #4f92c5;
+    font-size: 16px;
+    min-width: 1180px;
+}
+
+.scPromotorTitle2 {
+    min-width: 1180px;
+    line-height: 40px;
+    background-color: #c4e3f3;
+    color: #1374be;
+    font-size: 16px;
+    height: 40px;
+}
+
+.scButton:hover, .open > .dropdown-toggle.scButton {
+    color: #fff;
+    background-color: #3596e1;
+}
+
+/*****************************************市场筛选*****************************************/
+.scPromotorFilter {
+    width: 100%;
+    background-color: #fff;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    min-width: 1150px;
+}
+
+.scPromotorFilter p {
+    line-height: 42px;
+    margin: 0 30px;
+}
+
+.scPromotorFilter hr {
+    margin: 0 30px;
+    border-color: #a6d9f4;
+}
+
+.scPromotorFilter span {
+    margin-left: 48px;
+    cursor: pointer;
+}
+
+/*****************************************市场搜索*****************************************/
+.scSearch {
+    margin: 0 45px;
+    font-size: 15px;
+    color: #4f92c5;
+}
+
+.scSearch input {
+    line-height: 20px;
+    border-radius: 17px;
+    border: 1px solid #5cacee;
+    width: 210px;
+    padding-left: 10px;
+    position: relative;
+    left: 5px;
+    font-size: 13px;
+}
+
+.scSearch input:focus {
+    /*border-radius: 17px;*/
+    /*border: 1px solid #5cacee;*/
+    outline: none;
+}
+
+.scSearch .saerchIcon:active {
+    color: #fff;
+}
+
+.scSearch .saerchIcon {
+    left: 6px;
+    top: 2px;
+}
+
+/*****************************************市场tab*****************************************/
+.scInviteTab {
+    width: 95%;
+    margin: 0px auto;
+    margin-top: 40px;
+}
+
+.scInviteTab .tabTitle li {
+    width: 83px;
+    text-align: center;
+    padding: 0px;
+}
+
+.scInviteTab .tabTitle ul li a {
+    color: #fff;
+    background-color: #3596e1;
+}
+
+.scInviteTab ul li a:hover {
+    color: #fff;
+    background-color: #5cacee;
+}
+
+/*****************************************市场分页*****************************************/
+
+.scPage ul li {
+    float: left;
+}
+
+.scPage ul {
+}
+
+.scPage {
+    text-align: center;
+    min-width: 1180px;
+}
+
+.scPage input {
+    border: 1px solid #ccc;
+    width: 40px;
+    background-color: #efefef;
+}
+
+.scPage button {
+    width: 25px;
+    height: 22px;
+    position: relative;
+    left: -4px;
+    top: 1px;
+}
+
+.scPage a {
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,110 @@
+<div class="pull-right login_out">
+    您好：<img src="./public/images/pubimages/user.png"/><span ng-bind="kf_name"></span>
+    <!--<img src="./public/images/pubimages/userid.png"/><span ng-bind="roles_name"></span>-->
+    <img src="./public/images/pubimages/edpwd.png"/><span ng-click="">修改密码</span>
+    <img src="./public/images/pubimages/loginout.png"/><a href="#/default">退出</a>
+</div>
+<a href="#/login"><img src="./public/images/default/eTeacher.png" class="imglogo"></a>
+<nav>
+    <div class="btn-group mycolor1">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            客户数据 <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu " role="menu">
+            <li><a href="#/customer_data">已有客户数据</a></li>
+            <li><a href='#/potentialCustomerData'>潜在客户数据</a></li>
+            <li><a href="#/SpellingLesson">拼课客户数据</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            服务管理<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#/return_record">回访记录</a></li>
+            <li><a href='#/arrangingCourse'>查询教师课程</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            待办事项<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href='#/applicationTransfer'>调课申请</a></li>
+            <li><a href='#/manageKf'>客服管理</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            积分管理<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href='#/pointManagement'> 积分管理</a></li>
+        </ul>
+    </div>
+    <div class="div"><h4>拼课参与客户数据</h4></div>
+</nav>
+<div class="SpellingData">
+    <!--发起人订单详情-->
+    <div class="detailed" ng-repeat="item in lists">
+        <table class="col-xs-offset-1">
+            <tr class="spellingtr">
+                <td>发起人：</td>
+                <td class="spelling_width"><span ng-bind="item.user_name"></span></td>
+                <td>授课年级：</td>
+                <td class="spelling_width"><span ng-bind="item.teache_class"></span></td>
+                <td>发起时间：</td>
+                <td class="spelling_width"><span ng-bind="item.takertime"></span></td>
+            </tr>
+            <tr>
+                <td>拼课人数：</td>
+                <td class="spelling_width"><span ng-bind="item.participants_number"></span></td>
+                <td>授课时间：</td>
+                <td class="spelling_width"><span ng-bind="item.teaching_week"></span>/<span
+                        ng-bind="item.teacher_time"></span></td>
+                <td>剩余时间：</td>
+                <td class="spelling_width"><span ng-bind="item.course_package"></span></td>
+            </tr>
+            <tr>
+                <td>上课地点：</td>
+                <td class="spelling_width"><span ng-bind="item.user_venue"></span></td>
+                <td>教师姓名：</td>
+                <td class="spelling_width"><span ng-bind="item.teacher_name"></span></td>
+                <td></td>
+                <td class="spelling_width"></td>
+            </tr>
+        </table>
+    </div>
+    <!--拼课人订单详情-->
+    <div class="datalist ">
+        <div >
+            <ul class="list-message ">
+                <li>订单ID</li>
+                <li>姓名</li>
+                <li>联系方式</li>
+                <li>加入时间</li>
+                <li>用户类型</li>
+                <li>回访记录</li>
+                <li>支付状态</li>
+                <li class="l-width">留言</li>
+                <li class="l-width">编辑</li>
+            </ul>
+        </div>
+        <!--具体信息-->
+        <div>
+            <ul class="message-list " ng-repeat="item in list">
+                <li ng-bind="item.tid"></li>
+                <li ng-bind="item.user_name"></li>
+                <li ng-bind="item.order_phone"></li>
+                <li ng-bind="item.create_time"></li>
+                <li ng-bind="item.order_tid"></li>
+                <li ng-bind="item.count"></li>
+                <li ng-bind="item.pay_done"></li>
+                <li class="l-width" ng-bind="item.order_remark"></li>
+                <li class="l-width"><span ng-hide="item.spelling_lesson_type == 0"
+                                            ng-click="DeletepersonLesson(item)">删除</span ></li>
+            </ul>
+        </div>
+    </div>
+
+</div>

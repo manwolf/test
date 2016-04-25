@@ -1,0 +1,103 @@
+﻿<!doctype html>
+
+<head data-live-domain="jquery.com" >
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8" />
+
+<title>接口定义文档</title>
+<script src="jquery-2.1.1.min.js"></script>
+<script src="apis.js"></script>
+<script src="init.js"></script>
+<style>
+* {
+	font-family: cursive;
+}
+
+body {
+	margin: 0;
+	background-color: #555555;
+}
+
+#out-put-view {
+	width: 100%;
+	height: 150px;
+	position: fixed;
+	bottom: 0;
+	text-align: center;
+}
+
+#out-put-view iframe {
+	width: 95%;
+	height: 100%;
+	background-color: #efefef;
+	border-radius: 5px;
+}
+
+#form-box {
+	width: 95%;
+	margin: 10px auto;
+	border-radius: 5px;
+	background-color: #cfcfcf;
+}
+
+#form-box form {
+	width: 95%;
+	padding: 10px;
+	height: 350px;
+	overflow: auto;
+}
+
+#p-box {
+	height: 340px;
+}
+
+#btn-box {
+	padding: 0 0 10px 10px;
+}
+
+#btn-box input {
+	margin: 0;
+}
+
+#explan {
+	margin: 10px;
+	border: 1px #333 dotted;
+	padding: 5px;
+	font-size: 12px;
+}
+
+</style>
+</head>
+<body>
+	<div id="form-box">
+		<div style="padding: 10px 0 0 10px;">			
+			<label>-c</label> <select id="c">
+			</select> <label>-a</label> <select id="a">			
+			</select>
+			
+			<!-- 测试标签Start -->
+			<div style="position:relative;
+						left:20%;
+						display:inline;						
+						 ">
+				<font style="font-size:18px;">测试环境</font></div>
+			<!-- 测试标签End -->			
+		</div>
+		<div id="explan">e-teacher接口</div>
+		<hr />
+		<form target="api_iframe">
+			<table id="p-box">
+			</table>
+		</form>
+		<hr />
+		<div id="btn-box">
+			<select id="loadAPI-Base-URL">
+			</select> <input id="POST-BTN" type="button" value="POST" /> <input
+				id="GET-BTN" type="button" value="GET" />
+		</div>
+	</div>
+	<div id="out-put-view">
+		<iframe name="api_iframe"></iframe>
+	</div>
+</body>
+</html>

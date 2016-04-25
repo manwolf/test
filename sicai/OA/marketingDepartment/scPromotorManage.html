@@ -1,0 +1,268 @@
+<div class="container-fluid scPromotorManage">
+    <!--header-->
+    <div class="clearfix">
+        <div class="pull-left">
+            <!--LOGO-->
+            <a href="./index.html#/login" target="_Blank">
+                <img src="./public/images/default/eTeacher.png"
+                     class="imglogo"></a>
+        </div>
+        <!--登陆者信息显示-->
+        <div class="pull-right login_out">
+            您好：<img src="./public/images/pubimages/user.png"/><span ng-bind="scLanderName"></span>
+            <img src="./public/images/pubimages/edpwd.png"/><span ng-click="">修改密码</span>
+            <img src="./public/images/pubimages/loginout.png"/><span ng-click="quit()" style="cursor:pointer ">退出</span>
+        </div>
+    </div>
+    <!--导航-->
+    <div class="row">
+        <div class="clearfix scInviteTitle">
+            <div class="btn-group">
+                <button class="dropdown-toggle btn btn-default scButton" data-toggle="dropdown">邀请码管理<span
+                        class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#/SCmanage">邀请码管理</a></li>
+                </ul>
+            </div>
+            <div class="btn-group">
+                <button class="dropdown-toggle btn btn-default scButton" data-toggle="dropdown">市场数据管理<span
+                        class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#/scPromotorManage">市场递推人员数据管理</a></li>
+                </ul>
+            </div>
+            <!--<div class="btn-group">-->
+            <!--<button class="dropdown-toggle btn btn-default scButton" data-toggle="dropdown">首页滚动图片管理<span-->
+            <!--class="caret"></span></button>-->
+            <!--<ul class="dropdown-menu" role="menu">-->
+            <!--<li><a href="#/scScrollingPicture">首页滚动图片管理</a></li>-->
+            <!--</ul>-->
+            <!--</div>-->
+        </div>
+    </div>
+    <div class="row scPromotorTitle">市场递推人员数据管理</div>
+    <!--筛选条件-->
+    <div class="scPromotorFilter">
+        <ul class="select0">
+            <li class="select-list">
+                <dl id="select1">
+                    <dt>时间筛选：</dt>
+                    <dd class="select-all selected"><a href="javascript:;" ng-click="searchPromotor(0,4)">全部</a></dd>
+                    <dd><a href="javascript:;" ng-click="searchPromotor(0,1)">今天</a></dd>
+                    <dd><a href="javascript:;" ng-click="searchPromotor(0,2)">本周</a></dd>
+                    <dd><a href="javascript:;" ng-click="searchPromotor(0,3)">本月</a></dd>
+                </dl>
+            </li>
+            <li class="select-list">
+                <dl id="select2">
+                    <dt>岗位状态：</dt>
+                    <dd class="select-all selected"><a href="javascript:;" ng-click="searchPromotor(1,3)">全部</a></dd>
+                    <dd><a href="javascript:;" ng-click="searchPromotor(1,0)">在职</a></dd>
+                    <dd><a href="javascript:;" ng-click="searchPromotor(1,1)">离职</a></dd>
+                </dl>
+            </li>
+            <li class="select-result">
+                <dl>
+                    <dt>已选条件：</dt>
+                    <dd class="select-no"></dd>
+                </dl>
+            </li>
+        </ul>
+        <!--<ul>-->
+        <!--<p>时间筛选：<span ng-click="searchPromotor(0,4)">全部</span>-->
+        <!--<span ng-click="searchPromotor(0,1)">今天</span>-->
+        <!--<span ng-click="searchPromotor(0,2)">本周</span>-->
+        <!--<span ng-click="searchPromotor(0,3)">本月</span></p></ul>-->
+        <!--<hr>-->
+        <!--<p>岗位状态：<span ng-click="searchPromotor(1,3)">全部</span>-->
+        <!--<span ng-click="searchPromotor(1,0)">在职</span>-->
+        <!--<span ng-click="searchPromotor(1,1)">离职</span></p>-->
+    </div>
+    <!--搜索栏-->
+    <div class="row scPromotorTitle2">
+        <div class="scSearch">搜索
+            <input type="text" placeholder="请输入职员姓名" ng-model="promotor_name"/>
+            <span class="glyphicon glyphicon-search saerchIcon" ng-click="searchPromotor(2)"></span>
+        </div>
+    </div>
+    <!--功能图标-->
+    <div class="scPromotoricon clearfix">
+        <ul>
+            <li ng-click="turnJobStateModal()">
+                <img src="./public/images/market/exchangeState.png"/>
+
+                <p>调整岗位状态</p></li>
+            <li ng-click="addPromotor()">
+                <img src="./public/images/market/newpeople.png"/>
+
+                <p>新增人员</p></li>
+            <li ng-click="confirmExportData()">
+                <img src="./public/images/market/exporticon.png"/>
+
+                <p>导出</p></li>
+        </ul>
+    </div>
+    <!--递推人员列表-->
+    <div class="row scPromotorTitle2">
+        <ul class="promotorListTitle">
+            <li><input type="checkbox">姓名</li>
+            <li>编号</li>
+            <li>岗位状态</li>
+            <li>注册量</li>
+            <li>快速约课量</li>
+            <li>免费试课量</li>
+            <li>付费下单量</li>
+        </ul>
+    </div>
+    <div class="row">
+        <ul class="promotorList" ng-repeat="item in PromoterLists" ng-click="turnDataDetails(item)">
+            <li ng-bind="item.user_name">测试学员A</li>
+            <li ng-bind="item.num">001</li>
+            <li ng-bind="item.post_status">在职</li>
+            <li ng-bind="item.registerAmount">400</li>
+            <li ng-bind="item.fastOrderAmount">500</li>
+            <li ng-bind="item.freeTryOrderAmount">480</li>
+            <li ng-bind="item.payOrderAmount">450</li>
+        </ul>
+    </div>
+    <!--分页-->
+    <div class="scPage">
+        <ul>
+            <li style="width:12%">共&nbsp<span ng-bind="totalpages"></span>&nbsp页</li>
+            <li style="width:12%">当前第&nbsp<span ng-bind="currentpage"></span>&nbsp 页</li>
+            <li style="width:12%"><a ng-click="goHome()">首&nbsp页</a></li>
+            <li style="width:12%"><a ng-click="prev()">上一页</a></li>
+            <li style="width:12%"><a ng-click="next()">下一页</a></li>
+            <li style="width:12%"><a ng-click="endpage()">尾&nbsp页</a></li>
+            <li style="width:28%">跳转至&nbsp&nbsp<input type="number" class="Input" value="2"
+                                                      min="1" max="pages" ng-model="page">
+                <button ng-click="goThePage()">GO</button>
+                页
+            </li>
+        </ul>
+    </div>
+    <!--是否确认退出modal-->
+    <div class="modal fade confirmModal scConfirmModal" id="quitModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <span ng-bind="scLanderName"></span>
+
+                    <div>您确认要退出市场系统吗？</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default col-xs-6" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-default col-xs-6" ng-click="confirmQuit()">确认
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--调整岗位状态modal-->
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" id="changJobState"
+         aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only"></span></button>
+                    <h4 class="modal-title">调整岗位状态</h4>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <div>
+                            <li>
+                                <span>市场专员编号：</span>
+                                <input type="text" ng-model="scNumber"/>
+                            </li>
+                        </div>
+                        <div>
+                            <li>
+                                <span>岗位状态调为：</span>
+                                <select ng-model="scState" class="select">
+                                    <option value="0" selected="selected">在职</option>
+                                    <option value="1">离职</option>
+                                </select>
+                            </li>
+                        </div>
+                    </ul>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" ng-click="confirmTurnState()">保存</button>
+
+                        <button type="button" class="btn btn-default " data-dismiss="modal">
+                            关闭
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--是否确认导出文档modal-->
+    <div class="modal fade confirmModal scConfirmModal" id="sureExportData" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p> 请选择需要导出的文档类型</p>
+                    文档类型： <select ng-model="filetype" class="select">
+                    <option value="doc" selected="selected">Word文档</option>
+                    <option value="xls">Excel文档</option>
+                </select>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default col-xs-6" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-default col-xs-6" ng-click="searchPromotor(3)">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--新建市场递推人员modal-->
+    <div class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" id="addPromotorModal"
+         aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only"></span></button>
+                    <h4 class="modal-title">新建市场递推人员</h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="addPromotor">
+                        <li class="clearfix">
+                            <div class=" addPre">姓名：</div>
+                            <div class=" addInput"><input type="text" ng-model="addSc_name"/></div>
+                        </li>
+                        <li class="clearfix">
+                            <div class=" addPre">编号：</div>
+                            <div class=" addInput"><input type="text" ng-model="addSc_num"/></div>
+                        </li>
+                        <li class="clearfix">
+                            <div class=" addPre">城市：</div>
+                            <div class=" addInput"><input type="text" ng-model="addSc_city"/></div>
+                        </li>
+                        <li class="clearfix">
+                            <div class=" addPre">电话号码：</div>
+                            <div class=" addInput">
+                                <input type="text" ng-model="addSc_phone"/></div>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" ng-click="confirmAddPromotor()">保存</button>
+
+                    <button type="button" class="btn btn-default " data-dismiss="modal">
+                        关闭
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

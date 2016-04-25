@@ -1,0 +1,82 @@
+*{
+	padding:0px;
+	margin:0px;
+}
+body{
+	width:960px;
+	font-size:12px;
+	display:block;
+	margin:0 auto;
+}
+.clear{
+	clear:both;	
+}
+/*万能闭合*/
+.clearfix:after {  
+content:".";  
+display:block;  
+height:0;  
+clear:both;  
+visibility:hidden;  
+}  
+.clearfix {  
+display:inline-block;  
+}  
+/* Hide from IE Mac \*/  
+.clearfix {display:block;}  
+/* End hide from IE Mac */  
+/* end of clearfix */  
+.mb{
+	margin-bottom:20px;
+}
+.mt{
+	margin-top:20px;
+}
+h1{
+	font-size:24px;
+	color:#f00;
+	height:50px;
+	line-height:50px;
+	border-bottom:1px solid #ddd;
+}
+a{
+	text-decoration:none;
+	color:#333;
+}
+a:hover{
+	color:#f00;
+}
+/*底部版权*/
+#footer{
+	min-height:60px;
+	height:auto;
+	_height:60px;
+	text-align:center;
+	padding-top:10px;
+	border-top:1px solid #ddd;
+}
+/*公共主体*/
+#nav{
+
+}
+#nav a{
+	display:block;
+	float:left;
+	padding:5px 10px;
+	background-color:#f6f6f6;
+	border:1px solid #ddd;
+	margin:10px;
+}
+.btn{
+	border:1px solid #ddd;
+	background-color:#f6f6f6;
+	font-size:12px;
+	padding:1px 5px;
+}
+p{
+	line-height:2em;
+}
+p a{
+	color:#f00;
+	margin:0px 10px;
+}

@@ -1,0 +1,97 @@
+<div class="pull-right login_out">
+    您好：<img src="./public/images/pubimages/user.png"/><span ng-bind="kf_name"></span>
+    <!--<img src="./public/images/pubimages/userid.png"/><span ng-bind="roles_name"></span>-->
+    <img src="./public/images/pubimages/edpwd.png"/><span ng-click="">修改密码</span>
+    <img src="./public/images/pubimages/loginout.png"/><a href="#/default">退出</a>
+</div>
+<a href="#/login"><img src="./public/images/default/eTeacher.png" class="imglogo"></a>
+<nav>
+    <div class="btn-group mycolor1">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            客户数据 <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#/customer_data">已有客户数据</a></li>
+            <li><a href='#/potentialCustomerData'>潜在客户数据</a></li>
+            <li><a href="#/SpellingLesson">拼课客户数据</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            服务管理<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#/return_record">回访记录</a></li>
+            <li><a href='#/arrangingCourse'>查询教师课程</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            待办事项<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu " role="menu">
+            <li><a href='#/applicationTransfer'>调课申请</a></li>
+            <li><a href='#/manageKf'>客服管理</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            积分管理<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href='#/pointManagement'> 积分管理</a></li>
+        </ul>
+    </div>
+    <div class="div">
+        <div class="col-xs-1"><h4><a href="#/arrangingCourse">套餐课程</a></h4></div>
+        <div class="col-xs-1"><h4><a href="#/arrangingShortCourse">短期课程</a></h4></div>
+        <div class="col-lg-2"></div>
+        <div class="col-xs-4"></div>
+    </div>
+</nav>
+<div class="arrang">
+    <div class="datalist">
+        <div class="list-message">
+            <ul>
+                <li>订单编号</li>
+                <li>支付状态</li>
+                <li>状态</li>
+                <li>订单类型</li>
+                <li>教师姓名</li>
+                <li>学生姓名</li>
+                <li>当前年级</li>
+                <li>课时</li>
+            </ul>
+        </div>
+        <div class="message-list" ng-repeat="item in lists">
+            <a href="#/teacherCalendar?teacher_tid={{item.teacher_tid}}&&class_hour={{item.class_hour}}&&order_tid={{item.tid}}">
+                <ul>
+                    <li ng-bind="item.tid"></li>
+                    <li ng-bind="item.pay_done"></li>
+                    <li ng-bind="item.order_state"></li>
+                    <li ng-bind="item.class_count"></li>
+                    <li ng-bind="item.teacher_name"></li>
+                    <li ng-bind="item.user_name"></li>
+                    <li ng-bind="item.class_content"></li>
+                    <li ng-bind="item.class_hour"></li>
+                </ul>
+            </a>
+        </div>
+        <!--具体信息-->
+    </div>
+    <div class="container">
+        <table class="row">
+            <tr>
+                <td class="col-xs-1">共<span ng-bind="pages"></span>页</td>
+                <td class="col-xs-1">当前第<span ng-bind="currentpage"></span> 页</td>
+                <td class="col-xs-1"><a href="javascript:(0)" ng-click="goHome()">首页</a></td>
+                <td class="col-xs-1"><a href="javascript:(0)" ng-click="prev()">上一页</a></td>
+                <td class="col-xs-1"><a href="javascript:(0)" ng-click="next()">下一页</a></td>
+                <td class="col-xs-1"><a href="javascript:(0)" ng-click="endpage()">尾页</a></td>
+                <td class="col-xs-2">跳转至第<input type="number" class="pageInput" value="2" min="1" max="pages"
+                                               ng-model="page">页<input type="button" value="GO" class="gobtn" ng-click="goto()"></td>
+            </tr>
+        </table>
+        <br>
+    </div>
+</div>

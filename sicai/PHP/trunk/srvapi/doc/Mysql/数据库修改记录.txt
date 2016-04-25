@@ -1,0 +1,223 @@
+﻿新增表
+
+姓名  时间 新增表名 用途
+OK 黄东  2015年08月04日   新增class_time_everyday表      //查询教师每天上课的时间段
+OK 黄东  2015年08月05日    新增表 teacher_artificial_evaluation  教师人工评价(手写)
+OK 黄东   2015-08-13   新增表  user_spelling_lesson    学生拼课信息表
+ 
+新增表
+姓名  时间 新增表名 用途
+OK 孙广兢 2015年8月6日 container_info  //移动框架中的容器信息
+
+新增表
+姓名  时间 新增表名 用途
+OK 孙广兢 2015年8月6日 zip_info   移动框架中的小应用下载包的信息
+
+新增表
+adimg_info
+姓名                 时间                             新增表名                            用途
+OK 陈梦帆         2015年8月7号         adimg_info   存放不同城市首页的三张图片的链接（url）               
+
+新增表
+姓名  时间 新增表名 用途
+OK 孙广兢 2015年8月15日 invitation_info   邀请码的类型信息
+
+新增表
+姓名  时间 新增表名 用途
+OK 孙广兢 2015年8月15日 invitation_use_list   邀请码的使用信息
+
+删除表
+姓名 时间  删除表名  原因
+OK 黄东   2015-08-06  删除class_list表中     class_list_BEFORE_INSERT触发器  //新增之前
+
+删除表
+teacher_rest 
+姓名    时间                                修改内容  
+OK 20150729  黄东  2015年7月24日        新增   create_time //教师申请时间       属性 datetime  CURRENT_TIMESTAMP
+ 
+ 修改表
+teacher_schedule
+姓名    时间                                修改内容  
+OK 20150729 黄东  2015年7月26日          新增 teacher_apply_date  //教师申请日期
+ 
+修改表
+kf_return_info
+姓名             时间                     修改内容
+OK 20150729 陈梦帆   2015年7月27号     将kf_potential_tid 改为 order_list_tid//回访客户次数
+
+修改表
+kf_admin_info
+姓名             时间                     修改内容
+OK 20150729 孙广兢   2015年7月29日   新增kf_admin_telephone//客服主管的登陆账号（手机号）
+
+修改表
+teacher_schedule
+姓名           时间                        修改内容
+OK 20150731  黄东 2015年7月31日  新增字段class_tid
+
+修改表
+class_list
+姓名           时间                        修改内容
+OK 20150731  黄东 2015年7月31日  修改after insert 触发器 ，对teacher_schedule表的class_tid赋值。
+
+OK 20150803 黄东  58数据库增加存储过程update_user_info   创建event事件update_user_info   每月第一天零点30 自动初始化  学生次月调课和临时调课状态
+OK 2015-08-09 黄东   新增字段     user_classes_state   //临时调课状态 0为未调课  1为完成调课
+
+修改表  
+order_list 
+姓名           时间                        修改内容
+
+
+OK 黄东     20150805    新增字段order_original_price  //订单原价 FLOAT(10,2)
+OK 黄东   2015-08-14   新增字段   user_spelling_lesson_tid  字段  拼课记录id      
+OK 黄东   2015-08-14     新增user_grade  年级 字段// user_class 初中一年级 
+OK 黄东   2015-08-14  新增     order_name  订单联系人
+ OK 黄东   2015-08-14  新增 spelling_lesson_type  0拼课发起人  1为参与者   
+
+OK 黄东   2015-08-17 添加字段   class_discount //拼课折扣信息  随人数变化
+
+
+ 修改表  
+teacher_detail_info 教师简介
+姓名           时间                        修改内容
+OK 黄东      2015-08-05   新增字段   teacher_information_title_1  教师信息标题1 , teacher_information_1 教师信息内容1
+                        teacher_information_title_2  教师信息标题2 , teacher_information_2  教师信息内容2
+                        teacher_information_title_3  教师信息标题3 , teacher_information_3  教师信息内容3
+                        
+修改表
+container_info
+姓名           时间                        修改内容
+OK　孙广兢 			2015年8月6日  新增字段（tid，int(11)，自增，主键）、（container_name，varchar(45)，容器的名字，不含文件类型后缀）、
+（container_filetype，varchar(10)，文件类型后缀,如zip、apk）、
+（container_version，varchar(45)，容器的版本号）、（container_detaile，varchar(500)，容器的详细描述）、
+（container_position，varchar(200)，容器在服务器中的存放位置,不含域名,不含文件名,例如:/framework/teacher/eteacher/）、
+（container_force，int(1)，0:非强制更新,1:强制更新(默认) ）、
+（container_platform,int(8),该容器可用平台,ABCDEFGH,每个字母代表一类平台是否可用,H表示安卓平台(0不可用,1可用),G表示苹果平台(0不可用,1可用),F表示为微信平台(0不可用,1可用),
+E、D、C、B、A表示其他平台(暂时未确定，0不可用,1可用),所有字母按顺序组合为一个二进制整数。例如，仅安卓可用，表示为00000001,可简写为1;仅苹果可用表示为00000010，可简写为2;安卓苹果均可用，则表示为00000011，可简写为3;以此类推）
+
+修改表
+zip_info
+姓名           时间                        修改内容
+OK 孙广兢 			2015年8月6日  新增字段（tid，int(11)，自增，下载包的主键）、（zip_name，varchar(45)，下载包的名字，不含文件类型后缀）、
+（zip_filetype，varchar(10)，文件类型后缀,如zip、apk）、
+（zip_version，varchar(45)，下载包的版本号）、（zip_detaile，varchar(500)，下载包的详细描述）、
+（zip_position，varchar(200)，下载包在服务器中的存放位置,不含域名,不含文件名,例如:/framework/teacher/base/）、
+（zip_city,varchar(45),下载包的城市属性）
+（zip_force，int(1)，0:非强制更新,1:强制更新(默认) ）、
+（zip_platform,int(8),该下载包可用平台,ABCDEFGH,每个字母代表一类平台是否可用,H表示安卓平台(0不可用,1可用),G表示苹果平台(0不可用,1可用),F表示为微信平台(0不可用,1可用),
+E、D、C、B、A表示其他平台(暂时未确定，0不可用,1可用),所有字母按顺序组合为一个二进制整数。例如，仅安卓可用，表示为00000001,可简写为1;仅苹果可用表示为00000010，可简写为2;安卓苹果均可用，则表示为00000011，可简写为3;以此类推）
+（container_tid,int(11),下载包所依赖的容器的tid）
+修改表
+jy_user_info
+ 姓名 		时间				修改内容
+OK 李坡		2015年8月6号		新增字段login_state  // 判断教研是否第一次登陆 默认值为0。
+ 修改表
+kf_user_info
+ 姓名 		时间				修改内容
+OK 李坡		2015年8月7号		新增字段login_state  // 判断客服专员是否第一次登陆 默认值为0。
+ 修改表
+sc_user_info
+ 姓名 		时间				修改内容
+OK 李坡		2015年8月7号		新增字段login_state  // 判断市场专员是否第一次登陆 默认值为0。
+ 修改表
+teacher_info
+姓名			时间			修改内容
+OK 李坡		2015年8月6号		新增字段login_state  // 判断老师是否第一次登陆 默认值为0。           
+修改表
+kf_potential_info
+姓名                   时间                          修改内容
+OK 陈梦帆          2015年8月6号             新增字段potential_register //客户是否注册 “0”为未注册，“1”为已注册。默认值为零。
+备注：测试库中无此字段。？
+
+OK 黄东       2015年8月14    新增  user_grade   年级 类型  初中高   user_class 初中一年级
+
+修改表
+kf_return_info
+姓名             时间                     修改内容
+OK 陈梦帆   2015年8月6号     将order_list_tid 改为 order_list_sum//回访客户次数
+OK      新增字段return_order//客户是否有订单,"0"表示无订单，“1”表示有订单。默认值为0.
+                               
+
+修改表
+kf_return_info
+姓名             时间                     修改内容
+OK 陈梦帆   2015年8月12号     添加字段city//区分客户所在城市
+
+修改表
+sc_admin_info
+姓名             时间                     修改内容
+OK 孙广兢  2015年8月14号     添加字段sc_city//区分市场主管所在城市
+
+修改表
+pay_list
+姓名             时间                     修改内容
+OK 陈鸿润  2015年8月14号     添加字段invitation_code 
+
+修改存储过程
+walletCtr_payByWallet
+姓名             时间                     修改内容
+OK 陈鸿润  2015年8月14号     修改部分内容  
+
+修改表
+user_classes
+姓名             时间                     修改内容
+OK 孙广兢  2015年8月14号     添加字段create_time 类型datetime 默认值为 CURRENT_TIMESTAMP //创建申请调课的时间
+
+修改表
+invitation_info
+姓名           时间                        修改内容
+OK 孙广兢 			2015年8月15日  新增字段
+（tid，int(11)，自增，主键）
+（invitation_name，varchar(45)，邀请码的名字）、
+（invitation_amount，int(11)，邀请码的总数量）、
+（invitation_discount，varchar(11)，邀请码的折扣）、
+（invitation_start_date，date，邀请码的起始日期）、
+（invitation_end_date，date，邀请码的结束日期）、
+（invitation_city，varchar(45)，邀请码的城市）、
+（invitation_times，int(11)，邀请码的最大使用次数）、
+（invitation_valid，int(1)，默认值：0   ；邀请码是否有效，0：有效（默认值），1：失效）、
+（create_time，timestamp，默认值：当前时间；邀请码的创建时间）、
+
+修改表
+invitation_use_list
+姓名           时间                        修改内容
+OK 孙广兢 			2015年8月15日  新增字段
+（tid，int(11)，自增，主键）
+（invitation_code，varchar(45)，邀请码）、
+（order_tid，int(11)，邀请码的订单tid）、
+（invitation_info_tid，int(11)，邀请码属于哪一类别的tid）、
+
+修改表
+invitation_info
+姓名           时间                        修改内容
+OK  孙广兢 			2015年8月17日  修改内容、
+（invitation_start_date，将原字段类型“date”改为“datetime”)、
+（invitation_end_date，将原字段类型“date”改为“datetime”)
+
+修改表
+teacher_info
+姓名          		 时间                        修改内容
+OK 李坡		2015年8月17日        添加字段（teacher_num 老师编号，teacher_hiredate 入职时间，post_status岗位状态  0实习1位在职 2为离职，teachers_level 教师等级 0为初级教师 1为中级教师 2为高级教师 3为特级，address老师地址，graduated_from毕业院校，graduation_date毕业时间，teacher_major主修专业 另 login_pwd默认值‘123456’）
+修改表
+teacher_detail_info
+姓名          		 时间                        修改内容
+
+OK 李坡		2015年8月17日		修改字段名teacher_information_1 为success_case教师案例  修改 teacher_information_2为teaching_features 教学特色
+
+修改表
+kf_potential_info
+姓名                                       时间                          修改内容
+陈梦帆                          2015年8月19日          修改字段potential_number的Datatype,将VARCHAR(45)改为
+OK 李坡		2015年8月17日		修改字段名teacher_information_1 为success_case教师案例  修改 teacher_information_2为teaching_features 教学特色
+
+  黄东    2015年8月18日	  class_price表   添加   user_class   课程年级   一年级   (该字段需手动赋值)
+   黄东    2015年8月19日       新建表  spelling_lesson_discount  拼课折扣信息表  (该字段需手动赋值)
+   黄东    2015年8月19日      order_list 表添加字段  class_price_tid //年级价格的tid
+
+   黄东    2015年8月19日      order_list 表删除字段             user_grade  年级 字段    user_class 初中一年级     class_discount折扣=======
+   黄东    2015年8月19日      order_list 表删除字段             user_grade  年级 字段    user_class 初中一年级     class_discount折扣
+     黄东    2015年8月20日        user_info表新增字段           spelling_class_state   拼课状态   0为未参与或发起拼课    1为正在拼课或者已发起拼课    默认为未发起拼课
+     黄东    2015年8月20日              teacher_detail_info表修改            teacher_information_1,teacher_information_2,teacher_information_3    由于空间太小修改字段属性为VARCHAR(2048)
+ 
+李坡 			2015年8月24日     teacher_info 添加字段dimission_time  类型VARCHAR(45)
+李坡			2015年8月24日 	  order_list 添加字段spelling_state 类型int（1）

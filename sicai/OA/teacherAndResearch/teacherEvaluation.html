@@ -1,0 +1,177 @@
+<div class="pull-right login_out">
+    您好：<img src="./public/images/pubimages/user.png"/><span ng-bind="jy_name"></span>
+    <!--<img src="./public/images/pubimages/userid.png"/><span ng-bind="roles_name"></span>-->
+    <img src="./public/images/pubimages/edpwd.png"/><span ng-click="">修改密码</span>
+    <img src="./public/images/pubimages/loginout.png"/><a href="#/default">退出</a>
+</div>
+<a href="#/login"><img src="./public/images/default/eTeacher.png" class="imglogo"></a>
+<nav class="nav_jy">
+    <ul>
+        <li><a href='#/JyDefault'>教师管理</a></li>
+        <li><a href="javascript:;">学生管理</a></li>
+        <li><a href='#/shortCourseManage'>短期课程管理</a></li>
+        <li><a href='#/EquestionsManage'>题库管理</a></li>
+    </ul>
+</nav>
+<div class="teacher_evaluation">
+    <div class="div_h3">
+        <h3>
+            <a href='#/JyDefault'>教师管理</a>
+            <img src="./public/images/jiaoyan/iconfont-right.png">教师评价
+        </h3>
+    </div>
+    <div class="blueheader container-fluid">
+        <div class="buildevl row">
+            <div class="modal fade bs-example-modal-md" id="mymodele" tabindex="-1" role="dialog"
+                 aria-labelledby="myMiddleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span
+                                    aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h4 class="modal-title">编辑评论</h4>
+                        </div>
+                        <div class="modal-body">
+                            <table>
+                                <tr>
+                                    <td class="right">手机号：</td>
+                                    <td class="left"><input type="text" ng-model="ed_telephone" class="evl_telephone"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="right">点评时间：</td>
+                                    <td class="left"><input type="text" ng-model="ed_comment_time" class="evl_telephone"/> </td>
+                                </tr>
+                                <tr>
+                                    <td class="right">点评分数：</td>
+                                    <td class="left">
+                                        <select  ng-model="ed_star_level" class="evl_date">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="right">点评内容：</td>
+                                    <td class="left">
+                                        <textarea ng-model="ed_comment_content"></textarea>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                    ng-click="editorEvl()">保存
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-1 col-xs-offset-1">
+                <button class="btn btn-default mybtn" data-toggle="modal" data-target=".bs-example-modal-lg" ng-click="queryTelephone()">
+                    <img src="./public/images/jiaoyan/buildevl.png" style="margin-left: 0.5em;"/><br/>创建</span>
+                </button>
+                <div class="modal fade bs-example-modal-lg"  tabindex="-1" role="dialog"
+                     aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span
+                                        aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">创建</h4>
+                            </div>
+                            <div class="modal-body">
+                                <table>
+                                    <tr>
+                                        <td class="right">电话号：</td>
+                                        <td class="left">
+                                            <select class="evl_telephone" ng-model="telephone"  ng-options="tel as tel for tel in telephone2">
+                                                <option value=""></option>
+                                            </select> </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="right">点评时间：</td>
+                                        <td class="left">
+                                            <input type="text" class="evl_date" ng-model="evl_y" /> 年
+                                            <input type="text" class="evl_date" ng-model="evl_M" placeholder="1月填1"/> 月
+                                            <input type="text" class="evl_date" ng-model="evl_d" placeholder="1号填1"/> 日
+                                            <input type="text" class="evl_date" ng-model="evl_h" placeholder="1时填1"/> 时
+                                            <input type="text" class="evl_date" ng-model="evl_m" placeholder="1分填1"/> 分
+                                            <input type="text" class="evl_date" ng-model="evl_s" placeholder="1秒填1"/> 秒</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td colspan="5">
+                                            <span style="color: #f00">(注：如果所填项小于10，如01只需填1)</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="right">评分：</td>
+                                        <td class="left">
+                                            <select class="evl_date" ng-model="star_level">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select> 分
+                                    </tr>
+                                    <tr>
+                                        <td class="right">点评内容：</td>
+                                        <td class="left"><textarea ng-model="comment_content"></textarea>   </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                        ng-click="addEvaluation()">保存
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="header_table">
+        <tr class="evlheader">
+            <td class="evl_tel">手机号</td>
+            <td class="evl_time">点评时间</td>
+            <td class="evl_count">点评内容</td>
+            <td class="evl_num">点评分数</td>
+            <td class="evl_num">操作</td>
+        </tr>
+        <tr class="evl_message" ng-repeat="item in lists">
+            <td ng-bind="item.telephone"></td>
+            <td ng-bind="item.comment_time"></td>
+            <td ng-bind="item.comment_content"></td>
+            <td ng-bind="item.star_level"></td>
+            <td ><span data-toggle="modal" ng-click="queryOneEvaluation(item)"  >修改</span> /
+            <span ng-click="deleteTeacherEvl(item)">删除</span></td>
+        </tr>
+    </table>
+
+    <!--分页-->
+    <div class="container">
+        <div class="row col-xs-offset-1">
+            <table class="row">
+                <tr>
+                    <td class="col-xs-1 ">共<span ng-bind="pages"></span>页</td>
+                    <td class="col-xs-1">第<span ng-bind="currentpage"></span>页</td>
+                    <td class="col-xs-1"><a  ng-click="goHome()">首页</a></td>
+                    <td class="col-xs-1"><a  ng-click="prev()">上一页</a></td>
+                    <td class="col-xs-1"><a  ng-click="next()">下一页</a></td>
+                    <td class="col-xs-1"><a  ng-click="endpage()">尾页</a></td>
+                    <td class="col-xs-2">跳转至第<input type="number" class="pageInput" value="2" min="1" max="pages"
+                                                    ng-model="page">页<input type="button" class="gobtn btn-default" value="GO" ng-click="goto()">
+                    </td>
+                </tr>
+            </table>
+            <br>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,950 @@
+.btn-red {
+    padding: 10px 0;
+    background-color: #d02130;
+    color: #ffffff;
+    border: none;
+}
+/*引导页面*/
+.lead_teacher {
+    margin-bottom: 20px;
+}
+.lead_teacher .topnav i {
+    left: 10px;
+    font-size: 16px;
+    width: 60px;
+}
+.lead_teacher .topnav i:before {
+    padding-right: 5px;
+}
+.lead_teacher .topnav .phone {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 60px;
+    height: 32px;
+}
+.lead_teacher .topnav .phone i {
+    top: 0;
+    left: 0;
+}
+.lead_teacher .swiper-pagination {
+    text-align: right;
+    bottom: 5px;
+}
+.lead_teacher .swiper-pagination-bullet {
+    width: 20px;
+    height: 5px;
+
+    border-radius: 0;
+    background-color: #fff;
+}
+.lead_teacher .box {
+    padding-top: 10px;
+    background-color: #fff;
+}
+.lead_teacher .box img {
+    width: 100%;
+}
+/*
+.lead_teacher .box:nth-child(2n){
+    padding-right: 10px;
+    padding-left: 5px;
+}
+.lead_teacher .box:nth-child(2n+1){
+    padding-left: 10px;
+    padding-right: 5px;
+}
+.lead_teacher .box:nth-child(5),
+.lead_teacher .box:nth-child(6) {
+    padding-bottom: 10px;
+}
+*/
+.citieswrap {
+    display: none;
+    position: absolute;
+    left: 5%;
+    top: 52px;
+    width: 90%;
+    min-height: 250px;
+    background-color: #fff;
+    z-index: 999;
+    border-radius: 10px;
+    -webkit-box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+.citieswrap li {
+    margin: 10px 0;
+    padding: 0 5px;
+    list-style: none;
+}
+.citieswrap li a {
+    padding: 5px 0;
+    text-align: center;
+    border: 1px solid #cecece;
+}
+
+/*老师列表*/
+/*searchbox*/
+.searchbox .search {
+    position: relative;
+    background-color: #3e9be3;
+    padding: 7px 15px;
+}
+.searchbox .search .searchtext {
+    position: relative;
+    height: 32px;
+    line-height: 32px;
+    padding: 0;
+}
+.searchbox .search .searchtext .glyphicon-search {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: #3e9be3;
+    font-weight: 300;
+    font-size: 16px;
+}
+.searchbox .search .searchtext .form-control {
+    height: 32px;
+    line-height: 32px;
+    border: none;
+    padding: 0;
+    padding-left: 30px;
+}
+.searchbox .search .btn {
+    height: 32px;
+    line-height: 32px;
+    padding: 0;
+    background-color: #1374be;
+    color: #ffffff;
+    border: none;
+}
+/*selectbox*/
+.selectbox .btn-group:after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    bottom: -5px;
+    width: 0;
+    height: 0;
+    border-width: 10px;
+    border-color: #dedede transparent transparent transparent;
+    border-style: solid;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.selectbox .btn-group,
+.selectbox .btn-group .btn {
+    position: relative;
+    width: 100%;
+    height: 42px;
+    line-height: 30px;
+    border-left: none;
+    border-radius: 0;
+    color: #575757;
+    border-color: #dedede;
+}
+.selectbox .btn-group.price .btn {
+    color: #ff4a4a;
+}
+.selectbox .btn-group.price:after {
+    border: none;
+}
+.selectbox .box .btn-group .dropdown-menu {
+    width: 200%;
+    border-radius: 0;
+    margin: 0;
+    height: 302px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.selectbox .box .btn-group.active .dropdown-menu {
+    display: block;
+}
+.selectbox .box .btn-group.active .dropdown-toggle {
+    background-color: #e6e6e6;
+    -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+    box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+}
+.selectbox .box .btn-group .dropdown-menu .tab-pane {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    border: 1px solid #ececec;
+    background-color: #fff;
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.selectbox .box .btn-group .dropdown-menu li {
+    border-bottom: 1px solid #ececec;
+}
+.selectbox .box .btn-group .dropdown-menu li a {
+    padding: 10px 15px;
+}
+.selectbox .box .btn-group .dropdown-menu li:last-child{
+    border-bottom: none;
+}
+.selectbox .box:nth-child(2) .btn-group .dropdown-menu {
+    left: -100%;
+}
+.selectbox .box:last-child .btn-group .btn{
+    border-right: none;
+}
+.selectbox .box:last-child .btn-group .dropdown-menu {
+    right: 0;
+    left: initial;
+}
+.selectbox .btn-group .btn .caret {
+    position: absolute;
+    bottom: 5px;
+    right: 0px;
+    border-width: 8px;
+    border-color: #dedede transparent transparent transparent;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+.listteacher .list .list-group-item {
+    position: relative;
+    border:none;
+    border-radius: 0;
+    border-bottom: 1px solid #dedede;
+    margin: 0;
+}
+.listteacher .list .list-group-item .media-img {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #dedede;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.listteacher .list .list-group-item .attr {
+    position: absolute;
+}
+.listteacher .list .list-group-item .name {
+    top: 10px;
+    left: 90px;
+    color: #3d3d3d;
+    font-size: 14px;
+}
+.listteacher .list .list-group-item .star {
+    color: #ff4a4a;
+}
+.listteacher .list .list-group-item .attr1 {
+    bottom: 30px;
+    left: 90px;
+    color: #919191;
+    font-size: 10px;
+}
+.listteacher .list .list-group-item .attr2 {
+    bottom: 10px;
+    left: 90px;
+    color: #919191;
+    font-size: 10px;
+}
+.listteacher .list .list-group-item .attr3 {
+    top: 10px;
+    right: 15px;
+    padding: 5px 10px;
+    color: #ffffff;
+    background-color: #ff4a4a;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 700;
+}
+.listteacher .list .list-group-item .attr3 span {
+    font-size: 16px;
+}
+.listteacher .list .list-group-item .attr4 {
+    bottom: 10px;
+    left: 90px;
+    color: #919191;
+    font-size: 10px;
+}
+.listteacher .list .list-group-item .attr4 i {
+    padding: 2px;
+    color: #ffffff;
+    border-radius: 20px;
+    background-color: #3494de;
+}
+.listteacher .list .list-group-item .attr5 {
+    bottom: 10px;
+    left: 155px;
+    color: #919191;
+    font-size: 10px;
+}
+.listteacher .list .list-group-item .attr5 i {
+    padding: 2px;
+    color: #ffffff;
+    border-radius: 20px;
+    background-color: #3494de;
+}
+
+/*老师 详情*/
+.topnav {
+    line-height: 32px;
+    padding: 5px 15px;
+    text-align: center;
+    color: #000;
+    background-color: #3496e1;
+}
+.topnav i {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 50px;
+    color: #ffffff;
+    height: 32px;
+    line-height: 32px;
+}
+.topnav .btn {
+    background-color: #1374be;
+    color: #ffffff;
+    border: none;
+}
+.topnav a {
+    color: #fff;
+}
+.topnav a:visited {
+    color: #fff;
+}
+.detailTeacher .banner{
+    width: 100%;
+    height: 150px;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+.detailTeacher .banner .swiper-container {
+    width: 100%;
+    height: 150px;
+}
+.detailTeacher .banner .swiper-pagination {
+    text-align: right;
+}
+.detailTeacher .banner .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #ff4a4a;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.detailTeacher .banner .swiper-pagination-bullet {
+    background: #ffffff;
+}
+.detailTeacher .info {
+    position: relative;
+    width: 100%;
+    height: 70px;
+}
+.detailTeacher .info .media-img {
+    position: absolute;
+    left: 15px;
+    top: -20px;
+    z-index: 9;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #dedede;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.detailTeacher .info .attr {
+    position: absolute;
+}
+.detailTeacher .info .name {
+    top: 5px;
+    left: 90px;
+    color: #3d3d3d;
+    font-size: 14px;
+}
+.detailTeacher .info .star {
+    color: #ff4a4a;
+}
+.detailTeacher .info .attr1 {
+    top: 25px;
+    left: 90px;
+    color: #919191;
+    font-size: 10px;
+}
+.detailTeacher .info .attr2 {
+    bottom: 10px;
+    left: 15px;
+    color: #919191;
+    font-size: 10px;
+}
+.detailTeacher .info .attr3 {
+    top: 5px;
+    right: 15px;
+    color: #ff4a4a;
+    font-size: 12px;
+    font-weight: 700;
+}
+.detailTeacher .info .attr3 span {
+    font-size: 16px;
+}
+.detailTeacher .info .attr4 {
+    bottom: 10px;
+    left: 15px;
+    color: #919191;
+    font-size: 10px;
+}
+.detailTeacher .info .attr4 i {
+    padding: 2px;
+    color: #ffffff;
+    border-radius: 20px;
+    background-color: #3494de;
+}
+.detailTeacher .info .attr5 {
+    bottom: 10px;
+    left: 75px;
+    color: #919191;
+    font-size: 10px;
+}
+.detailTeacher .info .attr5 i {
+    padding: 2px;
+    color: #ffffff;
+    border-radius: 20px;
+    background-color: #3494de;
+}
+.detailTeacher .tabs {
+    margin-bottom: 50px;
+}
+.detailTeacher .tabs .nav-tabs {
+    background-color: #fff;
+}
+.detailTeacher .tabs .nav-tabs .active {
+    border-top: 3px solid #ff4a4a;
+}
+.detailTeacher .tabs .nav-tabs>li {
+    margin: 0;
+    color: #9e9e9e;
+}
+.detailTeacher .tabs .nav-tabs>li>a {
+    color: #9e9e9e;
+    cursor: default;
+    background-color: #ffffff;
+    border: none;
+    text-align: center;
+}
+.detailTeacher .tabs .nav-tabs>li.active>a,
+.detailTeacher .tabs .nav-tabs>li.active>a:focus,
+.detailTeacher .tabs .nav-tabs>li.active>a:hover {
+    color: #3d3d3d;
+    cursor: default;
+    background-color: #ffffff;
+    border: none;
+}
+.detailTeacher .box {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ececec;
+}
+.detailTeacher .box .content {
+    color: #a7a7a7;
+}
+.detailTeacher .box .key {
+    color: #a7a7a7;
+}
+.detailTeacher .box .value {
+    color: #3d3d3d;
+}
+.detailTeacher .title {
+    padding: 5px 15px;
+    background-color: #fafafa;
+    border-bottom: 1px solid #ececec;
+}
+.detailTeacher .title i {
+    padding: 0 2px;
+    margin-right: 5px;
+    background-color: #ff4a4a;
+    border-radius: 5px;
+}
+.detailTeacher .footer {
+    height: 50px;
+    background-color: #fafafa;
+}
+.detailTeacher .footer a,
+.detailTeacher .footer div {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+}
+.detailTeacher .footer i {
+    color: #ff4a4a;
+    font-size: 20px;
+}
+.detailTeacher .footer .btn1 {
+    background-color: #ff4a4a;
+}
+.detailTeacher .footer .btn2 {
+    background-color: #19a6ff;
+}
+
+/*试课*/
+.pageLesson .info {
+    position: relative;
+    width: 100%;
+    height: 90px;
+    background-color: #fff;
+    border-bottom: 1px solid #ececec;
+}
+.pageLesson .info .media-img {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #dedede;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.pageLesson .info .attr {
+    position: absolute;
+}
+.pageLesson .info .name {
+    top: 15px;
+    left: 90px;
+    color: #3d3d3d;
+    font-size: 14px;
+}
+.pageLesson .info .star {
+    color: #ff4a4a;
+}
+.pageLesson .info .attr1 {
+    top: 35px;
+    left: 90px;
+    color: #919191;
+    font-size: 10px;
+}
+.pageLesson .info .attr2 {
+    bottom: 15px;
+    left: 90px;
+    color: #919191;
+    font-size: 10px;
+}
+.pageLesson .info .attr3 {
+    top: 15px;
+    right: 15px;
+    color: #ff4a4a;
+    font-size: 16px;
+    font-weight: 700;
+}
+.pageLesson .info .attr3 span {
+    font-size: 20px;
+}
+.pageLesson .info .attr4 {
+    bottom: 15px;
+    left: 90px;
+    color: #919191;
+    font-size: 10px;
+}
+.pageLesson .info .attr4 i {
+    padding: 2px;
+    color: #ffffff;
+    border-radius: 20px;
+    background-color: #3494de;
+}
+.pageLesson .info .attr5 {
+    bottom: 15px;
+    left: 155px;
+    color: #919191;
+    font-size: 10px;
+}
+.pageLesson .info .attr5 i {
+    padding: 2px;
+    color: #ffffff;
+    border-radius: 20px;
+    background-color: #3494de;
+}
+.pageLesson .subinfo {
+    padding-top: 5px;
+
+}
+.pageLesson .subinfo .btns {
+    padding: 10px 0;
+    background-color: #d02130;
+    border-radius: 4px;
+}
+.pageLesson .subinfo .btn1 {
+    background-color: #d02130;
+    color: #ffffff;
+    border: none;
+}
+.pageLesson .subinfo .btn2 {
+    background-color: #d02130;
+    color: #ffffff;
+    border: none;
+    border-left: 1px solid #eb4e57;
+}
+.pageLesson .box {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ececec;
+}
+.pageLesson .title {
+    padding: 5px 15px;
+    background-color: #fafafa;
+    border-bottom: 1px solid #ececec;
+}
+.pageLesson .title i {
+    padding: 0 2px;
+    margin-right: 5px;
+    background-color: #ff4a4a;
+    border-radius: 5px;
+}
+.pageLesson .lesson .attr1 {
+    color: #3d3d3d;
+}
+.pageLesson .lesson .attr2 {
+    color: #a7a7a7;
+    margin-bottom: 10px;
+    border: 1px solid #ececec;
+    border-radius: 5px;
+}
+
+.pageLesson .lesson .select {
+    border: 1px solid #ececec;
+    border-radius: 5px;
+}
+.pageLesson .lesson .key {
+    height: 40px;
+    border-radius: 5px 0 0 5px;
+    padding: 10px;
+    color: #ffffff;
+    background-color: #9a9a9a;
+}
+.pageLesson .lesson .value {
+    border-radius: 0 5px 5px 0;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #a7a7a7;
+    overflow: hidden;
+    margin-left: 76px;
+}
+.pageLesson .lesson .value input {
+    border: none;
+    margin: 0;
+    padding: 0 10px;
+}
+.pageLesson .lesson .value.grade {
+    width: calc(100% - 48px);
+}
+.pageLesson .lesson .value.grade .dropdown-menu li {
+    border-bottom: 1px solid #ececec;
+}
+.pageLesson .lesson .value.grade .dropdown-menu li:last-child {
+    border-bottom: none;
+}
+.pageLesson .lesson .value.time .datetimepicker {
+    height: 100%;
+    padding: 0 5px;
+    border: none;
+}
+.pageLesson .form .line {
+    background-color: #fff;
+    border-bottom: 1px solid #ececec;
+}
+.pageLesson .form .key {
+    height: 42px;
+    line-height: 42px;
+    background-color: #f5f5f5;
+}
+.pageLesson .form .value {
+    position: relative;
+}
+.pageLesson .form input,
+.pageLesson .form .tel {
+    height: 42px;
+    line-height: 42px;
+    border: none;
+    color: #aaa;
+}
+.pageLesson .form .value .arrow {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    color: #aaa;
+}
+.pageLesson textarea {
+    margin-bottom: 10px;
+    border: 1px solid #ececec;
+    border-radius: 5px;
+}
+.pageLesson .modal .modal-header {
+    padding: 10px 15px;
+
+}
+.pageLesson .modal .modal-title {
+    font-weight: 300;
+    color: #333;
+    font-size: 14px;
+}
+.pageLesson .modal label {
+    padding: 10px;
+    border: 1px solid #ececec;
+    border-radius: 5px;
+    text-align: center;
+}
+.pageLesson .modal label.active {
+    background-color: #d02130;
+    color: #ffffff;
+    border: 1px solid #d02130;
+}
+.pageLesson .modal .age {
+    padding: 10px;
+    border: 1px solid #ececec;
+    border-radius: 5px;
+}
+/*时间组件*/
+.timeunit {
+    border-top: 1px solid #ececec;
+    -webkit-box-shadow: 0px -1px 3px #333;
+    -moz-box-shadow: 0px -1px 3px #333;
+    box-shadow: 0px -1px 3px #333;
+    background: #ffffff;
+}
+.timeunit .nav-tabs {
+    border-bottom: none;
+}
+.timeunit .nav-tabs>li>a {
+    margin-right: -15px;
+    text-align: center;
+}
+.timeunit .tab-content .list-group {
+    margin-bottom: 0;
+}
+.timeunit .tab-content .list-group-item {
+    position: relative;
+    margin-bottom: 0;
+}
+.timeunit .tab-content .list-group-item:first-child,
+.timeunit .tab-content .list-group-item:last-child {
+    border-radius: 0;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    border-bottom: 1px solid #ddd;
+}
+.timeunit .free:after {
+    content: "闲";
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: #ff4a4a;
+    color: #ffffff;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 20px;
+}
+.timeunit .busy:after {
+    content: "忙";
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: #ececec;
+    color: #ffffff;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 20px;
+}
+/*登录*/
+.login .form {
+    border-top: 1px solid #dcdcdc;
+}
+.login .form .title {
+    font-size: 16px;
+    color: #808080;
+}
+.login .form input {
+    height: 42px;
+    line-height: 42px;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+}
+.login .form .btn {
+    padding: 0;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #d02130;
+    color: #ffffff;
+}
+.login .form .rule {
+    color: #a7a7a7;
+}
+/*订单*/
+.pageOrder .info {
+    position: relative;
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 1px solid #ececec;
+}
+.pageOrder .info .media-img {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #dedede;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+.pageOrder .info .attr {
+    position: absolute;
+}
+.pageOrder .info .name {
+    top: 35px;
+    left: 90px;
+    color: #3d3d3d;
+    font-size: 14px;
+}
+.pageOrder .info .attr1 {
+    color: #3d3d3d;
+    font-size: 12px;
+}
+.pageOrder .info .attr2 {
+    color: #3d3d3d;
+    font-size: 12px;
+}
+.pageOrder .info .attr3 {
+    color: #919191;
+    font-size: 12px;
+}
+.pageOrder .info .attr4 {
+    right: 15px;
+    top: 35px;
+    color: #ff4a4a;
+    font-size: 16px;
+    font-weight: 700;
+}
+.pageOrder .info .attr5 {
+    right: 15px;
+    bottom: 15px;
+    color: #919191;
+    font-size: 12px;
+}
+/*支付*/
+.pagePay .box {
+    padding: 10px 15px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ececec;
+}
+.pagePay .price {
+    color: #ff4a4a;
+}
+.pagePay .price span {
+    font-size: 16px;
+}
+.pagePay label {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0;
+    border-radius: 30px;
+    border: 1px solid #ececec;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+}
+.pagePay label.active {
+    border: 1px solid #c01920;
+    background-color: #c01920;
+}
+.pagePay .paysubmit {
+    border-radius: 0;
+}
+/********************************mySchedule***********************/
+.mySchedule {
+    padding-top: 100px;
+    padding-bottom: 42px;
+    margin-top: -41.8em;
+}
+.Cal1{
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+    font-size:18px;
+    color:#4c7cb5;
+}
+.calendar_title{
+    padding-top: 14px;
+    display: block;
+}
+.mySchedule .fixtop {
+    color: #9f9fa1;
+    top: 42px;
+    padding-top: 9px;
+    height: 59px;
+    line-height: 14px;
+    background-color: #fff;
+    font-size: 14px;
+    text-align: center;
+    -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+.week_title{
+    font-size:16px;
+}
+.date_title{
+    color: #9d9d9f;
+    display: block;
+    font-size: 15px;
+}
+.today{
+    background: #fff !important;
+}
+.circle_blue{
+    color:#fff;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin: 0px auto;
+    background: #4590fd;
+}
+.circle_blue .week_title{
+    position: relative;
+    top: 6px;
+}
+.circle_blue .date_title{
+    font-size: 12px;
+    margin-top: 6px;
+    color: #fff;
+}
+.mySchedule .fixbottom {
+    height: 42px;
+    line-height: 42px;
+    background-color: #fff;
+    color: #0000ff;
+    text-align: center;
+}
+.mySchedule .schedulelist {
+    background-color: #efefef;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    font-size: 12px;
+}
+.mySchedule .schedulelist .weekdate {
+    background-color: #fff;
+    padding: 20px 15px;
+    border-right: 1px solid #dddedf;
+}
+.mySchedule .schedulelist .weektime {
+    padding-top: 20px;
+    color: #666666;
+    padding-left: 28px;
+}

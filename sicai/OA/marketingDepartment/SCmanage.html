@@ -1,0 +1,237 @@
+<div class="container-fluid inviteManage">
+    <!--header-->
+    <div class="clearfix">
+        <div class="pull-left">
+            <!--LOGO-->
+            <a href="./index.html#/login" target="_Blank"><img src="./public/images/default/eTeacher.png"
+                                                                 class="imglogo"></a>
+        </div>
+        <div class="pull-right login_out">
+            您好：<img src="./public/images/pubimages/user.png"/><span ng-bind="scLanderName"></span>
+            <img src="./public/images/pubimages/edpwd.png"/><span ng-click="">修改密码</span>
+            <img src="./public/images/pubimages/loginout.png"/><span ng-click="quit()" style="cursor:pointer ">退出</span>
+        </div>
+    </div>
+    <!--导航-->
+    <div class="row">
+        <div class="clearfix scInviteTitle">
+            <div class="btn-group">
+                <button class="dropdown-toggle btn btn-default scButton" data-toggle="dropdown">邀请码管理<span
+                        class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#/SCmanage">邀请码管理</a></li>
+
+                </ul>
+            </div>
+            <div class="btn-group">
+                <button class="dropdown-toggle btn btn-default scButton" data-toggle="dropdown">市场数据管理<span
+                        class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#/scPromotorManage">市场递推人员数据管理</a></li>
+                </ul>
+            </div>
+            <!--<div class="btn-group">-->
+                <!--<button class="dropdown-toggle btn btn-default scButton" data-toggle="dropdown">首页滚动图片管理<span-->
+                        <!--class="caret"></span></button>-->
+                <!--<ul class="dropdown-menu" role="menu">-->
+                    <!--<li><a href="#/scScrollingPicture">首页滚动图片管理</a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        </div>
+    </div>
+    <!--tab-->
+    <div class="scInviteTab">
+        <!--tab标题-->
+        <div class=" tabTitle">
+            <ul class="nav nav-tabs" id="inviteTab">
+                <li class="col-xs-3 active"><a data-toggle="tab" href="#allInvite" ng-click="searchInvite(3)">全部</a>
+                </li>
+                <li class="col-xs-3"><a data-toggle="tab" href="#allInvite" ng-click="searchInvite(0)">未开始</a></li>
+                <li class="col-xs-3"><a data-toggle="tab" href="#allInvite" ng-click="searchInvite(1)">已开始</a></li>
+                <li class="col-xs-3"><a data-toggle="tab" href="#allInvite" ng-click="searchInvite(2)">已结束</a></li>
+            </ul>
+        </div>
+        <!--tab内容-->
+        <div class="tab-content clearfix">
+            <div class="tab-pane active" id="allInvite">
+                <div class="newAndSearch">
+                    <!--创建按钮-->
+                    <div class="new" ng-click="AuthLimited()">
+                    </div>
+                    <!--搜索框-->
+                    <div class="searchBox">
+                        <button class="btn btn-default " ng-click="searchInvite()"><span
+                                class="glyphicon glyphicon-search "></span></button>
+                        <input type="text" placeholder="输入优惠券名称" ng-model="invitation_name"/>
+                    </div>
+                </div>
+                <!--列表表头-->
+                <div class="top-message ">
+                    <ul>
+                        <li style="width:12%">邀请码</li>
+                        <li style="width:10%">城市</li>
+                        <li style="width:8%">数量/张</li>
+                        <li style="width:8%">折扣</li>
+                        <li style="width:9%">创建者</li>
+                        <li style="width:25%">有效期</li>
+                        <li style="width:8%">已使用/张</li>
+                        <li style="width:8%">最大使用次数</li>
+                        <li style="width:12%">操作</li>
+                    </ul>
+                </div>
+                <!--列表绑定数据-->
+                <div class="messageList">
+                    <ul class="invite-list" ng-repeat="item in inviteLists">
+                        <li ng-bind="item.invitation_name" style="width:12%"></li>
+                        <li ng-bind="item.invitation_city" style="width:10%"></li>
+                        <li ng-bind="item.invitation_amount" style="width:8%"></li>
+                        <li ng-bind="item.invitation_discount" style="width:8%"></li>
+                        <li ng-bind="item.sc_name" style="width:9%"></li>
+                        <li ng-bind="item.invitation_valid_date" style="width:25%"></li>
+                        <li ng-bind="item.invitation_used_count" style="width:8%"></li>
+                        <li ng-bind="item.invitation_times" style="width:8%"></li>
+                        <li style="width:12%"><span ng-click="SClibrary(item)" style=" cursor: pointer;">码库</span>/
+                            <span ng-bind="item.invitation_valid" ng-click="makeInvalidModal(item)"
+                                  style=" cursor: pointer;"></span></li>
+                    </ul>
+
+                    <!--分页-->
+                    <div class="scPage">
+                        <ul>
+                            <li style="width:12%">共&nbsp<span ng-bind="totalpages"></span>&nbsp页</li>
+                            <li style="width:12%">当前第&nbsp<span ng-bind="currentpage"></span>&nbsp 页</li>
+                            <li style="width:12%"><a  ng-click="goHome()">首&nbsp页</a></li>
+                            <li style="width:12%"><a  ng-click="prev()">上一页</a></li>
+                            <li style="width:12%"><a  ng-click="next()">下一页</a></li>
+                            <li style="width:12%"><a  ng-click="endpage()">尾&nbsp页</a></li>
+                            <li style="width:28%">跳转至&nbsp&nbsp<input type="number" class="Input" value="2"
+                                                                      min="1" max="pages" ng-model="page">
+                                <button ng-click="goThePage()">GO</button>
+                                页
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--创建邀请码modal-->
+    <div class="col-lg-2">
+        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" id="NewInviteCodeModal"
+             aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span
+                                aria-hidden="true">&times;</span><span class="sr-only"></span></button>
+                        <h4 class="modal-title">创建邀请码</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="basicMessage">
+                            <b>邀请码基本信息</b>
+                            <hr>
+                            <div class="row">
+                                <div class="col-lg-3 title"> 邀请码名称：</div>
+                                <div class="col-lg-9 "><input type="text" ng-model="invitation_name"/><span> *</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 title"> 邀请码前缀：</div>
+                                <div class="col-lg-9"><input type="text" ng-model="invitation_code_prefix"/><span> 有序邀请码需填写</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 title"> 发放总量：</div>
+                                <div class="col-lg-9 "><input type="number" min="1" ng-model="invitation_amount"
+                                                              name="totalAmount"/><span> *发放总量为1~9999的值</span></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 title"> 折扣规则：</div>
+                                <div class="col-lg-9"><span>原价<1的小数为折扣率</span></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 title"> 优惠折扣：</div>
+                                <div class="col-lg-9 "><input type="number" min="0" max="1" step="0.05"
+                                                              ng-value="invitation_discount"
+                                                              ng-model="invitation_discount"/>&nbsp<span>* 折扣为0~1(包括0)的值.如：0.85为85折</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="basicMessage ">
+                            <b>基本规则</b>
+                            <hr>
+                            <div class="row">
+                                <div class="col-lg-3 title"> 最大使用次数：</div>
+                                <div class="col-lg-9 "><input type="number" min="1" ng-model="invitation_times"/><span> * 最大使用次数为1~9999的值</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 title"> 生效时间：</div>
+                                <div class="col-lg-9 "><input type="date" ng-model="invitation_start_date"
+                                                              id="start_date" placeholder="YYYY-MM-DD"/><span> *</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 title"> 过期时间：</div>
+                                <div class="col-lg-9 "><input type="date" ng-model="invitation_end_date" id="end_date"
+                                                              ng-bind="invitation_end_date"
+                                                              placeholder="YYYY-MM-DD"/><span> *</span></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 title"> 地区：</div>
+                                <div class="col-lg-9">
+                                    <select ng-model="invitation_city">
+                                        <option></option>
+                                        <option>上海</option>
+                                        <option>重庆</option>
+                                    </select><span>*</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" ng-click="addInviteCode()">保存</button>
+
+                        <button type="button" class="btn btn-default " data-dismiss="modal">
+                            关闭
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--是否使失效modal-->
+    <div class="modal fade confirmModal scConfirmModal" id="InvalidModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    您确认使该邀请码失效吗？
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default col-xs-6" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-default col-xs-6" ng-click="invitationInvalid(codeItem)">确认
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--是否确认退出modal-->
+    <div class="modal fade confirmModal scConfirmModal" id="quitModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <span ng-bind="scLanderName"></span>
+                    <div>您确认要退出市场系统吗？</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default col-xs-6" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-default col-xs-6" ng-click="confirmQuit()">确认
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

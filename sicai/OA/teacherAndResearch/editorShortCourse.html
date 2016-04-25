@@ -1,0 +1,111 @@
+<div class="pull-right login_out">
+    您好：<img src="./public/images/pubimages/user.png"/><span ng-bind="jy_name"></span>
+    <!--<img src="./public/images/pubimages/userid.png"/><span ng-bind="roles_name"></span>-->
+    <img src="./public/images/pubimages/edpwd.png"/><span ng-click="">修改密码</span>
+    <img src="./public/images/pubimages/loginout.png"/><a href="#/default">退出</a>
+</div>
+<a href="#/login"><img src="./public/images/default/eTeacher.png" class="imglogo"></a>
+<nav class="nav_jy">
+    <ul>
+        <li><a href='#/JyDefault'>教师管理</a></li>
+        <li><a>学生管理</a></li>
+        <li><a href='#/shortCourseManage'>短期课程管理</a></li>
+        <li><a href='#/EquestionsManage'>题库管理</a></li>
+    </ul>
+</nav>
+<div class="courseDetails container">
+    <div class="div_h3">
+        <h3>
+            <a href='#/shortCourseManage'>短期课程管理</a>
+            <img src="./public/images/jiaoyan/iconfont-right.png">编辑短期课程
+        </h3>
+    </div>
+    <div class="save">
+        <button class="btn btn-default mybtn">
+            <img src="./public/images/jiaoyan/teachersave.png" class="saveimageico" ng-click="editorShortCourse()"><br/>保存</span>
+        </button>
+    </div>
+    <div class="addmessage">
+        <div class="addmessagetitle">编辑短期课程</div>
+        <div class="addCourseDetails">
+            <div class="row">
+                <div class="col-xs-6">
+                    <table>
+                        <tr>
+                            <td>课程名称：</td>
+                            <td><input type="text" class="coursetext" ng-model="ed_high_quality_name" required="required"></td>
+                        </tr>
+                        <tr>
+                            <td>课程类型：</td>
+                            <td>
+                                <select class="coursetext" ng-model="ed_courses_type" >
+                                    <option>精品课程</option>
+                                    <option>外教</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>课&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时：</td>
+                            <td><input type="text" class="coursetext" ng-model="ed_class_hour" required="required"></td>
+                        </tr>
+                        <tr>
+                            <td>价&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格：</td>
+                            <td><input type="text" class="coursetext" ng-model="ed_high_quality_price" required="required"></td>
+                        </tr>
+                        <tr>
+                            <td>上课类型：</td>
+                            <td>
+                                <select class="coursetext" ng-model="ed_class_type" >
+                                    <option>一对一</option>
+                                    <!--<option>拼课</option>-->
+                                    <!--<option>两者都有</option>-->
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>上课方式：</td>
+                            <td> <select class="coursetext" ng-model="ed_high_quality_class_way">
+                                <option>老师上门</option>
+                                <option>视频授课</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <td>城&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;市：</td>
+                            <td><input type="text" class="coursetext" ng-model="ed_city" required="required"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-xs-6 row">
+                    <div class="col-xs-6">
+                        <img src="./public/images/jiaoyan/teacher_img.png" id="img"><br/>
+                        <span class="warning">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;课程图片</span>
+                        <!--上传课程图片-->
+                        <ul class="clearfix" id="upload_result_1">
+                            <li id="uploadimg" class="pull-left">
+                                <input id="file" type="file" name="file" multiple="" size="40" class="uploadimg" value="上传头像" ng-click="uploadImg()">
+                            </li>
+                        </ul>
+                        <span class="warning1">&nbsp;&nbsp;&nbsp;&nbsp;
+                            尺寸：(200*200) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格式：png</span>
+                    </div>
+                    <div class="col-xs-6">
+                        <img src="./public/images/jiaoyan/teacher_img.png" id="img2"><br/>
+                        <span class="warning">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;课程详情图片</span>
+                        <!--上传课程详情图片-->
+                        <ul class="clearfix" id="upload_result_2">
+                            <li id="uploadimg2" class="pull-left">
+                                <input id="file2" type="file" name="file" multiple="" size="40" class="uploadimg" ng-click="uploadFamilyPhotoOne()">
+                            </li>
+                        </ul>
+                        <span class="warning1">&nbsp;&nbsp;&nbsp;&nbsp;
+                            尺寸：(200*200)<br/>&nbsp;&nbsp;&nbsp;&nbsp; 格式：png</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row intro">
+                <p>适学学生：<textarea class="textarea" ng-model="ed_content_one"></textarea></p>
+                <p class="p">课程介绍：<textarea class="textarea" ng-model="ed_content_two"></textarea></p>
+            </div>
+        </div>
+    </div>
+</div>

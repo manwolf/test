@@ -1,0 +1,81 @@
+<div class="pull-right login_out">
+    您好：<img src="./public/images/pubimages/user.png"/><span ng-bind="jy_name"></span>
+    <!--<img src="./public/images/pubimages/userid.png"/><span ng-bind="roles_name"></span>-->
+    <img src="./public/images/pubimages/edpwd.png"/><span ng-click="">修改密码</span>
+    <img src="./public/images/pubimages/loginout.png"/><a href="#/default">退出</a>
+</div>
+<a href="#/login"><img src="./public/images/default/eTeacher.png" class="imglogo"></a>
+<nav class="nav_jy">
+    <ul>
+        <li><a href='#/JyDefault'>教师管理</a></li>
+        <li><a href="javascript:;">学生管理</a></li>
+        <li><a href='#/shortCourseManage'>短期课程管理</a></li>
+        <li><a href='#/EquestionsManage'>题库管理</a></li>
+    </ul>
+</nav>
+<div class="shortCourseManger">
+    <div class="div_h3">
+        <h3>短期课程管理</h3>
+    </div>
+    <div class="speed_search">
+        <input type="text" class="searchtext" ng-model="coursename"  placeholder="课程名称"/>
+        <button class="btn btn-default btn-xs search_btn" ng-click="load(0,1)">
+            <span class="glyphicon glyphicon-search short_course_search"></span>
+            搜索
+        </button>
+    </div>
+    <div class="managehaddle container">
+        <div class="row">
+            <!--<div class="col-xs-2 col-xs-offset-1">-->
+                <!--<button class="btn btn-default mybtn" >-->
+                    <!--<img src="./public/images/kefu/zhuanru.png" class="img1"/>-->
+                    <!--<br/>转入-->
+                <!--</button>-->
+            <!--</div>-->
+            <div class="col-xs-2 col-xs-offset-1">
+                <a href="#/courseDetails"><button class="btn btn-default mybtn"  >
+                    <img src="./public/images/jiaoyan/addcourse.png" class="img"/>
+                    <br/>录入课程</span>
+                </button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="coursemessage">
+        <table>
+            <tr class="tablehead">
+                <td>课程名称</td>
+                <td>状态</td>
+                <td>课时</td>
+                <td>创建时间</td>
+                <td>价格（元/课时）</td>
+                <td>地区</td>
+                <td>课程操作</td>
+            </tr>
+            <tr class="tablelist" ng-repeat="item in lists">
+                <td ng-bind="item.high_quality_name" class="classname">课程名称</td>
+                <td ng-bind="item.state">失效</td>
+                <td ng-bind="item.class_hour">课时</td>
+                <td ng-bind="item.create_time">创建时间</td>
+                <td ng-bind="item.high_quality_price">价格（元/课时）</td>
+                <td ng-bind="item.city">地区</td>
+                <td><span ng-click="courseState(item)">转入</span> / <a href='#/editorShortCourse?course_tid={{item.tid}}'>编辑</a></td>
+            </tr>
+        </table>
+    </div>
+    <div class="container">
+        <table class="row">
+            <tr>
+                <td class="col-xs-1">共<span ng-bind="pages"></span>页</td>
+                <td class="col-xs-1">当前第<span ng-bind="currentpage"></span> 页</td>
+                <td class="col-xs-1"><span ng-click="goHome()">首页</span></td>
+                <td class="col-xs-1"><span ng-click="prev()">上一页</span></td>
+                <td class="col-xs-1"><span ng-click="next()">下一页</span></td>
+                <td class="col-xs-1"><span ng-click="endpage()">尾页</span></td>
+                <td class="col-xs-2">跳转至第<input type="number" class="pageInput" value="2" min="1" max="pages"
+                                                ng-model="page">页<input type="button" value="GO" class="gobtn" ng-click="goto()"></td>
+            </tr>
+        </table>
+        <br>
+    </div>
+</div>

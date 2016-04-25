@@ -1,0 +1,428 @@
+<div class="pull-right login_out">
+    您好：<img src="./public/images/pubimages/user.png"/><span ng-bind="kf_name"></span>
+    <!--<img src="./public/images/pubimages/userid.png"/><span ng-bind="roles_name"></span>-->
+    <img src="./public/images/pubimages/edpwd.png"/><span ng-click="">修改密码</span>
+    <img src="./public/images/pubimages/loginout.png"/><a href="#/default">退出</a>
+</div>
+<a href="#/login"><img src="./public/images/default/eTeacher.png" class="imglogo"></a>
+<nav>
+    <div class="btn-group mycolor1">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            客户数据 <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu " role="menu">
+            <li><a href="#/customer_data">已有客户数据</a></li>
+            <li><a href='#/potentialCustomerData'>潜在客户数据</a></li>
+            <li><a href="#/SpellingLesson">拼课客户数据</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            服务管理<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#/return_record">回访记录</a></li>
+            <li><a href='#/arrangingCourse'>查询教师课程</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            待办事项<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href='#/applicationTransfer'>调课申请</a></li>
+            <li><a href='#/manageKf'>客服管理</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            积分管理<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href='#/pointManagement'> 积分管理</a></li>
+        </ul>
+    </div>
+    <div class="div"><h4>已有客户数据</h4></div>
+</nav>
+<div class="customer_data">
+    <!--  标签页 -->
+    <div class="mytabpage">
+        <ul class="nav nav-tabs mytabli">
+            <li class="limarin-left">
+                <a ng-click="searchOrder(0,1)" data-toggle="tab">已支付</a></li>
+            <li><a ng-click="searchOrder(0,0)" data-toggle="tab">未支付</a></li>
+            <li><a ng-click="searchOrder(1,3)" data-toggle="tab">已排课</a></li>
+            <li><a ng-click="searchOrder(1,0)" data-toggle="tab">已完成</a></li>
+            <li><a ng-click="searchOrder(1,2)" data-toggle="tab">已取消</a></li>
+        </ul>
+    </div>
+    <!--已有客户数据页-->
+    <div class="selectlist">
+        <!--选择年级-->
+        <div class="row">
+            <div class="dotted">
+                <div class="col-xs-2">当年年级：</div>
+                <div class="col-xs-10">
+                    <div class="classgrade">
+                        <a  class="grade-num" ng-click="searchOrder(2,13)">全部</a>
+                        <a  class="grade-num" ng-click="searchOrder(2,0)">学前</a>
+                        <a  class="grade-num" ng-click="searchOrder(2,1)">小一</a>
+                        <a  class="grade-num" ng-click="searchOrder(2,2)">小二</a>
+                        <a  class="grade-num" ng-click="searchOrder(2,3)">小三</a>
+                        <a  class="grade-num" ng-click="searchOrder(2,4)">小四</a>
+                        <a  class="grade-num" ng-click="searchOrder(2,5)">小五</a>
+                        <a  class="grade-num" ng-click="searchOrder(2,6)">六年级</a>
+                        <a  class="grade-num" ng-click="searchOrder(2,7)">初一</a>
+                        <a  class="grade-num" ng-click="searchOrder(2,8)">初二</a>
+                        <a  class="grade-num" ng-click="searchOrder(2,9)">初三</a>
+                        <a  class="grade-num" ng-click="searchOrder(2,10)">高一</a>
+                        <a  class="grade-num" ng-click="searchOrder(2,11)">高二</a>
+                        <a  class="grade-num" ng-click="searchOrder(2,12)">高三</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--选择课程-->
+        <div class="row">
+            <div class="dotted">
+                <div class="col-xs-2">课程选择：</div>
+                <div class="col-xs-1"><a  ng-click="searchOrder(3,1)">试课</a></div>
+                <div class="col-xs-1"><a  ng-click="searchOrder(3,2)">购买套餐</a></div>
+                <div class="col-xs-1"><a  ng-click="searchOrder(3,3)">短期课程</a></div>
+            </div>
+        </div>
+        <!--上门方式-->
+        <div class="row">
+        <div class="dotted">
+        <div class="col-xs-2">上门方式：</div>
+        <div class="col-xs-2"><a  ng-click="searchOrder(4,0)">老师上门</a></div>
+        <div class="col-xs-2"><a  ng-click="searchOrder(4,2)">第三方约定地点</a></div>
+        <div class="col-xs-2"><a  ng-click="searchOrder(4,1)">附近咖啡馆</a></div>
+        <div class="col-xs-1"><a  ng-click="searchOrder(4,3)">在线授课</a></div>
+        </div>
+        </div>
+        <!--首次下单时间-->
+        <div class="row">
+            <div class="dotted">
+                <div class="col-xs-2">首次下单时间：</div>
+                <div class="col-xs-1"><a  ng-click="searchOrder(5,1)">今天</a></div>
+                <div class="col-xs-1"><a  ng-click="searchOrder(5,7)">本周</a></div>
+                <div class="col-xs-1"><a  ng-click="searchOrder(5,30)">本月</a></div>
+                <div class="col-xs-1"><a  ng-click="searchOrder(5,90)">本季度</a></div>
+            </div>
+        </div>
+        <!--剩余课时-->
+        <div class="row">
+            <div class="dotted">
+                <div class="col-xs-2">剩余课时：</div>
+                <div class="col-xs-1"><a  ng-click="searchOrder(7,0)">0</a></div>
+                <div class="col-xs-1"><a  ng-click="searchOrder(7,1)">0-10</a></div>
+                <div class="col-xs-1"><a  ng-click="searchOrder(7,2)">11-20</a></div>
+                <div class="col-xs-1"><a  ng-click="searchOrder(7,3)">21-30</a></div>
+                <div class="col-xs-1"><a  ng-click="searchOrder(7,4)">31-40</a></div>
+                <div class="col-xs-1"><a  ng-click="searchOrder(7,5)">41-50</a></div>
+                <div class="col-xs-1"><a  ng-click="searchOrder(7,6)">51以上</a></div>
+            </div>
+        </div>
+        <!--回访次数-->
+        <div class="row">
+            <div class="dotted">
+                <div class="col-xs-2">回访次数：</div>
+                <div class="col-xs-1"><a  ng-click="searchOrder(6,0)">0</a></div>
+                <div class="col-xs-1"><a  ng-click="searchOrder(6,1)">1</a></div>
+                <div class="col-xs-1"><a  ng-click="searchOrder(6,2)">2</a></div>
+                <div class="col-xs-1"><a  ng-click="searchOrder(6,3)">3</a></div>
+                <div class="col-xs-1"><a  ng-click="searchOrder(6,4)">4</a></div>
+                <div class="col-xs-1"><a  ng-click="searchOrder(6,5)">5次以上</a></div>
+            </div>
+        </div>
+        <!--老师分配-->
+        <div class="row">
+            <div class="dotted lastdotted">
+                <div class="col-xs-2">分配老师：</div>
+                <div class="col-xs-1"><a  ng-click="searchOrder(8,2)">未分配</a></div>
+                <div class="col-xs-1"><a  ng-click="searchOrder(8,1)">已分配</a></div>
+            </div>
+        </div>
+    </div>
+    <!--快速搜索-->
+    <div class="s-search">
+        <input type="text" class="input-time" placeholder="学生姓名" ng-model="user_name"/>
+        <button class="btn btn-default search-f" ng-click="fastsearch()"><span
+                class="glyphicon glyphicon-search"> 快速搜索</span></button>
+    </div>
+    <!--超级权限-->
+    <div class="sea-ico row">
+
+        <div class="haddleselect row">
+            <!--删除-->
+            <div class="col-xs-1 col-xs-offset-1">
+               <!--删除-->
+               <button class="btn btn-default btn-lg deletebtn " data-toggle="modal" data-target="#myM" >
+                   <img src="./public/images/kefu/deletesuer.png" /><br/>删除(权限)
+               </button>
+               <div class="modal fade" id="myM" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+                    aria-hidden="true">
+                   <div class="modal-dialog">
+                       <div class="modal-content">
+                           <div class="modal-header">
+                               <button type="button" class="close" data-dismiss="modal"><span
+                                       aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                               <h4 class="modal-title">删除</h4>
+                           </div>
+                           <div class="modal-body">
+                               <p>订单ID：</p><input type="text" ng-model="tid">
+                           </div>
+                           <div class="modal-footer">
+                               <button type="button" class="btn btn-default" data-dismiss="modal">
+                                   关闭
+                               </button>
+                               <button type="button" class="btn btn-primary" ng-click="cancelOrder()">确认</button>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+            <!--转入-->
+            <div class="col-xs-1">
+               <div class="haddleselect">
+                   <button class="btn btn-default zhuan" data-toggle="modal" data-target="#myM1">
+                       <img src="./public/images/kefu/transferuser.png" /><br/>转入
+                   </button>
+                   <div class="modal fade" id="myM1" tabindex="-1" role="dialog"
+                        aria-labelledby="mySmallModalLabel"
+                        aria-hidden="true">
+                       <div class="modal-dialog">
+                           <div class="modal-content">
+                               <div class="modal-header">
+                                   <button type="button" class="close" data-dismiss="modal"><span
+                                           aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                   <h4 class="modal-title">转入</h4>
+                               </div>
+                               <div class="modal-body">
+                                   <p>订单ID：<input type="text" ng-model="tid"></p>
+                                   <br><br>
+                                   <P>操作流程：已支付未排课-->已支付已排课-->已支付已完成</P>
+                               </div>
+                               <div class="modal-footer">
+                                   <button type="button" class="btn btn-default" data-dismiss="modal">
+                                       关闭
+                                   </button>
+                                   <button type="button" class="btn btn-primary" ng-click="updateOrderState()">保存</button>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+            <!--录入客户信息-->
+            <div class="col-xs-1">
+                <div class="haddleselect">
+                    <button class="btn btn-default luru" data-toggle="modal" data-target="#myM2" ng-click="queryCourseType()">
+                        <img src="./public/images/kefu/adduser.png" /><br/>录入客户信息
+                    </button>
+                    <div class="modal fade" id="myM2" tabindex="-1" role="dialog"
+                         aria-labelledby="myLargeModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span
+                                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                    <h4 class="modal-title">录入客户信息</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>
+                                        学生姓名<input type="text" class="adduser" ng-model="user_name"/>
+                                        老师姓名<select  class="adduser" ng-model="teacher_name" ng-options="name as name for name in teacher">
+
+                                                  </select>
+                                    </p>
+                                    <p>当前年级
+                                        <select ng-model="class_content" class="adduser">
+                                            <option ng-click="addSelectData(0,0)">学前</option>
+                                            <option ng-click="addSelectData(0,1)">小学1年级</option>
+                                            <option ng-click="addSelectData(0,2)">小学2年级</option>
+                                            <option ng-click="addSelectData(0,3)">小学3年级</option>
+                                            <option ng-click="addSelectData(0,4)">小学4年级</option>
+                                            <option ng-click="addSelectData(0,5)">小学5年级</option>
+                                            <option ng-click="addSelectData(0,6)">初中(小学)6年级</option>
+                                            <option ng-click="addSelectData(0,7)">初中7年级</option>
+                                            <option ng-click="addSelectData(0,8)">初中8年级</option>
+                                            <option ng-click="addSelectData(0,9)">初中9年级</option>
+                                            <option ng-click="addSelectData(0,10)">高中10年级</option>
+                                            <option ng-click="addSelectData(0,11)">高中11年级</option>
+                                            <option ng-click="addSelectData(0,12)">高中12年级</option>
+                                        </select>
+                                        上课方式
+                                        <select ng-model="class_way" class="adduser">
+                                            <option ng-click="addSelectData(1,0)">教师上门</option>
+                                            <option ng-click="addSelectData(1,1)">咖啡馆</option>
+                                            <option ng-click="addSelectData(1,2)">第三方</option>
+                                        </select>
+                                    </p>
+                                    <p>课程选择
+                                        <select ng-model="class_count" class="adduser" ng-click="getCoursePrice()"
+                                                ng-options="c as c for c in courseClass">
+                                            <option ></option>
+                                        </select>
+                                        联系方式<input type="text" ng-model="order_phone" class="adduser"/>
+                                    </p>
+                                    <p>
+                                        上课地址<input type="text" ng-model="order_address" class="adduser"/>
+                                        上课区域
+                                        <select  ng-model="user_area" class="adduser" ng-options="a as a for a in district">
+
+                                        </select>
+                                    </p>
+                                    <p>订单金额<input type="text" ng-model="order_money" class="adduser" >&nbsp;&nbsp;
+                                        支付类型<select ng-model="pay_type" class="adduser">
+                                        <option ng-click="addSelectData(2,3)">银联</option>
+                                        <option ng-click="addSelectData(2,4)">现金</option>
+                                        <option ng-click="addSelectData(2,5)">免费</option></select>
+                                    </p>
+                                    <p>
+                                        上课日期<input type="date" id="datatime" class="adduser"/>
+                                        上课时间<select ng-model="order_time" class="adduser">
+                                        <option>08:00</option>
+                                        <option>10:30</option>
+                                        <option>13:30</option>
+                                        <option>16:00</option>
+                                        <option>18:30</option>
+                                    </select>
+                                    </p>
+                                    备注：免费试课需要填写上课时间和上课日期
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                        关闭
+                                    </button>
+                                    <button type="button" class="btn btn-primary" ng-click="addOrder()">保存</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--导出-->
+            <div class="col-xs-1">
+                <button class="btn btn-default luru" ng-click="messageOut()">
+                    <img src="./public/images/kefu/educe.png" /><br/>导出
+                </button>
+            </div>
+            <!--分配老师-->
+            <div class="col-xs-1">
+                <button class="btn btn-default luru" data-toggle="modal" data-target=".bs-example-modal-lg" ng-click="getTeacherName()">
+                    <img src="./public/images/kefu/allotTeacher.png" /><br/>分配老师
+                </button>
+                <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
+                     aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span
+                                        aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">分配老师</h4>
+                            </div>
+                            <div class="modal-body">
+                                订单id<input type="text" ng-model="order_tid" required="required">
+                                <select ng-model="teacher_name" ng-options="id for id in teacher" ng-click="getTeacherName()">
+                                    <option></option>
+
+                                </select>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="allocatingTeacher()">保存
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="modal fade" id="alertAddress1" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span
+                                aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title">联系方式</h4>
+                    </div>
+                    <div class="modal-body">
+                       <p>联系方式：<span ng-bind="telephone1"></span></p>
+                        <p style="margin-left: 2em;">地址：<span ng-bind="address1"></span></p>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" style="text-align: right;">
+                            关闭
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--信息展示栏-->
+    <div class="datalist">
+        <table>
+            <tr class="list-message">
+                <td class="tdtid">ID</td>
+                <td>支付状态</td>
+                <td>状态</td>
+                <td>学生姓名</td>
+                <td>老师姓名</td>
+                <td class="tdctime">下单时间</td>
+                <td class="tdgrade">当前年级</td>
+                <td>上课时间</td>
+                <td>邀请码</td>
+                <td>上门方式</td>
+                <td class="tdclass">课程选择</td>
+                <td class="tdclassname">课程名称</td>
+                <td>购买课时</td>
+                <td>剩余课时</td>
+                <td>回访记录</td>
+                <td class="tdgrade">联系方式</td>
+                <td class="tdtid">地址</td>
+            </tr>
+            <tr class="message-list" ng-repeat="item in lists">
+                <td ng-bind="item.tid" ></td>
+                <td ng-bind="item.pay_done"></td>
+                <td ng-bind="item.order_state"></td>
+                <td ng-bind="item.user_name"></td>
+                <td ng-bind="item.teacher_name"></td>
+                <td ng-bind="item.create_time" ></td>
+                <td ng-bind="item.class_content"></td>
+                <td ><span ng-bind="item.class_time" class="spantime" title={{item.class_time}}></span></td>
+                <td ng-bind="item.invitation"></td>
+                <td ng-bind="item.class_way" ></td>
+                <td ng-bind="item.class_count" ></td>
+                <td ng-bind="item.high_quality_name"}}></td>
+                <td ng-bind="item.class_hour"></td>
+                <td ng-bind="item.remainingHour"></td>
+                <td><a href="#/return_record" ng-bind="item.return_count" ng-click="goDetial(item)"></a></td>
+                <td ng-bind="item.order_phone"></td>
+                <td  class="tdtid" title={{item.order_address}}>
+                    <span ng-bind="item.order_address" class="spanaddress"></span></td>
+            </tr>
+        </table>
+    </div>
+    <!--分页-->
+    <div class="container">
+        <table class="row col-xs-offset-1">
+            <tr>
+                <td class="col-xs-1">共<span ng-bind="pages"></span>页</td>
+                <td class="col-xs-1">当前第<span ng-bind="currentpage"></span> 页</td>
+                <td class="col-xs-1"><a  ng-click="goHome()">首页</a></td>
+                <td class="col-xs-1"><a  ng-click="prev()">上一页</a></td>
+                <td class="col-xs-1"><a  ng-click="next()">下一页</a></td>
+                <td class="col-xs-1"><a  ng-click="endpage()">尾页</a></td>
+                <td class="col-xs-3">跳转至第<input type="number" class="pageInput" value="2" min="1" max="pages"
+                                               ng-model="page">
+                    页<input type="button" value="GO" ng-click="goto()" class="gobtn"></td>
+            </tr>
+        </table>
+        <br>
+    </div>
+</div>

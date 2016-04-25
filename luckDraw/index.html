@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="keywords" content="JS代码,其他代码,JS广告代码,JS特效代码" />
+<meta name="description" content="此代码内容为JS+JQ随机抽奖代码，属于站长常用代码，更多其他代码代码请访问懒人图库JS代码频道。" />
+<title>JS+JQ随机抽奖代码_懒人图库</title>
+</head>
+<body>
+<!-- 代码 开始 -->
+<style>
+#container {
+	width: 100%;
+	max-width: 960px;
+	margin: 0 auto;
+	height: 100%
+}
+#show_num {
+	width: 100%;
+	background: #fff;
+	height: 100%;
+	padding:5% 0 3% 1%;
+}
+#num{ padding: 0 0 0 1.2%}
+#start,#stop{margin:15% 4% 0 1%}
+</style>
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.2.css">
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.2.js"></script>
+<script>
+//Yjnic制作，QQ：917838566,欢迎交流，附带网络信息工作室主页：http://www.stuinfer.cn/
+$(document).ready(function(e) {
+ 	var flag;	//setInterval标志
+	var arr = Array();	//数组
+   	var begin_flag = true;	//初始化开始标志
+	var ret;
+	var num;
+	var max_num; //最大值
+	var repeat = true; //是否能重复
+	//0-9的图片
+	var pic_0 = "images/0.png";
+	var pic_1 = "images/1.png";
+	var pic_2 = "images/2.png";
+	var pic_3 = "images/3.png";
+	var pic_4 = "images/4.png";
+	var pic_5 = "images/5.png";
+	var pic_6 = "images/6.png";
+	var pic_7 = "images/7.png";
+	var pic_8 = "images/8.png";
+	var pic_9 = "images/9.png";
+	//监听输入事件
+	$("#max").blur(function(){
+		 max_num = $("#max").val();
+			if(parseInt(max) > 1000){
+			alert("请输入9-999的整数");
+			begin_flag = false;
+			return false;
+			}	
+			else{
+				arr=[];
+				for(var i=0;i<=max_num;i++){
+				arr.push(i)//循环录入数组
+				}
+				begin_flag = true;
+				return true;
+				}	
+		})
+	//开始
+	$("#start").click(function(){
+			if (begin_flag){
+				flag= setInterval(rd,60);
+				begin_flag = false;
+			}						
+		})
+	//结束
+	$("#stop").click(function(){
+		clearInterval(flag);
+		if(!repeat)
+			no_repeat();			
+		begin_flag = true;
+	})
+	//产生随机数
+	function rd(){			
+			num = arr[Math.floor(Math.random()*arr.length)];	//获得的随机数
+			var hundred,figures,theunit;
+			hundred = Math.floor(num/100);	
+			figures = Math.floor(num%100/10);
+			theunit = Math.floor(num%10);	
+			//背景变化
+			$("#num_1").css("background","url(images/"+hundred+".png) no-repeat");
+			$("#num_2").css("background","url(images/"+figures+".png) no-repeat");
+			$("#num_3").css("background","url(images/"+theunit+".png) no-repeat");	
+		    }	
+			
+	//不重复	
+	function no_repeat(){
+			//alert(num);
+			//alert(arr);
+			var arr_2 = Array();
+			for(var i =0; i<arr.length;i++){
+				if (arr[i] == num){
+					continue;	//跳过相同
+					}
+				else{
+					arr_2.push(arr[i]);		//放入新的数组
+					}
+				}
+				//alert(arr_2);
+				if(arr_2.length == 1){	//没有数字了
+					for(var i=0;i<=max_num;i++){
+						arr.push(i)//循环录入数组
+						} 
+					}
+				else{	//还有数字
+				arr = arr_2;						
+				}
+		}		
+  	  });
+</script>
+
+<div id="container"> 
+  <!--第一屏begin-->
+  <div data-role="page" id="pageone" style="background:#D0C7D3">
+    <div data-role="content" style="text-align:center"> <img src="images/head.png" width="1000" style="margin:0 auto">
+      <div style="width:20%; margin:0 auto; clear:both">
+        <div style="float: left;font-size: 1.2em; padding: 6% 0 0 3%;width: 30%;">最大值:</div>
+        <div style="width:60%; float:left">
+          <input id="max" type="text">
+          <!--获取最大值,id别改--> 
+        </div>
+      </div>
+      <div style="width:18%; margin:0 auto; clear:both"> 
+        <!--转到第二屏begin,a标签的属性别改--> 
+        <a href="#pagetwo" data-transition="slide" style="text-decoration:none">
+        <button>开始抽奖</button>
+        </a> 
+        <!--转到第二屏end--> 
+      </div>
+      <div style="text-align:center;margin:50px 0">
+<p>来源：<a href="http://www.stuinfer.cn/" target="_blank">网络信息工作室</a>　代码整理：<a href="http://www.lanrentuku.com/" target="_blank">懒人图库</a>　感谢：<a href="http://zheye.cc/" target="_blank">折页网</a></p>
+<p>＊尊重他人劳动成果，转载请自觉注明出处！注：此代码仅供学习交流，请勿用于商业用途。</p>
+<p></p>
+<p><p>js+jq随机抽奖代码，使用js实现0-999的抽奖，可以输入最大值，兼容主流浏览器，懒人图库推荐下载！</p><p><br /></p><p>使用方法：</p><p>1、可以用自己的0-9的图片替换images文件夹里面的图片，但是命名要相同；</p><p>2、具体可以看代码的注释。</p></p>
+<p style="margin:20px 0"></p>
+</div>
+    </div>
+  </div>
+  <!--第一屏end--> 
+  
+  <!--第二屏begin-->
+  <div data-role="page" id="pagetwo"> 
+    <!--返回链接,属性别改--> 
+    <a href="#pageone" data-transition="slide" data-direction="reverse">
+    <div style="background: black"><img src="images/second_bg.png"> </div>
+    </a>
+    <div data-role="content" id="con__1">
+      <p> 
+        <!--数字显示区域begin id别改-->
+      <div id="show_num">
+        <div id="num" style="width:400px; margin:0 auto; height:200px;"> <span id="num_1" style="width:33%; padding-top:50%; float:left; background:url(images/0.png) no-repeat"></span> <span id="num_2" style="width:33%; padding-top:50%; float:left;background:url(images/0.png) no-repeat"></span> <span id="num_3" style="width:33%; padding-top:50%;background:url(images/0.png) no-repeat; float:left"></span> </div>
+        <div style="width:400px; margin:0 auto; height:100px;"> 
+          <!--按钮begin id别改-->
+          <button id="start" style="width:40%; float:left; height:50%; background:white"> start </button>
+          <button id="stop" style="width:40%; float:left; height:50%; background:white"> end </button>
+          <!--按钮end id别改--> </div>
+      </div>
+    </div>
+    </p>
+    <div data-role="footer" id="footerxx" style="position:absolute; width:100%;">
+      <h1>Make By Stuinfers</h1>
+    </div>
+  </div>
+  <!--第二屏end--> 
+</div>
+<script type="text/javascript">
+function show_box(id) {
+	 jQuery('.widget-box.visible').removeClass('visible');
+	 jQuery('#'+id).addClass('visible');
+}
+</script>
+<!-- 代码 结束 -->
+</body>
+</html>

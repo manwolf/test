@@ -1,0 +1,39 @@
+<div class="container-fluid scScrollingPicture">
+    <!--header-->
+    <div class="clearfix">
+        <div class="pull-left">
+            <!--LOGO-->
+            <a href="./index.html#/login" target="_Blank"><img src="./public/images/default/eTeacher.png"
+                                                                 class="imglogo"></a>
+        </div>
+        <div class="pull-right login_out">
+            您好：<img src="./public/images/pubimages/user.png"/><span ng-bind="scLanderName"></span>
+            <img src="./public/images/pubimages/edpwd.png"/><span ng-click="">修改密码</span>
+            <img src="./public/images/pubimages/loginout.png"/><span ng-click="quit()" style="cursor:pointer ">退出</span>
+        </div>
+    </div>
+    <!--导航-->
+    <div class="row">
+        <div class="clearfix scInviteTitle">
+            <div class="btn-group">
+                <button class="dropdown-toggle btn btn-default scButton" data-toggle="dropdown">邀请码管理<span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#/SCmanage">邀请码管理</a></li>
+
+                </ul>
+            </div>
+            <div class="btn-group">
+                <button class="dropdown-toggle btn btn-default scButton" data-toggle="dropdown">市场数据管理<span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#/scPromotorManage">市场递推人员数据管理</a></li>
+                </ul>
+            </div>
+            <!--<div class="btn-group">-->
+                <!--<button class="dropdown-toggle btn btn-default scButton" data-toggle="dropdown">首页滚动图片管理<span class="caret"></span></button>-->
+                <!--<ul class="dropdown-menu" role="menu">-->
+                    <!--<li><a href="#/scScrollingPicture">首页滚动图片管理</a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>

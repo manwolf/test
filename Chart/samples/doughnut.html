@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Doughnut Chart</title>
+		<script src="../Chart.js"></script>
+		<style>
+			body{
+				padding: 0;
+				margin: 0;
+			}
+			#canvas-holder{
+				width:100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="canvas-holder">
+			<canvas id="chart-area" width="500" height="500"/>
+		</div>
+
+
+	<script>
+
+		var doughnutData = [
+				{
+					value: 300,
+					color:"#F7464A",
+					highlight: "#FF5A5E",
+					label: "Red"
+				},
+				{
+					value: 50,
+					color: "#46BFBD",
+					highlight: "#5AD3D1",
+					label: "Green"
+				},
+				{
+					value: 100,
+					color: "#FDB45C",
+					highlight: "#FFC870",
+					label: "Yellow"
+				},
+				{
+					value: 40,
+					color: "#949FB1",
+					highlight: "#A8B3C5",
+					label: "Grey"
+				},
+				{
+					value: 120,
+					color: "#4D5360",
+					highlight: "#616774",
+					label: "Dark Grey"
+				}
+
+			];
+
+			window.onload = function(){
+				var ctx = document.getElementById("chart-area").getContext("2d");
+				window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {
+				responsive : true,
+				//Boolean - Whether we should show a stroke on each segment
+				segmentShowStroke : true,
+				
+				//String - The colour of each segment stroke
+				segmentStrokeColor : "#fff",
+				
+				//Number - The width of each segment stroke
+				segmentStrokeWidth : 2,
+				
+				//The percentage of the chart that we cut out of the middle.
+				percentageInnerCutout : 50,
+				
+				//Boolean - Whether we should animate the chart	
+				animation : true,
+				
+				//Number - Amount of animation steps
+				animationSteps : 100,
+				
+				//String - Animation easing effect
+				animationEasing : "easeOutBounce",
+				
+				//Boolean - Whether we animate the rotation of the Doughnut
+				animateRotate : true,
+
+				//Boolean - Whether we animate scaling the Doughnut from the centre
+				animateScale : false,
+				
+				//Function - Will fire on animation completion.
+				onAnimationComplete : null
+				});
+			};
+
+
+
+	</script>
+	</body>
+</html>

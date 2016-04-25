@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>移动框架服务器上传文件</title>
+</head>
+<body>
+<h1>移动框架 测试服务器上传文件</h1> 
+<form action="http://localhost//srvapi//framework//controller//upLoadFile.php?callback=callback" method="post"
+enctype="multipart/form-data">
+<p>客户端类型:  
+<label><input name="type" type="radio" value="student" checked=”checked” />学生端 </label> 
+<label><input name="type" type="radio" value="teacher" />教师端 </label> 
+<label><input name="type" type="radio" value="OA" />OA端 </label> 
+</p>
+<p>应用平台: 
+<label><input name="platform" type="radio" value="1" checked=”checked” />安卓 </label> 
+<label><input name="platform" type="radio" value="2" />IOS </label> 
+ </p>
+<label for="file">文件名:</label>
+<input type="file" name="file" id="file" /> 
+<br />
+<input type="submit" name="submit" value="上传"  />
+</form>
+</body>
+</html>

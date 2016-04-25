@@ -1,0 +1,110 @@
+<div class="pull-right login_out">
+    您好：<img src="./public/images/pubimages/user.png"/><span ng-bind="kf_name"></span>
+    <!--<img src="./public/images/pubimages/userid.png"/><span ng-bind="roles_name"></span>-->
+    <img src="./public/images/pubimages/edpwd.png"/><span ng-click="">修改密码</span>
+    <img src="./public/images/pubimages/loginout.png"/><a href="#/default">退出</a>
+</div>
+<a href="#/login"><img src="./public/images/default/eTeacher.png" class="imglogo"></a>
+<nav>
+    <div class="btn-group mycolor1">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor"  data-toggle="dropdown">
+            客户数据 <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu " role="menu">
+            <li><a href="#/customer_data">已有客户数据</a></li>
+            <li><a href='#/potentialCustomerData'>潜在客户数据</a></li>
+            <li><a href="#/SpellingLesson">拼课客户数据</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            服务管理<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#/return_record">回访记录</a></li>
+            <li><a href='#/arrangingCourse'>查询教师课程</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            待办事项<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href='#/applicationTransfer'>调课申请</a></li>
+            <li><a href='#/manageKf'>客服管理</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            积分管理<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href='#/pointManagement'> 积分管理</a></li>
+        </ul>
+    </div>
+    <div class="div"><h4>客服管理</h4></div>
+</nav>
+<div class="KFmanage">
+    <div class="kfmanage">
+        <button class="btn btn-default mybtn" data-toggle="modal" data-target=".bs-example-modal-lg">
+            <img src="./public/images/kefu/adduser.png" class="img1" /><br/>增加客服
+        </button>
+        <div id="bs-example-modal-lg_modal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
+             aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                                class="sr-only">Close</span></button>
+                        <h4 class="modal-title">增加客服</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>名字：<input type="text" ng-model="kf_name1"></p>
+                        <p>电话：<input type="text" ng-model="kf_telephone"></p>
+                        <p>城市：<input type="text" ng-model="kf_city"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="addKf()">确认添加
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<button class="btn btn-default mybtn" data-toggle="modal" data-target=".bs-example-modal-xm">-->
+            <!--<img src="./public/images/kefu/shanchu.png" class="img"><br/>删除客服-->
+        <!--</button>-->
+        <!--<div id="bs-example-modal-xm_modal" class="modal fade bs-example-modal-xm" tabindex="-1" role="dialog"-->
+             <!--aria-labelledby="myLargeModalLabel" aria-hidden="true">-->
+            <!--<div class="modal-dialog modal-lg">-->
+                <!--<div class="modal-content">-->
+                    <!--<div class="modal-header">-->
+                        <!--<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span-->
+                                <!--class="sr-only">Close</span></button>-->
+                        <!--<h4 class="modal-title">删除客服</h4>-->
+                    <!--</div>-->
+                    <!--<div class="modal-body">-->
+                        <!--<p>tid：<input type="text" ng-model="tid"></p>-->
+                    <!--</div>-->
+                    <!--<div class="modal-footer">-->
+                        <!--<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="deleteKf()">确认删除-->
+                        <!--</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+</div>
+<div class="container">
+        <table class="table-bordered " style="background: #fff;line-height: 30px;">
+            <tr class="row">
+                <th class="col-xs-4" >客服名称</th>
+                <th class="col-xs-4" >客服电话</th>
+                <th class="col-xs-4" >城市</th>
+            </tr>
+            <tr ng-repeat="item in lists" class="row">
+                <td class="col-xs-4" ng-bind="item.user_name"></td>
+                <td class="col-xs-4" ng-bind="item.telephone"></td>
+                <td class="col-xs-4"  ng-bind="item.city"></td>
+            </tr>
+        </table>
+</div>

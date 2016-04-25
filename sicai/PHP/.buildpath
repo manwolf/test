@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<buildpath>
+	<buildpathentry kind="src" path="branches/srvapi/1.0.2.0906/framework"/>
+	<buildpathentry kind="src" path="trunk/srvapi/framework"/>
+	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
+</buildpath>

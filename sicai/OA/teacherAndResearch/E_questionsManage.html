@@ -1,0 +1,115 @@
+<div class="pull-right login_out">
+    您好：<img src="./public/images/pubimages/user.png"/><span ng-bind="jy_name"></span>
+    <!--<img src="./public/images/pubimages/userid.png"/><span ng-bind="roles_name"></span>-->
+    <img src="./public/images/pubimages/edpwd.png"/><span ng-click="">修改密码</span>
+    <img src="./public/images/pubimages/loginout.png"/><a href="#/default">退出</a>
+</div>
+<a href="#/login"><img src="./public/images/default/eTeacher.png" class="imglogo"></a>
+<nav class="nav_jy">
+    <ul>
+        <li><a href='#/JyDefault'>教师管理</a></li>
+        <li><a href="javascript:;">学生管理</a></li>
+        <li><a href='#/shortCourseManage'>短期课程管理</a></li>
+        <li><a href='#/EquestionsManage'>题库管理</a></li>
+    </ul>
+</nav>
+<div class="EquestionsManage">
+    <div class="div_h3">
+        <h3>
+            <a>题库管理</a>
+        </h3>
+    </div>
+    <div class="blueheader container-fluid">
+        <div class="buildevl row">
+            <div class="col-xs-1 col-xs-offset-1">
+                <button class="btn btn-default mybtn" data-toggle="modal" data-target=".bs-example-modal-sm" ng-click="queryCity()">
+                    <img src="./public/images/jiaoyan/buildevl.png" style="margin-left: 0.5em;"/><br/>创建题库</span>
+                </button>
+                <div class="modal fade bs-example-modal-sm"  tabindex="-1" role="dialog"
+                     aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg E_ques"  >
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span
+                                        aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title text_cen" >创建题库</h4>
+                            </div>
+                            <div class="modal-body text_cen" id="myform">
+                               <div class="add_top">
+                                   年级：
+                                   <select  ng-model="add_grade" ng-options="g as g for g in EquestionGrade" class="addQitem">
+                                       <option value=""></option>
+                                   </select>
+                               </div>
+                                <div class="add_top">
+                                    学期：
+                                    <select ng-model="add_test_semester" class="addQitem">
+                                        <option >上半学期</option>
+                                        <option >下半学期</option>
+                                    </select>
+                                </div>
+                                <div class="add_top">
+                                    城市：
+                                    <select ng-options="c as c for c in city" ng-model="add_city" class="addQitem">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                                <!--<div class="add_top">-->
+                                    <!--教材：-->
+                                    <!--<select  ng-model="add_teaching_material_type" class="addQitem ">-->
+                                        <!--<option >ET专属教材</option>-->
+                                        <!--<option >公立教材</option>-->
+                                    <!--</select>-->
+                                <!--</div>-->
+
+                            </div>
+                            <div class="modal-footer text_cen" >
+                                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="addEquestion()">保存
+                                <button type="button" class="btn btn-default btn_left" data-dismiss="modal">关闭</button>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="header_table">
+        <tr class="evlheader">
+            <td >年级</td>
+            <td >学期</td>
+            <td >教材名称</td>
+            <td >题目数量</td>
+            <td >城市</td>
+            <td>操作</td>
+        </tr>
+        <tr class="evl_message" ng-repeat="item in lists">
+            <td ng-bind="item.class"></td>
+            <td ng-bind="item.test_semester"></td>
+            <td ng-bind="item.teaching_material_type"></td>
+            <td ng-bind="item.test_title_number"></td>
+            <td ng-bind="item.test_city"></td>
+            <td><a href='#E_questionDetails?q_tid={{item.tid}}'>详情</a></td>
+        </tr>
+    </table>
+
+    <!--分页-->
+    <div class="container">
+        <div class="row col-xs-offset-1">
+            <table class="row">
+                <tr>
+                    <td class="col-xs-1 ">共<span ng-bind="pages"></span>页</td>
+                    <td class="col-xs-1">第<span ng-bind="currentpage"></span>页</td>
+                    <td class="col-xs-1"><a  ng-click="goHome()">首页</a></td>
+                    <td class="col-xs-1"><a  ng-click="prev()">上一页</a></td>
+                    <td class="col-xs-1"><a  ng-click="next()">下一页</a></td>
+                    <td class="col-xs-1"><a  ng-click="endpage()">尾页</a></td>
+                    <td class="col-xs-2">跳转至第<input type="number" class="pageInput" value="2" min="1" max="pages"
+                                                    ng-model="page">页<input type="button" class="gobtn btn-default" value="GO" ng-click="goto()">
+                    </td>
+                </tr>
+            </table>
+            <br>
+        </div>
+    </div>
+</div>

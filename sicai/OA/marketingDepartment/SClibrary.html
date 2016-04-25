@@ -1,0 +1,147 @@
+<div class="container-fluid inviteLibrary">
+    <div class="clearfix">
+        <div class="pull-left">
+            <!--LOGO-->
+            <a href="./index.html#/login" target="_Blank"><img src="./public/images/default/eTeacher.png"
+                                                                 class="imglogo"></a>
+        </div>
+        <div class="pull-right login_out">
+            您好：<img src="./public/images/pubimages/user.png"/><span ng-bind="scLanderName"></span>
+            <img src="./public/images/pubimages/edpwd.png"/><span ng-click="">修改密码</span>
+            <img src="./public/images/pubimages/loginout.png"/><span ng-click="quit()" style="cursor:pointer ">退出</span>
+        </div>
+    </div>
+    <!--导航栏-->
+    <div class="row">
+        <div class="clearfix scInviteTitle">
+            <div class="btn-group">
+                <button class="dropdown-toggle btn btn-default scButton" data-toggle="dropdown">邀请码管理<span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#/SCmanage">邀请码管理</a></li>
+
+                </ul>
+            </div>
+            <div class="btn-group">
+                <button class="dropdown-toggle btn btn-default scButton" data-toggle="dropdown">市场数据管理<span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#/scPromotorManage">市场递推人员数据管理</a></li>
+                </ul>
+            </div>
+            <!--<div class="btn-group">-->
+                <!--<button class="dropdown-toggle btn btn-default scButton" data-toggle="dropdown">首页滚动图片管理<span class="caret"></span></button>-->
+                <!--<ul class="dropdown-menu" role="menu">-->
+                    <!--<li><a href="#/scScrollingPicture">首页滚动图片管理</a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        </div>
+    </div>
+
+    <!--tab-->
+    <div class="scInviteTab">
+        <!--tab标题-->
+        <div class=" tabTitle">
+            <ul class="nav nav-tabs" id="inviteTab">
+                <li class="col-xs-3 active"><a data-toggle='tab' href="#allInvite" ng-click="searchInvition(2)">全部</a>
+                </li>
+                <li class="col-xs-3"><a data-toggle='tab' href="#allInvite" ng-click="searchInvition(1)">已使用</a></li>
+                <li class="col-xs-3"><a data-toggle='tab' href="#allInvite" ng-click="searchInvition(0)">未使用</a></li>
+            </ul>
+        </div>
+        <!--tab内容-->
+        <div class="tab-content clearfix">
+            <div class="tab-pane active" id="allInvite">
+                <!--导出按钮-->
+                <div class="newAndSearch">
+                    <div class="export" data-toggle="modal" data-target=".bs-example-modal-lg"
+                         ng-click="confirmExportData()">
+                    </div>
+                    <!--搜索框-->
+                    <div class="searchBox">
+                        <button class="btn btn-default search-f" ng-click="searchInvition()"><span
+                                class="glyphicon glyphicon-search search-s"></span></button>
+                        <input type="text" class="input-time" placeholder="输入邀请码" ng-model="invitation_code"/>
+                    </div>
+                </div>
+                <!--列表表头-->
+                <div class="top-message ">
+                    <ul>
+                        <li>邀请码</li>
+                        <li>订单号</li>
+                        <li>使用时间</li>
+                        <li>购买课时</li>
+                        <li>使用次数</li>
+                        <li>学生姓名</li>
+                        <li>地区</li>
+                    </ul>
+                </div>
+                <!--列表绑定数据-->
+                <div class="messageList">
+                    <ul class="invite-list" ng-repeat="item in invitionLists">
+                        <li ng-bind="item.invitation_code"></li>
+                        <li ng-bind="item.order_tid"></li>
+                        <li ng-bind="item.create_time"></li>
+                        <li ng-bind="item.class_hour"></li>
+                        <li ng-bind="item.invitation_used_times"></li>
+                        <li ng-bind="item.user_name"></li>
+                        <li style="width:14.8%" ng-bind="item.user_area"></li>
+                    </ul>
+                    <!--分页-->
+                    <div class="scPage">
+                        <ul>
+                            <li>共&nbsp<span ng-bind="totalpages"></span>&nbsp页</li>
+                            <li>当前第&nbsp<span ng-bind="currentpage"></span>&nbsp 页</li>
+                            <li><a  ng-click="goHome()">首&nbsp页</a></li>
+                            <li><a  ng-click="prev()">上一页</a></li>
+                            <li><a  ng-click="next()">下一页</a></li>
+                            <li><a  ng-click="endpage()">尾&nbsp页</a></li>
+                            <li>跳转至&nbsp&nbsp<input type="number" class="Input" value="2" min="1" max="pages"
+                                                    ng-model="page">
+                                <button ng-click="goThePage()">GO</button>
+                                页
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--是否确认导出文档modal-->
+    <div class="modal fade confirmModal scConfirmModal" id="sureExportData" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p> 请选择需要导出的文档类型</p>
+                    文档类型： <select ng-model="filetype" class="select">
+                    <option value="doc" selected="selected">Word文档</option>
+                    <option value="xls">Excel文档</option>
+                </select>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default col-xs-6" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-default col-xs-6" ng-click="exportData()">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--是否确认退出modal-->
+    <div class="modal fade confirmModal scConfirmModal" id="quitModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <span ng-bind="scLanderName"></span>
+                    <div>您确认要退出市场系统吗？</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default col-xs-6" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-default col-xs-6" ng-click="confirmQuit()">确认
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

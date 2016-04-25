@@ -1,0 +1,225 @@
+<div class="pull-right login_out">
+    您好：<img src="./public/images/pubimages/user.png"/><span ng-bind="jy_name"></span>
+    <!--<img src="./public/images/pubimages/userid.png"/><span ng-bind="roles_name"></span>-->
+    <img src="./public/images/pubimages/edpwd.png"/><span ng-click="">修改密码</span>
+    <img src="./public/images/pubimages/loginout.png"/><a href="#/default">退出</a>
+</div>
+<a href="#/login"><img src="./public/images/default/eTeacher.png" class="imglogo"></a>
+<nav class="nav_jy">
+    <ul>
+        <li><a href='#/JyDefault'>教师管理</a></li>
+        <li><a href="javascript:;">学生管理</a></li>
+        <li><a href='#/shortCourseManage'>短期课程管理</a></li>
+        <li><a href='#/EquestionsManage'>题库管理</a></li>
+    </ul>
+</nav>
+<div class="teacher_manger">
+    <div class="div_h3">
+        <h3>教师管理</h3>
+    </div>
+    <!--快速搜索-->
+    <div class="data_filled row">
+        <div class="row input_margintop">
+            <!--姓名-->
+                <span class="marginleft"><input type="text" placeholder="姓名" class="manger_input1"
+                                                ng-model="teacher_name"/></span>
+            <!--编号-->
+                <span class="marginleft"><input type="text" placeholder="编号" class="manger_input1"
+                                                ng-model="teacher_num"/></span>
+            <!--时间类别 -->
+                <span class="marginleft">
+                    时间类别：
+                    <select class="manger_input1" ng-model="time_type">
+                        <option>入职时间</option>
+                        <option>离职时间</option>
+                    </select>
+                </span>
+            <!--开始时间--结束时间-->
+                <span class="marginleft">
+                      <input type="text" placeholder="开始时间" class="manger_input1" ng-model="begin_date"/>
+                ——  <input type="text" placeholder="结束时间" class="manger_input1" ng-model="end_date"/>
+                </span>
+            <!--岗位状态-->
+                <span class="marginleft">
+                     岗位状态：
+                     <select class="manger_input1" ng-model="post_status">
+                         <option>在职</option>
+                         <option>离职</option>
+                         <option>实习</option>
+                     </select>
+                </span>
+            <!--教师级别-->
+                <span class="marginleft">
+                     教师级别：
+                     <select class="manger_input1" ng-model="teachers_level">
+                         <option>特级教师</option>
+                         <option>高级教师</option>
+                         <option>中级教师</option>
+                         <option>初级教师</option>
+                     </select>
+                </span>
+            <!--搜索-->
+                <span class="marginleft">
+                     <button class="btn btn-default btn-xs search_btn" ng-click="speedsearch()"><span
+                             class="glyphicon glyphicon-search teacher_search"></span> 搜索
+                     </button>
+                </span>
+        </div>
+    </div>
+    <!--添加教师-调整岗位状态-调整级别-->
+    <div class="func_select">
+        <div class="row">
+            <!--添加教师-->
+            <div class="col-lg-2">
+                <a href='#/teacherDetails'>
+                    <button class="btn btn-default mybtn">
+                        <img src="./public/images/jiaoyan/addteacher.png" class="img"/><br/>添加教师</span>
+                    </button>
+                </a>
+            </div>
+            <!--调整岗位状态-->
+            <div class="col-lg-2">
+                <button class="btn btn-default mybtn" data-toggle="modal" data-target=".bs-example-modal-lg">
+                    <img src="./public/images/jiaoyan/teacherclass.png" class="img"/><br/>调整岗位状态</span>
+                </button>
+                <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
+                     aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span
+                                        aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">调整岗位状态</h4>
+                            </div>
+                            <div class="modal-body">
+                                <table>
+                                    <tr>
+                                        <td class="right">教师编号：</td>
+                                        <td class="left"><input type="text" class="transferinput"
+                                                                ng-model="teacher_num"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="right">教师岗位状态：</td>
+                                        <td class="left">
+                                            <select ng-model="post_status" class="transferinput">
+                                                <option>实习</option>
+                                                <option>在职</option>
+                                                <option>离职</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                        ng-click="updateTeacherState()">保存
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--调整教师级别-->
+            <div class="col-lg-2">
+                <button class="btn btn-default mybtn" data-toggle="modal" data-target=".bs-example-modal-md">
+                    <img src="./public/images/jiaoyan/transferjob.png" class="img"/><br/>调整教师级别</span>
+                </button>
+                <div class="modal fade bs-example-modal-md" tabindex="-1" role="dialog"
+                     aria-labelledby="myMiddleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span
+                                        aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">调整教师级别</h4>
+                            </div>
+                            <div class="modal-body">
+                                <table>
+                                    <tr>
+                                        <td class="right">教师编号：</td>
+                                        <td class="left"><input type="text" ng-model="teacher_num"
+                                                                class="transferinput"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="right">教师级别：</td>
+                                        <td class="left">
+                                            <select ng-model="teachers_level" class="transferinput">
+                                                <option style="padding-left: 3em;">初级教师</option>
+                                                <option>中级教师</option>
+                                                <option>高级教师</option>
+                                                <option>特级教师</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                        ng-click="updateTeacherLevel()">保存
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--查询教师列表-->
+    <div class="list">
+        <div class="row">
+            <table>
+                <tr class="table_header ">
+                    <td class="td_width">编号</td>
+                    <td>姓名</td>
+                    <td>岗位状态</td>
+                    <td class="td_mid">入职时间</td>
+                    <td>教师级别</td>
+                    <td class="td_mid">当前学生数</td>
+                    <td class="td_mid">当月产生课时</td>
+                    <td class="td_midwidth">当月剩余课程总数</td>
+                    <td>课程日历</td>
+                    <td>所属地区</td>
+                    <td class="td_midwidth">家长评价</td>
+                    <td class="td_lar">操作</td>
+                </tr>
+                <tr ng-repeat="item in lists" class="datatable" >
+                    <td class="attr2"><span ng-bind="item.teacher_num"></span></td><!--教师编号-->
+                    <td class="attr2"><span ng-bind="item.teacher_name"></span></td><!--教师姓名-->
+                    <td class="attr2"><span ng-bind="item.post_status"></span></td><!--岗位状态-->
+                    <td class="attr2"><span ng-bind="item.teacher_hiredate"></span></td><!--入职时间-->
+                    <td class="attr2"><span ng-bind="item.teachers_level"></span></td><!--教师级别-->
+                    <td class="attr2"><span ng-bind="item.count"></span></td><!--当前学生数-->
+                    <td class="attr2"><span ng-bind="item.count1"></span></td><!--当月产生课时-->
+                    <td class="attr2"><span ng-bind="item.count2"></span></td><!--当月剩余课程总数-->
+                    <td class="attr2"><a href="#/JyTeacherCalendar?teacher_tid={{item.tid}}"><span><img src="./public/images/jiaoyan/rili.png"/></span></a></td></td><!--课程日历链接-->
+                    <td class="attr2"><span ng-bind="item.teacher_city"></span></td><!--所属地区-->
+                    <td class="attr2"><span ng-bind="item.evaluation"></span></td><!--家长评价-->
+                    <td class="attr2"><span ng-click="updateTeacher(item)">编辑</span> /
+                        <span ng-click="evaluationTeacher(item)">评价</span></td><!--家长评价-->
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br>
+    <!--分页-->
+    <div class="container">
+        <div class="row col-xs-offset-1">
+            <table class="row">
+                <tr>
+                    <td class="col-xs-1 ">共<span ng-bind="pages"></span>页</td>
+                    <td class="col-xs-1">第<span ng-bind="currentpage"></span>页</td>
+                    <td class="col-xs-1"><a  ng-click="goHome()">首页</a></td>
+                    <td class="col-xs-1"><a  ng-click="prev()">上一页</a></td>
+                    <td class="col-xs-1"><a  ng-click="next()">下一页</a></td>
+                    <td class="col-xs-1"><a  ng-click="endpage()">尾页</a></td>
+                    <td class="col-xs-2">跳转至第<input type="number" class="pageInput" value="2" min="1" max="pages"
+                                                   ng-model="page">页<input type="button" class="gobtn btn-default" value="GO" ng-click="goto()">
+                    </td>
+                </tr>
+            </table>
+            <br>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,180 @@
+<div class="pull-right login_out">
+    您好：<img src="./public/images/pubimages/user.png"/><span ng-bind="jy_name"></span>
+    <!--<img src="./public/images/pubimages/userid.png"/><span ng-bind="roles_name"></span>-->
+    <img src="./public/images/pubimages/edpwd.png"/><span ng-click="">修改密码</span>
+    <img src="./public/images/pubimages/loginout.png"/><a href="#/default">退出</a>
+</div>
+<a href="#/login"><img src="./public/images/default/eTeacher.png" class="imglogo"></a>
+<nav class="nav_jy">
+    <ul>
+        <li><a href='#/JyDefault'>教师管理</a></li>
+        <li><a href="javascript:;">学生管理</a></li>
+        <li><a href='#/shortCourseManage'>短期课程管理</a></li>
+        <li><a href='#/EquestionsManage'>题库管理</a></li>
+    </ul>
+</nav>
+<div class="teacher_details">
+    <div class="div_border ">
+        <div class="div_h3"><h3><a href='#/JyDefault'>教师管理</a><img src="./public/images/jiaoyan/iconfont-right.png">编辑教师</h3></div>
+        <div class="row">
+            <div class="col-xs-1 save">
+                <button class="btn btn-default mybtn"  ng-click="updateTeacher()">
+                    <img src="./public/images/jiaoyan/teachersave.png" class="saveimageico"><br/>保存</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="teacher-background">
+        <div class="tabletitle1">基本信息</div>
+        <div class="left" >
+            <table>
+                <tr>
+                    <td class="tdright" >姓名：</td>
+                    <td><input type="text" class="datainput" ng-model="editName" id="teacher_name"/></td>
+                </tr>
+                <tr class="datatr">
+                    <td class="tdright">教龄：</td>
+                    <td ><input type="text" class="datainput" ng-model="teacher_seniority" id="teacher_seniority"  placeholder="例：3">年</td>
+                </tr>
+                <tr>
+                    <td class="tdright">授课年级：</td>
+                    <td ><input type="text" ng-model="student_grade_min" class="gradenum" id="student_grade_min" placeholder="最小"/>
+                        -- <input type="text"  class="gradenum"  ng-model="student_grade_max" id="student_grade_max" placeholder="最大"/> 年级 <span class="warning">(0表示学前)</span></td>
+                </tr>
+                <tr>
+                    <td class="tdright">城市：</td>
+                    <td >
+                        <input  class="datainput" ng-model="teacher_city" ng-options="en as en for en in city"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tdright">区：</td>
+                    <td >
+                        <input class="datainput" ng-model="teacher_district" ng-options="en as en for en in district"  />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tdright">镇：</td>
+                    <td >
+                        <input class="datainput" ng-model="teacher_town" ng-options="x as x for x in town" />
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tdright">性别：</td>
+                    <td ><select ng-model="teacher_sex" id="teacher_sex">
+                        <option>男</option>
+                        <option>女</option>
+                    </select></td>
+                </tr>
+
+            </table>
+        </div>
+        <div class="rigth">
+            <div class="col-lg-3 col-xs-offset-3">
+                <img src="./public/images/jiaoyan/teacher-image.png"  id="img"><br />
+                <span class="warning">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;头像</span>
+                <ul class="clearfix" id="upload_result_1">
+                    <li id="uploadimg" class="pull-left">
+                        <input id="file" type="file" name="file" multiple="" size="40" ng-click="uploadImg()" class="uploadimg" value="上传头像">
+                    </li>
+                </ul>
+                <span class="warning">&nbsp;&nbsp;(200*200)</span>
+            </div>
+            <div class="col-lg-3">
+                <img src="./public/images/jiaoyan/teacher_img.png"  id="img2"><br />
+                <span class="warning">&nbsp;&nbsp;资料图片1</span>
+                <ul class="clearfix" id="upload_result_2">
+                    <li id="uploadimg2" class="pull-left">
+                        <input id="file2" type="file" name="file" multiple="" size="40" ng-click="uploadFamilyPhotoOne()" class="uploadimg" value="上传头像">
+                    </li>
+                </ul>
+                <span class="warning">&nbsp;&nbsp;(720*404)</span>
+            </div>
+            <div class="col-lg-3">
+                <img src="./public/images/jiaoyan/teacher_img.png"  id="img3"><br />
+                <span class="warning">&nbsp;&nbsp;资料图片2</span>
+                <ul class="clearfix" id="upload_result_3">
+                    <li id="uploadimg3" class="pull-left">
+                        <input id="file3" type="file" name="file" multiple="" size="40" ng-click="uploadFamilyPhotoTwo()" class="uploadimg" value="上传头像">
+                    </li>
+                </ul>
+                <span class="warning">&nbsp;&nbsp;(720*404)</span>
+            </div>
+            <br>
+        </div>
+        <div class="detail_list">
+            <div>
+                <p>教师箴言：</p>
+                <p><input type="text" class="datainput1" ng-model="teacher_idea" /></p>
+            </div>
+            <div >
+                <p>教学特色:<br/><p><textarea ng-model="teacher_information_1" ></textarea></p>
+            </div>
+            <div >
+                <p>成功案例：</p><p><textarea ng-model="teacher_information_2"></textarea></p>
+            </div>
+            <div>
+                <p>教师愿景：</p><p><textarea ng-model="teacher_information_3"></textarea></p>
+            </div>
+        </div>
+        <div class="tabletitle1">更多信息</div>
+        <div class="detail_list">
+            <table>
+                <tr>
+                    <td class="tdright">教师编号：</td>
+                    <td><input type="text" class="datainput" ng-model="teacher_num" id="teacher_num"></td>
+                </tr>
+
+                <tr>
+                    <td class="tdright">联系方式：</td>
+                    <td ><input type="text" class="datainput" ng-model="telephone" id="telephone"></td>
+                </tr>
+                <tr>
+                    <td class="tdright">家庭住址：</td>
+                    <td ><input type="text" class="datainput" ng-model="address" id="address"></td>
+                </tr>
+                <tr>
+                    <td class="tdright">毕业院校：</td>
+                    <td><input type="text" class="datainput" ng-model="graduated_from" id="graduated_from"></td>
+                </tr>
+                <tr>
+                    <td class="tdright">毕业日期：</td>
+                    <td><input type="text" class="datainput" ng-model="graduation_date" id="graduation_date" placeholder="(例：2014-07-01)"></td>
+                </tr>
+                <tr>
+                    <td class="tdright">专业：</td>
+                    <td><input type="text" class="datainput" ng-model="teacher_major" id="teacher_major"></td>
+                </tr>
+                <tr>
+                    <td class="tdright">入职日期：</td>
+                    <td><input type="text" class="datainput" ng-model="teacher_hiredate" id="teacher_hiredate" placeholder="(例：2014-07-01)"></td>
+                </tr>
+                <tr>
+                    <td class="tdright">岗位状态：</td>
+                    <td>
+                        <select ng-model="post_status" id="post_status">
+                            <option>在职</option>
+                            <option>实习</option>
+                            <option>离职</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tdright">教师级别：</td>
+                    <td>
+                        <select ng-model="teachers_level" id="teachers_level">
+                            <option>初级教师</option>
+                            <option>中级教师</option>
+                            <option>高级教师</option>
+                            <option>特级教师</option>
+                        </select>
+                    </td>
+                </tr>
+
+
+            </table>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,172 @@
+<div class="pull-right login_out">
+    您好：<img src="./public/images/pubimages/user.png"/><span ng-bind="kf_name"></span>
+    <!--<img src="./public/images/pubimages/userid.png"/><span ng-bind="roles_name"></span>-->
+    <img src="./public/images/pubimages/edpwd.png"/><span ng-click="">修改密码</span>
+    <img src="./public/images/pubimages/loginout.png"/><a href="#/default">退出</a>
+</div>
+<a href="#/login"><img src="./public/images/default/eTeacher.png" class="imglogo"></a>
+<nav>
+    <div class="btn-group mycolor1">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            客户数据 <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#/customer_data">已有客户数据</a></li>
+            <li><a href='#/potentialCustomerData'>潜在客户数据</a></li>
+            <li><a href="#/SpellingLesson">拼课客户数据</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            服务管理<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#/return_record">回访记录</a></li>
+            <li><a href='#/arrangingCourse'>查询教师课程</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            待办事项<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href='#/applicationTransfer'>调课申请</a></li>
+            <li><a href='#/manageKf'>客服管理</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle mycolor" data-toggle="dropdown">
+            积分管理<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href='#/pointManagement'> 积分管理</a></li>
+        </ul>
+    </div>
+    <div class="div"><h4>调课申请</h4></div>
+</nav>
+<div class="applicationTransfer">
+    <!--快速搜索-->
+    <div class="speedsearch">
+        <div class="col search-ico">
+            <div class="col-lg-5"><input type="text" ng-model="user_name" class="username" placeholder="学生姓名">
+                <button class="btn btn-default " ng-click="applicationTranferData()"><span
+                        class="glyphicon glyphicon-search"> 快速搜索:</span></button>
+            </div>
+            <!--<div class="col-lg-2">-->
+                <!--<button class="btn mybtn" data-toggle="modal" data-target=".bs-example-modal-md">-->
+                    <!--调课申请审核-->
+                <!--</button>-->
+                <!--<div class="modal fade bs-example-modal-md" tabindex="-1" role="dialog"-->
+                     <!--aria-labelledby="myMiddleModalLabel" aria-hidden="true">-->
+                    <!--<div class="modal-dialog modal-lg">-->
+                        <!--<div class="modal-content">-->
+                            <!--<div class="modal-header">-->
+                                <!--<button type="button" class="close" data-dismiss="modal"><span-->
+                                        <!--aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>-->
+                                <!--<h4 class="modal-title">调课申请审核</h4>-->
+                            <!--</div>-->
+                            <!--<div class="modal-body">-->
+                                <!--<div class="row">-->
+                                    <!--<div class="col-lg-3" ng-model="tid">Tid：<input type="text" ng-model="tid"></div>-->
+                                    <!--<div class="col-lg-3">-->
+                                        <!--申请状态：-->
+                                        <!--<select ng-model="service_reply_state">-->
+                                            <!--<option></option>-->
+                                            <!--<option>已处理</option>-->
+                                            <!--<option>处理中</option>-->
+                                        <!--</select>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="modal-footer">-->
+                                <!--<button type="button" class="btn btn-primary" data-dismiss="modal"-->
+                                        <!--ng-click="applicationAuditing()">保存-->
+                                <!--</button>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+    <div class="selectlist">
+        <!--申请人-->
+        <div class="row dotted">
+            <div class="col-xs-2">申 &nbsp;请 &nbsp;人：</div>
+            <div class="col-xs-2"><a href='#/applicationTransfer'>学生</a></div>
+            <div class="col-xs-2"><a href='#/applicationTeacher'>教师</a></div>
+        </div>
+        <!--申请时间-->
+        <div class="row dotted">
+            <div class="col-xs-2">申请时间：</div>
+            <div class="col-xs-2"><a  ng-click="applicationTranferData(1,1)">一天内</a></div>
+            <div class="col-xs-2"><a  ng-click="applicationTranferData(1,3)">三天内</a></div>
+            <div class="col-xs-2"><a  ng-click="applicationTranferData(1,7)">七天内</a></div>
+            <div class="col-xs-2"><a  ng-click="applicationTranferData(1,8)">七天以上</a></div>
+        </div>
+        <!--申请类型-->
+        <div class="row dotted">
+            <div class="col-xs-2">申请类型：</div>
+            <div class="col-xs-2"><a  ng-click="applicationTranferData(2,0)">次月调课</a></div>
+            <div class="col-xs-2"><a  ng-click="applicationTranferData(2,2)">临时调课</a></div>
+            <div class="col-xs-2"><a  ng-click="applicationTranferData(2,1)">加课</a></div>
+        </div>
+        <!--申请状况-->
+        <div class="row dotted">
+            <div class="col-xs-2">申请状况：</div>
+            <div class="col-xs-2"><a  ng-click="applicationTranferData(3,0)">处理中</a></div>
+            <div class="col-xs-2"><a  ng-click="applicationTranferData(3,1)">已处理</a></div>
+        </div>
+    </div>
+
+    <!-- 基础信息 -->
+    <div class="datalist">
+        <div class="list-message">
+            <ul>
+                <li>姓名</li>
+                <li>当前年级</li>
+                <li>剩余课时</li>
+                <li>申请时间</li>
+                <li>申请类型</li>
+                <li>申请状态</li>
+                <li>申请留言</li>
+                <li>备注</li>
+                <li>申请操作</li>
+            </ul>
+        </div>
+        <div class="message-list" ng-repeat="item in lists" >
+            <ul>
+                <li class="attr2"><span ng-bind="item.user_name"></span></li>
+                <li class="attr2"><span ng-bind="item.class_content"></span></li>
+                <li class="attr2"><span ng-bind="item.remainingHour"></span></li>
+                <li class="attr2"><span ng-bind="item.apply_time"></span></li>
+                <li class="attr2"><span ng-bind="item.user_classes"></span></li>
+                <li class="attr2"><span ng-bind="item.service_reply_state"></span></li>
+                <li class="attr2"><span ng-bind="item.service_reply"></span></li>
+                <li class="attr2"><span ng-bind="item.user_classes_need"></span></li>
+                <li class="attr2"><span ng-show="item.service_reply_state=='处理中'" ng-click="applicationAuditing(item)">同意</span></li>
+            </ul>
+        </div>
+    </div>
+    <!--分页-->
+    <div class="container">
+        <table class="row col-xs-offset-1"  style="margin-top: 1em;">
+            <tr>
+                <td class="col-xs-1">共<span ng-bind="pages"></span>页</td>
+                <td class="col-xs-1">当前第<span ng-bind="currentpage"></span> 页</td>
+                <td class="col-xs-1"><a  ng-click="goHome()">首页</a></td>
+                <td class="col-xs-1"><a  ng-click="prev()">上一页</a></td>
+                <td class="col-xs-1"><a  ng-click="next()">下一页</a></td>
+                <td class="col-xs-1"><a  ng-click="endpage()">尾页</a></td>
+                <td class="col-xs-3">跳转至第<input type="number" class="pageInput" value="2" min="1" max="pages"
+                                                ng-model="page">
+                    页<input type="button" value="GO" ng-click="goto()" class="gobtn"></td>
+            </tr>
+        </table>
+        <br>
+    </div>
+</div>
+
+
+
+

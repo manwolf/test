@@ -1,0 +1,52 @@
+.default{
+    margin:0;
+    padding:0;
+    font-family:"Microsoft YaHei",Î¢ÈíÑÅºÚ;
+}
+.default header{
+    width:90%;
+    height:65px;
+    background:#f3f3f3;
+    margin: 0 auto;
+    line-height: 65px;
+}
+
+.default .cat{
+    background: #43bfe7;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 60px;
+    padding-left: 30px;
+}
+
+.default .cat  a:link,a:visited{
+    display: block;
+    width: 215px;
+    height: 215px;
+    color: #fff;
+    font-family: "Microsoft YaHei", Î¢ÈíÑÅºÚ;
+    text-align: center;
+    margin-left: 60px;
+    font-size: 18px;
+}
+.default .cat  a:hover{
+    background-image:url('../images/default/xuanfu.png') ;
+    color: #000;
+}
+.default .cat  a .image{
+    margin-top: 25px;
+}
+.default .cat  a p{
+    font-family: "Microsoft YaHei", Î¢ÈíÑÅºÚ;
+}
+footer{
+    width: 90%;
+    margin: -1em auto;
+    background: #353738;
+    height: 76px;
+    text-align: center;
+    line-height: 76px;
+    color:#ababab;
+
+}

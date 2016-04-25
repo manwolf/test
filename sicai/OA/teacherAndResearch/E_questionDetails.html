@@ -1,0 +1,166 @@
+<div class="pull-right login_out">
+    您好：<img src="./public/images/pubimages/user.png"/><span ng-bind="jy_name"></span>
+    <!--<img src="./public/images/pubimages/userid.png"/><span ng-bind="roles_name"></span>-->
+    <img src="./public/images/pubimages/edpwd.png"/><span ng-click="">修改密码</span>
+    <img src="./public/images/pubimages/loginout.png"/><a href="#/default">退出</a>
+</div>
+<a href="#/login"><img src="./public/images/default/eTeacher.png" class="imglogo"></a>
+<nav class="nav_jy">
+    <ul>
+        <li><a href='#/JyDefault'>教师管理</a></li>
+        <li><a href="javascript:;">学生管理</a></li>
+        <li><a href='#/shortCourseManage'>短期课程管理</a></li>
+        <li><a href='#/EquestionsManage'>题库管理</a></li>
+    </ul>
+</nav>
+<div class="EquestionsDetails">
+    <div class="div_h3">
+        <h3>
+            <a href='#/EquestionsManage'>题库管理</a>
+            <img src="./public/images/jiaoyan/iconfont-right.png">题库详情
+        </h3>
+    </div>
+    <div class="blueheader container-fluid">
+        <div class="buildevl row">
+            <div class="col-xs-1 col-xs-offset-1">
+                <button class="btn btn-default mybtn" data-toggle="modal" data-target=".bs-example-modal-lg" ng-click="queryTelephone()">
+                    <img src="./public/images/jiaoyan/buildevl.png" style="margin-left: 0.5em;"/><br/>创建题目</span>
+                </button>
+                <div class="modal fade bs-example-modal-lg"  tabindex="-1" role="dialog"
+                     aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg E_ques">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span
+                                        aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">创建题目</h4>
+                            </div>
+                            <div class="modal-body text_cen">
+                                <div class="add_top">
+                                    题目：<br/>
+                                    <textarea ng-model="add_q_subject"></textarea>
+                                </div>
+                                <div class="add_top">
+                                    选项：
+                                    <p>A : <input type="text" class="addQitem" ng-model="add_q_options_a"></p>
+                                    <p>B : <input type="text" class="addQitem" ng-model="add_q_options_b"></p>
+                                    <p>C : <input type="text" class="addQitem" ng-model="add_q_options_c"></p>
+                                    <p>D : <input type="text" class="addQitem" ng-model="add_q_options_d"></p>
+                                </div>
+                                <div class="add_top">
+                                    答案：
+                                    <select  ng-model="add_q_right_answer" class="addQitem1" ng-mod>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                    </select>
+                                </div>
+                                <div class="add_top">
+                                    点评：
+                                    <textarea ng-model="add_q_review"></textarea>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer text_cen1" >
+                                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="addTestQuestion()">保存
+                                    <button type="button" class="btn btn-default btn_left" data-dismiss="modal">关闭</button>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade " id="edquestion" tabindex="-1" role="dialog"
+                     aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg E_ques">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span
+                                        aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">编辑题目</h4>
+                            </div>
+                            <div class="modal-body text_cen">
+                                <div class="add_top">
+                                    题目：<br/>
+                                  <textarea ng-model="ed_test_subject"></textarea>
+                                </div>
+                                <div class="add_top">
+                                    选项：
+                                    <p>A : <input type="text" class="addQitem" ng-model="ed_test_options_a"></p>
+                                    <p>B : <input type="text" class="addQitem" ng-model="ed_test_options_b"></p>
+                                    <p>C : <input type="text" class="addQitem" ng-model="ed_test_options_c"></p>
+                                    <p>D : <input type="text" class="addQitem" ng-model="ed_test_options_d"></p>
+                                </div>
+                                <div class="add_top">
+                                    答案：
+                                    <select  ng-model="ed_test_right_answers" class="addQitem1" ng-mod>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                    </select>
+                                </div>
+                                <!--<div class="add_top">-->
+                                    <!--点评：-->
+                                    <!--<textarea ng-model="ed_test_review"></textarea>-->
+                                <!--</div>-->
+
+                            </div>
+                            <div class="modal-footer text_cen1" >
+                                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="editTestQuestion()">保存
+                                    <button type="button" class="btn btn-default btn_left" data-dismiss="modal">关闭</button>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="header_table table-bordered">
+        <tr class="evlheader">
+            <td class="q_num">序列号</td>
+            <td class="q_question">题目</td>
+            <td class="q_select">选项</td>
+            <td class="q_num">答案</td>
+            <td class="q_evl">点评</td>
+            <td class="q_haddle">操作</td>
+        </tr>
+        <tr class="que_message" ng-repeat="item in lists">
+            <td ng-bind="item.test_number"></td>
+            <td ng-bind="item.test_subject" class="Q_text"></td>
+            <td class="Q_text">
+                <span ng-bind="item.test_options_a"></span><br/>
+                <span ng-bind="item.test_options_b"></span><br/>
+                <span ng-bind="item.test_options_c"></span><br/>
+                <span ng-bind="item.test_options_d"></span><br/>
+            </td>
+            <td  ng-bind="item.test_right_answers"></td>
+            <td ng-bind="item.test_review"></td>
+            <td >
+                <span ng-click="queryTestQuestion(item)" data-toggle="modal">编辑</span>/
+                <span ng-click="deleteTestQuestion(item)">删除</span>
+            </td>
+        </tr>
+    </table>
+
+    <!--分页-->
+    <div class="container">
+        <div class="row col-xs-offset-1">
+            <table class="row">
+                <tr>
+                    <td class="col-xs-1 ">共<span ng-bind="pages"></span>页</td>
+                    <td class="col-xs-1">第<span ng-bind="currentpage"></span>页</td>
+                    <td class="col-xs-1"><a  ng-click="goHome()">首页</a></td>
+                    <td class="col-xs-1"><a  ng-click="prev()">上一页</a></td>
+                    <td class="col-xs-1"><a  ng-click="next()">下一页</a></td>
+                    <td class="col-xs-1"><a  ng-click="endpage()">尾页</a></td>
+                    <td class="col-xs-2">跳转至第<input type="number" class="pageInput" value="2" min="1" max="pages"
+                                                    ng-model="page">页<input type="button" class="gobtn btn-default" value="GO" ng-click="goto()">
+                    </td>
+                </tr>
+            </table>
+            <br>
+        </div>
+    </div>
+</div>

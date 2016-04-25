@@ -1,0 +1,73 @@
+<div class="container-fluid topManage">
+    <!--header-->
+    <div class="clearfix tmHeader">
+        <div class="pull-left">
+            <!--LOGO-->
+            <a href="./index.html#/login" target="_Blank"><img src="./public/images/default/eTeacher.png"
+                                                               class="tmLogo"></a>
+        </div>
+        <div class="pull-right tmExcit">
+            您好：&nbsp<img src="./public/images/topManage/people.png"/><span ng-bind="scLanderName"></span>&nbsp
+            <img src="./public/images/topManage/changePassword.png"/><span ng-click="">修改密码</span>&nbsp
+            <img src="./public/images/topManage/out.png"/><span ng-click="quit()" style="cursor:pointer ">退出</span>
+        </div>
+    </div>
+    <!--tmTitle-->
+    <div class="tmTitle">权限管理</div>
+    <!--tmMainPart-->
+    <div class="tmMain_wraper">
+        <ul>
+            <li>
+                <div class="carre_couleur tmBase_hov" style="background-color: #77bce7;">
+                    <a target="_blank" href="#/topManageSystem">
+                        <div class="tmRetract" style="background-color: #B4DDFF;">
+                            <img src="./public/images/topManage/addRole.png"></div>
+                        <div class="acced">
+                            <div class="big_acced" style="color: #f39c12;">添加角色</div>
+                        </div>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="carre_couleur tmBase_hov" style="background-color: #77bce7;">
+                    <a target="_blank" href="#/topManageSystem">
+                        <div class="tmRetract" style="background-color: #9CD0EC;">
+                            <img src="./public/images/topManage/addPower.png"></div>
+                        <div class="acced">
+                            <div class="big_acced" style="color: #27ae60;">添加权限</div>
+                        </div>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="carre_couleur tmBase_hov" style="background-color: #77bce7;">
+                    <a target="_blank" href="#/topManageSystem">
+                        <div class="tmRetract" style="background-color: #B6D7DD;">
+                            <img src="./public/images/topManage/edit.png"></div>
+                        <div class="acced">
+                            <div class="big_acced" style="color: #c0392b;">权限编辑</div>
+                        </div>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--是否确认退出modal-->
+<div class="modal fade confirmModal scConfirmModal" id="quitModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <span ng-bind="scLanderName"></span>
+                <div>您确认要退出市场系统吗？</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default col-xs-6" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-default col-xs-6" ng-click="confirmQuit()">确认
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

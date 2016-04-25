@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>麦广传媒年会抽奖</title>
+<script src="./js/jquery-1.8.3.min.js"></script>
+</head>
+<style>
+body{
+margin:0px;
+padding:0px;
+background:yellow; 
+}
+
+#title{
+padding-top:20px;
+vertical-align:center;
+text-align:center;
+color:red;
+font-size:40px;
+font-weight:bold;
+height:80px;
+
+}
+#pic{
+horizonal-align:center;
+vertical-align:center;
+text-align:center;
+margin-left:auto;
+margin-right:auto;
+width:100px;
+height:200px;
+background:red; 
+border-radius:15px;	
+box-shadow:  4px 2px #f3d4d2;
+border:2px solid #fff;
+}
+input{
+margin:50px;
+width:200px;
+height:50px;
+background:red; 
+color:yellow;
+font-size:30px;
+font-weight:bold;
+outline:none;
+border:2px solid #fff;
+background:-webkit-linear-gradient(left,  rgba(255,0,0,1) ,rgba(255,0,0,0));   
+border-radius:15px;	
+box-shadow:  4px 2px #f3d4d2;
+}
+input:hover{	
+	box-shadow:  6px 4px #f3d4d2;
+	background:-webkit-linear-gradient(right,  rgba(255,0,0,1) ,rgba(255,0,0,0)); 	
+	transition-property: background box-shadow border ;
+	transition-duration: 0.5s;
+	transition-timing-function: ease-in-out;
+	transition-delay: 0s;	
+	
+}
+.luckyPic{
+width:100px;
+height:200px;
+display: inline-block;
+line-height: 200px;
+float:left;
+border-radius:15px;	
+box-shadow:  4px 2px #f3d4d2;
+border:2px solid #fff;
+margin:10px;
+background:red;
+}
+</style>
+<body>
+<div id= 'title'>麦广传媒 2016年会抽奖</div>
+<div id='pic'></div>
+<div id='button'>
+<input id='start' type='button' value='start' onclick='start()'/>
+<input id='stop' type='button' value='stop' onclick='stop()'/>
+<input id='stop' type='button' value='inital' onclick='inital()'/>
+</div>
+<div id='luckpics' style='width:100%'>
+</div>
+</body>
+</html>
+
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+	
+});
+var ext= [];
+var rewardArr =[];
+var current = -1;
+var Min = 0;
+var Max = 9;
+var t;
+//  ./images/0.png
+function getRandomNum(){  
+var Range = Max - Min;   
+var Rand = Math.random();   
+return(Min + Math.round(Rand * Range));   
+}   
+//生成随机数据
+function ini(ext){
+	var Range = Max - Min + 1; 
+	if(Range <= ext.length){
+		var num = -1;
+		return num;
+	}
+	var num = getRandomNum();
+	while($.inArray(num, ext) >= 0 ){
+		num = getRandomNum();
+	}	
+	return num;
+}
+//开始
+function start(){
+	$("#start").attr("disabled", true);
+	t = setTimeout("start()",30);
+	current = ini(ext);	
+	if(-1 == current){
+		$("#pic").css("background","red" );	
+	}else{
+		$("#pic").css("backgroundImage","url(./images/" + current +".png)" );	
+	}
+}
+
+//停止
+function stop(){	
+	$("#start").attr("disabled", false);
+	//去掉定时器的方法		
+	clearTimeout(t);	
+	if(current >= 0){
+		$("#pic").css("backgroundImage","url(./images/" + current +".png)" );	
+		ext.push(current);
+		if(current >= 0 && $.inArray(current, rewardArr) == -1 ){
+			var str = "<div class='luckyPic' style='background:url(./images/"+ current +".png)'></div>";
+			$("#luckpics").append(str);
+		}
+		rewardArr.push(current);
+		
+	}
+	
+}
+
+//初始化
+function inital(){
+	current = -1;
+	ext = [];
+	rewardArr = [];
+	$("#pic").css("background","red" );
+	$("#luckpics").empty();
+}
+</script>
