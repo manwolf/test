@@ -1,0 +1,1275 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Docs For Class CModel</title>
+  <link rel="stylesheet" href="../media/stylesheet.css" />
+  <script src="../media/lib/classTree.js"></script>
+<link id="webfx-tab-style-sheet" type="text/css" rel="stylesheet" href="../media/lib/tab.webfx.css" />
+<script type="text/javascript" src="../media/lib/tabpane.js"></script>
+  <script language="javascript" type="text/javascript" src="../media/lib/ua.js"></script>
+<script language="javascript" type="text/javascript">
+	var imgPlus = new Image();
+	var imgMinus = new Image();
+	imgPlus.src = "../media/images/plus.gif";
+	imgMinus.src = "../media/images/minus.gif";
+	
+	function showNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgMinus.src;
+		oTable.style.display = "block";
+	}
+	
+	function hideNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgPlus.src;
+		oTable.style.display = "none";
+	}
+	
+	function nodeIsVisible(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+        		break;
+        }
+		return (oTable && oTable.style.display == "block");
+	}
+	
+	function toggleNodeVisibility(Node){
+		if (nodeIsVisible(Node)){
+			hideNode(Node);
+		}else{
+			showNode(Node);
+		}
+	}
+</script>
+<!-- template designed by Julien Damon based on PHPEdit's generated templates, and tweaked by Greg Beaver -->
+<body bgcolor="#ffffff" >
+
+<!-- Start of Class Data -->
+<h2>
+	Class CModel
+</h2> (line <span class="linenumber">29</span>)
+<div class="tab-pane" id="tabPane1">
+<script type="text/javascript">
+tp1 = new WebFXTabPane( document.getElementById( "tabPane1" ));
+</script>
+
+<div class="tab-page" id="Description">
+<h2 class="tab">Description</h2>
+<pre>
+<a href="../system-base/CComponent.html">CComponent</a>
+   |
+   --CModel</pre>
+<p>
+	<b><i>Located in File: <a href="_CModel.php.html">/CModel.php</a></i></b><br>
+</p>
+<!-- ========== Info from phpDoc block ========= -->
+<h5>CModel is the base class providing the common features needed by data model objects.</h5>
+<div class="desc"><p>CModel defines the basic framework for data models that need to be validated.</p></div>
+<ul>
+		<li><strong>property:</strong> - CList $validatorList: All the validators declared in the model.</li>
+		<li><strong>property:</strong> - array $validators: The validators applicable to the current scenario.</li>
+		<li><strong>property:</strong> - array $errors: Errors for all attributes or the specified attribute. Empty array is returned if no error.</li>
+		<li><strong>property:</strong> - array $attributes: Attribute values (name=&gt;value).</li>
+		<li><strong>property:</strong> - string $scenario: The scenario that this model is in.</li>
+		<li><strong>property:</strong> - array $safeAttributeNames: Safe attribute names.</li>
+		<li><strong>property:</strong> - CMapIterator $iterator: An iterator for traversing the items in the list.</li>
+		<li><strong>author:</strong> - Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+		<li><strong>abstract:</strong> - </li>
+		<li><strong>since:</strong> - 1.0</li>
+	</ul>
+
+<br /><hr />
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "Description" ) );</script>
+<div class="tab-page" id="tabPage1">
+<h2 class="tab">Class Variables</h2>
+<!-- ============ VARIABLE DETAIL =========== -->
+<strong>Summary:</strong><br />
+<hr />
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage1" ) );</script>
+
+
+</div>
+<div class="tab-page" id="constantsTabpage">
+<h2 class="tab">Class Constants</h2>
+<!-- ============ VARIABLE DETAIL =========== -->
+<strong>Summary:</strong><br />
+<hr />
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "constantsTabpage" ) );</script>
+
+
+</div>
+<div class="tab-page" id="tabPage2">
+<h2 class="tab">Method Detail</h2>
+<!-- ============ METHOD DETAIL =========== -->
+<strong>Summary:</strong><br />
+<div class="method-summary">
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodaddError" title="details" class="method-name">addError</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$attribute</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$error</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodaddErrors" title="details" class="method-name">addErrors</a>
+        (<span class="var-type">array</span>&nbsp;<span class="var-name">$errors</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodafterConstruct" title="details" class="method-name">afterConstruct</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodafterValidate" title="details" class="method-name">afterValidate</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">array</span>
+        <a href="#methodattributeLabels" title="details" class="method-name">attributeLabels</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">array</span>
+        <a href="#methodattributeNames" title="details" class="method-name">attributeNames</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">boolean</span>
+        <a href="#methodbeforeValidate" title="details" class="method-name">beforeValidate</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">array</span>
+        <a href="#methodbehaviors" title="details" class="method-name">behaviors</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodclearErrors" title="details" class="method-name">clearErrors</a>
+        ([<span class="var-type">string</span>&nbsp;<span class="var-name">$attribute</span> = <span class="var-default">null</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">CList</span>
+        <a href="#methodcreateValidators" title="details" class="method-name">createValidators</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodgenerateAttributeLabel" title="details" class="method-name">generateAttributeLabel</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodgetAttributeLabel" title="details" class="method-name">getAttributeLabel</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$attribute</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">array</span>
+        <a href="#methodgetAttributes" title="details" class="method-name">getAttributes</a>
+        ([<span class="var-type">array</span>&nbsp;<span class="var-name">$names</span> = <span class="var-default">null</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodgetError" title="details" class="method-name">getError</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$attribute</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">array</span>
+        <a href="#methodgetErrors" title="details" class="method-name">getErrors</a>
+        ([<span class="var-type">string</span>&nbsp;<span class="var-name">$attribute</span> = <span class="var-default">null</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">CMapIterator</span>
+        <a href="#methodgetIterator" title="details" class="method-name">getIterator</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">array</span>
+        <a href="#methodgetSafeAttributeNames" title="details" class="method-name">getSafeAttributeNames</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodgetScenario" title="details" class="method-name">getScenario</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">CList</span>
+        <a href="#methodgetValidatorList" title="details" class="method-name">getValidatorList</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">array</span>
+        <a href="#methodgetValidators" title="details" class="method-name">getValidators</a>
+        ([<span class="var-type">string</span>&nbsp;<span class="var-name">$attribute</span> = <span class="var-default">null</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">boolean</span>
+        <a href="#methodhasErrors" title="details" class="method-name">hasErrors</a>
+        ([<span class="var-type">string</span>&nbsp;<span class="var-name">$attribute</span> = <span class="var-default">null</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">boolean</span>
+        <a href="#methodisAttributeRequired" title="details" class="method-name">isAttributeRequired</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$attribute</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">boolean</span>
+        <a href="#methodisAttributeSafe" title="details" class="method-name">isAttributeSafe</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$attribute</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">boolean</span>
+        <a href="#methodoffsetExists" title="details" class="method-name">offsetExists</a>
+        (<span class="var-type">mixed</span>&nbsp;<span class="var-name">$offset</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">mixed</span>
+        <a href="#methodoffsetGet" title="details" class="method-name">offsetGet</a>
+        (<span class="var-type">integer</span>&nbsp;<span class="var-name">$offset</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodoffsetSet" title="details" class="method-name">offsetSet</a>
+        (<span class="var-type">integer</span>&nbsp;<span class="var-name">$offset</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$item</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodoffsetUnset" title="details" class="method-name">offsetUnset</a>
+        (<span class="var-type">mixed</span>&nbsp;<span class="var-name">$offset</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodonAfterConstruct" title="details" class="method-name">onAfterConstruct</a>
+        (<span class="var-type"><a href="../system-base/CEvent.html">CEvent</a></span>&nbsp;<span class="var-name">$event</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodonAfterValidate" title="details" class="method-name">onAfterValidate</a>
+        (<span class="var-type"><a href="../system-base/CEvent.html">CEvent</a></span>&nbsp;<span class="var-name">$event</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodonBeforeValidate" title="details" class="method-name">onBeforeValidate</a>
+        (<span class="var-type"><a href="../system-base/CModelEvent.html">CModelEvent</a></span>&nbsp;<span class="var-name">$event</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodonUnsafeAttribute" title="details" class="method-name">onUnsafeAttribute</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">array</span>
+        <a href="#methodrules" title="details" class="method-name">rules</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodsetAttributes" title="details" class="method-name">setAttributes</a>
+        (<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$safeOnly</span> = <span class="var-default">true</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodsetScenario" title="details" class="method-name">setScenario</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodunsetAttributes" title="details" class="method-name">unsetAttributes</a>
+        ([<span class="var-type">array</span>&nbsp;<span class="var-name">$names</span> = <span class="var-default">null</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">boolean</span>
+        <a href="#methodvalidate" title="details" class="method-name">validate</a>
+        ([<span class="var-type">array</span>&nbsp;<span class="var-name">$attributes</span> = <span class="var-default">null</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$clearErrors</span> = <span class="var-default">true</span>])
+        </div>
+</div>
+<hr />
+<A NAME='method_detail'></A>
+
+
+<a name="methodaddError" id="methodaddError"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method addError</strong> (line <span class="linenumber">381</span>)
+ </h4> 
+<h4><i>void</i> <strong>addError(
+string
+$attribute, string
+$error)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Adds a new error to the specified attribute.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $attribute</strong>: attribute name</li>
+			<li><strong>string $error</strong>: new error message</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodaddErrors" id="methodaddErrors"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method addErrors</strong> (line <span class="linenumber">393</span>)
+ </h4> 
+<h4><i>void</i> <strong>addErrors(
+array
+$errors)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Adds a list of errors.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>array $errors</strong>: a list of errors. The array keys must be attribute names.  The array values should be error messages. If an attribute has multiple errors,  these errors must be given in terms of an array.  You may use the result of <a href="../system-base/CModel.html#methodgetErrors">getErrors</a> as the value for this parameter.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodafterConstruct" id="methodafterConstruct"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method afterConstruct</strong> (line <span class="linenumber">173</span>)
+ </h4> 
+<h4><i>void</i> <strong>afterConstruct(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>This method is invoked after a model instance is created by new operator.</h5>
+<div class="desc"><p>The default implementation raises the <a href="../system-base/CModel.html#methodonAfterConstruct">onAfterConstruct</a> event.  You may override this method to do postprocessing after model creation.  Make sure you call the parent implementation so that the event is raised properly.</p></div>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - protected</li>
+		</ul>
+
+</div>
+<a name="methodafterValidate" id="methodafterValidate"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method afterValidate</strong> (line <span class="linenumber">200</span>)
+ </h4> 
+<h4><i>void</i> <strong>afterValidate(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>This method is invoked after validation ends.</h5>
+<div class="desc"><p>The default implementation calls <a href="../system-base/CModel.html#methodonAfterValidate">onAfterValidate</a> to raise an event.  You may override this method to do postprocessing after validation.  Make sure the parent implementation is invoked so that the event can be raised.</p></div>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - protected</li>
+		</ul>
+
+</div>
+<a name="methodattributeLabels" id="methodattributeLabels"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method attributeLabels</strong> (line <span class="linenumber">128</span>)
+ </h4> 
+<h4><i>array</i> <strong>attributeLabels(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the attribute labels.</h5>
+<div class="desc"><p>Attribute labels are mainly used in error messages of validation.  By default an attribute label is generated using <a href="../system-base/CModel.html#methodgenerateAttributeLabel">generateAttributeLabel</a>.  This method allows you to explicitly specify attribute labels.</p><p>Note, in order to inherit labels defined in the parent class, a child class needs to  merge the parent labels with child labels using functions like array_merge().</p></div>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - attribute labels (name=&gt;label)</li>
+			<li><strong>see</strong> - <a href="../system-base/CModel.html#methodgenerateAttributeLabel">CModel::generateAttributeLabel()</a></li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodattributeNames" id="methodattributeNames"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method attributeNames</strong> (line <span class="linenumber">39</span>)
+ </h4> 
+<h4><i>array</i> <strong>attributeNames(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the list of attribute names of the model.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - list of attribute names.</li>
+			<li><strong>abstract</strong> - </li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodbeforeValidate" id="methodbeforeValidate"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method beforeValidate</strong> (line <span class="linenumber">187</span>)
+ </h4> 
+<h4><i>boolean</i> <strong>beforeValidate(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>This method is invoked before validation starts.</h5>
+<div class="desc"><p>The default implementation calls <a href="../system-base/CModel.html#methodonBeforeValidate">onBeforeValidate</a> to raise an event.  You may override this method to do preliminary checks before validation.  Make sure the parent implementation is invoked so that the event can be raised.</p></div>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - whether validation should be executed. Defaults to true.  If false is returned, the validation will stop and the model is considered invalid.</li>
+			<li><strong>access</strong> - protected</li>
+		</ul>
+
+</div>
+<a name="methodbehaviors" id="methodbehaviors"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method behaviors</strong> (line <span class="linenumber">111</span>)
+ </h4> 
+<h4><i>array</i> <strong>behaviors(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns a list of behaviors that this model should behave as.</h5>
+<div class="desc"><p>The return value should be an array of behavior configurations indexed by  behavior names. Each behavior configuration can be either a string specifying  the behavior class or an array of the following structure:  <pre> 'behaviorName'=>array(
+     'class'=>'path.to.BehaviorClass',
+     'property1'=>'value1',
+     'property2'=>'value2',
+ )</pre></p><p>Note, the behavior classes must implement <a href="../system-base/IBehavior.html">IBehavior</a> or extend from  <a href="../system-base/CBehavior.html">CBehavior</a>. Behaviors declared in this method will be attached  to the model when it is instantiated.</p><p>For more details about behaviors, see <a href="../system-base/CComponent.html">CComponent</a>.</p></div>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the behavior configurations (behavior name=&gt;behavior configuration)</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodclearErrors" id="methodclearErrors"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method clearErrors</strong> (line <span class="linenumber">411</span>)
+ </h4> 
+<h4><i>void</i> <strong>clearErrors(
+[string
+$attribute = null])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Removes errors for all attributes or a single attribute.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $attribute</strong>: attribute name. Use null to remove errors for all attribute.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodcreateValidators" id="methodcreateValidators"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method createValidators</strong> (line <span class="linenumber">281</span>)
+ </h4> 
+<h4><i>CList</i> <strong>createValidators(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Creates validator objects based on the specification in rules.</h5>
+<div class="desc"><p>This method is mainly used internally.</p></div>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - validators built based on <a href="../system-base/CModel.html#methodrules">rules()</a>.</li>
+			<li><strong>throws</strong> - CException if current class has an invalid validation rule</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgenerateAttributeLabel" id="methodgenerateAttributeLabel"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method generateAttributeLabel</strong> (line <span class="linenumber">427</span>)
+ </h4> 
+<h4><i>string</i> <strong>generateAttributeLabel(
+string
+$name)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Generates a user friendly attribute label.</h5>
+<div class="desc"><p>This is done by replacing underscores or dashes with blanks and  changing the first letter of each word to upper case.  For example, 'department_name' or 'DepartmentName' becomes 'Department Name'.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $name</strong>: the column name</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the attribute label</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetAttributeLabel" id="methodgetAttributeLabel"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getAttributeLabel</strong> (line <span class="linenumber">331</span>)
+ </h4> 
+<h4><i>string</i> <strong>getAttributeLabel(
+string
+$attribute)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the text label for the specified attribute.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $attribute</strong>: the attribute name</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the attribute label</li>
+			<li><strong>see</strong> - <a href="../system-base/CModel.html#methodgenerateAttributeLabel">CModel::generateAttributeLabel()</a></li>
+			<li><strong>see</strong> - <a href="../system-base/CModel.html#methodattributeLabels">CModel::attributeLabels()</a></li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetAttributes" id="methodgetAttributes"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getAttributes</strong> (line <span class="linenumber">439</span>)
+ </h4> 
+<h4><i>array</i> <strong>getAttributes(
+[array
+$names = null])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns all attribute values.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>array $names</strong>: list of attributes whose value needs to be returned.  Defaults to null, meaning all attributes as listed in <a href="../system-base/CModel.html#methodattributeNames">attributeNames</a> will be returned.  If it is an array, only the attributes in the array will be returned.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - attribute values (name=&gt;value).</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetError" id="methodgetError"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getError</strong> (line <span class="linenumber">371</span>)
+ </h4> 
+<h4><i>string</i> <strong>getError(
+string
+$attribute)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the first error of the specified attribute.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $attribute</strong>: attribute name.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the error message. Null is returned if no error.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetErrors" id="methodgetErrors"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getErrors</strong> (line <span class="linenumber">358</span>)
+ </h4> 
+<h4><i>array</i> <strong>getErrors(
+[string
+$attribute = null])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the errors for all attribute or a single attribute.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $attribute</strong>: attribute name. Use null to retrieve errors for all attributes.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - errors for all attributes or the specified attribute. Empty array is returned if no error.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetIterator" id="methodgetIterator"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getIterator</strong> (line <span class="linenumber">571</span>)
+ </h4> 
+<h4><i>CMapIterator</i> <strong>getIterator(
+)</strong></h4>
+
+			<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt>IteratorAggregate::getIterator</dt>
+					</dl>
+		<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns an iterator for traversing the attributes in the model.</h5>
+<div class="desc"><p>This method is required by the interface IteratorAggregate.</p></div>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - an iterator for traversing the items in the list.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetSafeAttributeNames" id="methodgetSafeAttributeNames"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getSafeAttributeNames</strong> (line <span class="linenumber">543</span>)
+ </h4> 
+<h4><i>array</i> <strong>getSafeAttributeNames(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the attribute names that are safe to be massively assigned.</h5>
+<div class="desc"><p>A safe attribute is one that is associated with a validation rule in the current scenario.</p></div>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - safe attribute names</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetScenario" id="methodgetScenario"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getScenario</strong> (line <span class="linenumber">523</span>)
+ </h4> 
+<h4><i>string</i> <strong>getScenario(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the scenario that this model is used in.</h5>
+<div class="desc"><p>Scenario affects how validation is performed and which attributes can  be massively assigned.</p><p>A validation rule will be performed when calling <a href="../system-base/CModel.html#methodvalidate">validate()</a>  if its 'except' value does not contain current scenario value while  'on' option is not set or contains the current scenario value.</p><p>And an attribute can be massively assigned if it is associated with  a validation rule for the current scenario. Note that an exception is  the CUnsafeValidator validator which marks the associated  attributes as unsafe and not allowed to be massively assigned.</p></div>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the scenario that this model is in.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetValidatorList" id="methodgetValidatorList"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getValidatorList</strong> (line <span class="linenumber">244</span>)
+ </h4> 
+<h4><i>CList</i> <strong>getValidatorList(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns all the validators declared in the model.</h5>
+<div class="desc"><p>This method differs from <a href="../system-base/CModel.html#methodgetValidators">getValidators</a> in that the latter  would only return the validators applicable to the current scenario.  Also, since this method return a CList object, you may  manipulate it by inserting or removing validators (useful in behaviors).  For example, <div class="src-code"><ol><li><div class="src-line"><strong>$model</strong><strong>-&gt;</strong>validatorList<strong>-&gt;</strong>add<strong>(</strong><strong>$newValidator</strong><strong>)</strong></div></li>
+</ol></div>.  The change made to the CList object will persist and reflect  in the result of the next call of <a href="../system-base/CModel.html#methodgetValidators">getValidators</a>.</p></div>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - all the validators declared in the model.</li>
+			<li><strong>since</strong> - 1.1.2</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetValidators" id="methodgetValidators"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getValidators</strong> (line <span class="linenumber">257</span>)
+ </h4> 
+<h4><i>array</i> <strong>getValidators(
+[string
+$attribute = null])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the validators applicable to the current scenario.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $attribute</strong>: the name of the attribute whose validators should be returned.  If this is null, the validators for ALL attributes in the model will be returned.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the validators applicable to the current scenario.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodhasErrors" id="methodhasErrors"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method hasErrors</strong> (line <span class="linenumber">345</span>)
+ </h4> 
+<h4><i>boolean</i> <strong>hasErrors(
+[string
+$attribute = null])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns a value indicating whether there is any validation error.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $attribute</strong>: attribute name. Use null to check all attributes.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - whether there is any error.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodisAttributeRequired" id="methodisAttributeRequired"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method isAttributeRequired</strong> (line <span class="linenumber">302</span>)
+ </h4> 
+<h4><i>boolean</i> <strong>isAttributeRequired(
+string
+$attribute)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns a value indicating whether the attribute is required.</h5>
+<div class="desc"><p>This is determined by checking if the attribute is associated with a  CRequiredValidator validation rule in the current scenario.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $attribute</strong>: attribute name</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - whether the attribute is required</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodisAttributeSafe" id="methodisAttributeSafe"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method isAttributeSafe</strong> (line <span class="linenumber">318</span>)
+ </h4> 
+<h4><i>boolean</i> <strong>isAttributeSafe(
+string
+$attribute)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns a value indicating whether the attribute is safe for massive assignments.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $attribute</strong>: attribute name</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - whether the attribute is safe for massive assignments</li>
+			<li><strong>since</strong> - 1.1</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodoffsetExists" id="methodoffsetExists"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method offsetExists</strong> (line <span class="linenumber">583</span>)
+ </h4> 
+<h4><i>boolean</i> <strong>offsetExists(
+mixed
+$offset)</strong></h4>
+
+			<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt>ArrayAccess::offsetExists</dt>
+					</dl>
+		<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns whether there is an element at the specified offset.</h5>
+<div class="desc"><p>This method is required by the interface ArrayAccess.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>mixed $offset</strong>: the offset to check on</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodoffsetGet" id="methodoffsetGet"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method offsetGet</strong> (line <span class="linenumber">594</span>)
+ </h4> 
+<h4><i>mixed</i> <strong>offsetGet(
+integer
+$offset)</strong></h4>
+
+			<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt>ArrayAccess::offsetGet</dt>
+					</dl>
+		<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the element at the specified offset.</h5>
+<div class="desc"><p>This method is required by the interface ArrayAccess.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>integer $offset</strong>: the offset to retrieve element.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the element at the offset, null if no element is found at the offset</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodoffsetSet" id="methodoffsetSet"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method offsetSet</strong> (line <span class="linenumber">605</span>)
+ </h4> 
+<h4><i>void</i> <strong>offsetSet(
+integer
+$offset, mixed
+$item)</strong></h4>
+
+			<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt>ArrayAccess::offsetSet</dt>
+					</dl>
+		<!-- ========== Info from phpDoc block ========= -->
+<h5>Sets the element at the specified offset.</h5>
+<div class="desc"><p>This method is required by the interface ArrayAccess.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>integer $offset</strong>: the offset to set element</li>
+			<li><strong>mixed $item</strong>: the element value</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodoffsetUnset" id="methodoffsetUnset"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method offsetUnset</strong> (line <span class="linenumber">615</span>)
+ </h4> 
+<h4><i>void</i> <strong>offsetUnset(
+mixed
+$offset)</strong></h4>
+
+			<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt>ArrayAccess::offsetUnset</dt>
+					</dl>
+		<!-- ========== Info from phpDoc block ========= -->
+<h5>Unsets the element at the specified offset.</h5>
+<div class="desc"><p>This method is required by the interface ArrayAccess.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>mixed $offset</strong>: the offset to unset element</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodonAfterConstruct" id="methodonAfterConstruct"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method onAfterConstruct</strong> (line <span class="linenumber">209</span>)
+ </h4> 
+<h4><i>void</i> <strong>onAfterConstruct(
+<a href="../system-base/CEvent.html">CEvent</a>
+$event)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>This event is raised after the model instance is created by new operator.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong><a href="../system-base/CEvent.html">CEvent</a> $event</strong>: the event parameter</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodonAfterValidate" id="methodonAfterValidate"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method onAfterValidate</strong> (line <span class="linenumber">227</span>)
+ </h4> 
+<h4><i>void</i> <strong>onAfterValidate(
+<a href="../system-base/CEvent.html">CEvent</a>
+$event)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>This event is raised after the validation is performed.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong><a href="../system-base/CEvent.html">CEvent</a> $event</strong>: the event parameter</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodonBeforeValidate" id="methodonBeforeValidate"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method onBeforeValidate</strong> (line <span class="linenumber">218</span>)
+ </h4> 
+<h4><i>void</i> <strong>onBeforeValidate(
+<a href="../system-base/CModelEvent.html">CModelEvent</a>
+$event)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>This event is raised before the validation is performed.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong><a href="../system-base/CModelEvent.html">CModelEvent</a> $event</strong>: the event parameter</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodonUnsafeAttribute" id="methodonUnsafeAttribute"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method onUnsafeAttribute</strong> (line <span class="linenumber">500</span>)
+ </h4> 
+<h4><i>void</i> <strong>onUnsafeAttribute(
+string
+$name, mixed
+$value)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>This method is invoked when an unsafe attribute is being massively assigned.</h5>
+<div class="desc"><p>The default implementation will log a warning message if YII_DEBUG is on.  It does nothing otherwise.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $name</strong>: the unsafe attribute name</li>
+			<li><strong>mixed $value</strong>: the attribute value</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>since</strong> - 1.1.1</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodrules" id="methodrules"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method rules</strong> (line <span class="linenumber">86</span>)
+ </h4> 
+<h4><i>array</i> <strong>rules(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the validation rules for attributes.</h5>
+<div class="desc"><p>This method should be overridden to declare validation rules.  Each rule is an array with the following structure:  <pre> array('attribute list', 'validator name', 'on'=>'scenario name', ...validation parameters...)</pre>  where  <ul><li>attribute list: specifies the attributes (separated by commas) to be validated;</li><li>validator name: specifies the validator to be used. It can be the name of a model class
+   method, the name of a built-in validator, or a validator class (or its path alias).
+   A validation method must have the following signature:
+ <pre> // $params refers to validation parameters given in the rule
+ function validatorName($attribute,$params)</pre>
+   A built-in validator refers to one of the validators declared in CValidator::builtInValidators.
+   And a validator class is a class extending CValidator.</li><li>on: this specifies the scenarios when the validation rule should be performed.
+   Separate different scenarios with commas. If this option is not set, the rule
+   will be applied in any scenario that is not listed in &quot;except&quot;. Please see scenario for more details about this option.</li><li>except: this specifies the scenarios when the validation rule should not be performed.
+   Separate different scenarios with commas. Please see scenario for more details about this option.</li><li>additional parameters are used to initialize the corresponding validator properties.
+   Please refer to individual validator class API for possible properties.</li></ul></p><p>The following are some examples:  <pre> array(
+     array('username', 'required'),
+     array('username', 'length', 'min'=>3, 'max'=>12),
+     array('password', 'compare', 'compareAttribute'=>'password2', 'on'=>'register'),
+     array('password', 'authenticate', 'on'=>'login'),
+ );</pre></p><p>Note, in order to inherit rules defined in the parent class, a child class needs to  merge the parent rules with child rules using functions like array_merge().</p></div>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - validation rules to be applied when <a href="../system-base/CModel.html#methodvalidate">validate()</a> is called.</li>
+			<li><strong>see</strong> - scenario</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodsetAttributes" id="methodsetAttributes"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method setAttributes</strong> (line <span class="linenumber">464</span>)
+ </h4> 
+<h4><i>void</i> <strong>setAttributes(
+array
+$values, [boolean
+$safeOnly = true])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Sets the attribute values in a massive way.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>array $values</strong>: attribute values (name=&gt;value) to be set.</li>
+			<li><strong>boolean $safeOnly</strong>: whether the assignments should only be done to the safe attributes.  A safe attribute is one that is associated with a validation rule in the current scenario.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>see</strong> - <a href="../system-base/CModel.html#methodgetSafeAttributeNames">CModel::getSafeAttributeNames()</a></li>
+			<li><strong>see</strong> - <a href="../system-base/CModel.html#methodattributeNames">CModel::attributeNames()</a></li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodsetScenario" id="methodsetScenario"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method setScenario</strong> (line <span class="linenumber">533</span>)
+ </h4> 
+<h4><i>void</i> <strong>setScenario(
+string
+$value)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Sets the scenario for the model.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $value</strong>: the scenario that this model is in.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>see</strong> - <a href="../system-base/CModel.html#methodgetScenario">CModel::getScenario()</a></li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodunsetAttributes" id="methodunsetAttributes"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method unsetAttributes</strong> (line <span class="linenumber">484</span>)
+ </h4> 
+<h4><i>void</i> <strong>unsetAttributes(
+[array
+$names = null])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Sets the attributes to be null.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>array $names</strong>: list of attributes to be set null. If this parameter is not given,  all attributes as specified by <a href="../system-base/CModel.html#methodattributeNames">attributeNames</a> will have their values unset.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>since</strong> - 1.1.3</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodvalidate" id="methodvalidate"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method validate</strong> (line <span class="linenumber">152</span>)
+ </h4> 
+<h4><i>boolean</i> <strong>validate(
+[array
+$attributes = null], [boolean
+$clearErrors = true])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Performs the validation.</h5>
+<div class="desc"><p>This method executes the validation rules as declared in <a href="../system-base/CModel.html#methodrules">rules</a>.  Only the rules applicable to the current scenario will be executed.  A rule is considered applicable to a scenario if its 'on' option is not set  or contains the scenario.</p><p>Errors found during the validation can be retrieved via <a href="../system-base/CModel.html#methodgetErrors">getErrors</a>.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>array $attributes</strong>: list of attributes that should be validated. Defaults to null,  meaning any attribute listed in the applicable validation rules should be  validated. If this parameter is given as a list of attributes, only  the listed attributes will be validated.</li>
+			<li><strong>boolean $clearErrors</strong>: whether to call <a href="../system-base/CModel.html#methodclearErrors">clearErrors</a> before performing validation</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - whether the validation is successful without any error.</li>
+			<li><strong>see</strong> - <a href="../system-base/CModel.html#methodbeforeValidate">CModel::beforeValidate()</a></li>
+			<li><strong>see</strong> - <a href="../system-base/CModel.html#methodafterValidate">CModel::afterValidate()</a></li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage2" ) );</script>
+
+</div>
+<div class="tab-page" id="iVars">
+<h2 class="tab">Inherited Variables</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "iVars" ) );</script>
+<!-- =========== VAR INHERITED SUMMARY =========== -->
+<A NAME='var_inherited_summary'><!-- --></A>
+<h3>Inherited Class Variable Summary</h3>
+
+	</div>
+<div class="tab-page" id="iMethods">
+<h2 class="tab">Inherited Methods</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "iMethods" ) );</script>
+<!-- =========== INHERITED METHOD SUMMARY =========== -->
+<A NAME='functions_inherited'><!-- --></A>
+<h3>Inherited Method Summary</h3>
+
+		<!-- =========== Summary =========== -->
+	<h4>Inherited From Class <a href="../system-base/CComponent.html">CComponent</a></h4>
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodasa">CComponent::asa()</a></strong> - Returns the named behavior object.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodattachBehavior">CComponent::attachBehavior()</a></strong> - Attaches a behavior to this component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodattachBehaviors">CComponent::attachBehaviors()</a></strong> - Attaches a list of behaviors to the component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodattachEventHandler">CComponent::attachEventHandler()</a></strong> - Attaches an event handler to an event.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodcanGetProperty">CComponent::canGetProperty()</a></strong> - Determines whether a property can be read.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodcanSetProperty">CComponent::canSetProperty()</a></strong> - Determines whether a property can be set.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddetachBehavior">CComponent::detachBehavior()</a></strong> - Detaches a behavior from the component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddetachBehaviors">CComponent::detachBehaviors()</a></strong> - Detaches all behaviors from the component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddetachEventHandler">CComponent::detachEventHandler()</a></strong> - Detaches an existing event handler.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddisableBehavior">CComponent::disableBehavior()</a></strong> - Disables an attached behavior.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddisableBehaviors">CComponent::disableBehaviors()</a></strong> - Disables all behaviors attached to this component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodenableBehavior">CComponent::enableBehavior()</a></strong> - Enables an attached behavior.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodenableBehaviors">CComponent::enableBehaviors()</a></strong> - Enables all behaviors attached to this component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodevaluateExpression">CComponent::evaluateExpression()</a></strong> - Evaluates a PHP expression or callback under the context of this component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodgetEventHandlers">CComponent::getEventHandlers()</a></strong> - Returns the list of attached event handlers for an event.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodhasEvent">CComponent::hasEvent()</a></strong> - Determines whether an event is defined.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodhasEventHandler">CComponent::hasEventHandler()</a></strong> - Checks whether the named event has attached handlers.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodhasProperty">CComponent::hasProperty()</a></strong> - Determines whether a property is defined.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodraiseEvent">CComponent::raiseEvent()</a></strong> - Raises an event.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__call">CComponent::__call()</a></strong> - Calls the named method which is not a class method.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__get">CComponent::__get()</a></strong> - Returns a property value, an event handler list or a behavior based on its name.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__isset">CComponent::__isset()</a></strong> - Checks if a property value is null.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__set">CComponent::__set()</a></strong> - Sets value of a component property.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__unset">CComponent::__unset()</a></strong> - Sets a component property to be null.
+		</h4> 
+
+				<br />
+	</div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+
+setupAllTabs();
+
+//]]>
+</script>
+	<div id="credit">
+		<hr />
+		Documentation generated on Mon, 11 Jul 2016 21:51:43 +0800 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.4</a>
+	</div>
+</body>
+</html>
+

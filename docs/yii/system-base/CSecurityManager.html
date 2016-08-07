@@ -1,0 +1,962 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Docs For Class CSecurityManager</title>
+  <link rel="stylesheet" href="../media/stylesheet.css" />
+  <script src="../media/lib/classTree.js"></script>
+<link id="webfx-tab-style-sheet" type="text/css" rel="stylesheet" href="../media/lib/tab.webfx.css" />
+<script type="text/javascript" src="../media/lib/tabpane.js"></script>
+  <script language="javascript" type="text/javascript" src="../media/lib/ua.js"></script>
+<script language="javascript" type="text/javascript">
+	var imgPlus = new Image();
+	var imgMinus = new Image();
+	imgPlus.src = "../media/images/plus.gif";
+	imgMinus.src = "../media/images/minus.gif";
+	
+	function showNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgMinus.src;
+		oTable.style.display = "block";
+	}
+	
+	function hideNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgPlus.src;
+		oTable.style.display = "none";
+	}
+	
+	function nodeIsVisible(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+        		break;
+        }
+		return (oTable && oTable.style.display == "block");
+	}
+	
+	function toggleNodeVisibility(Node){
+		if (nodeIsVisible(Node)){
+			hideNode(Node);
+		}else{
+			showNode(Node);
+		}
+	}
+</script>
+<!-- template designed by Julien Damon based on PHPEdit's generated templates, and tweaked by Greg Beaver -->
+<body bgcolor="#ffffff" >
+
+<!-- Start of Class Data -->
+<h2>
+	Class CSecurityManager
+</h2> (line <span class="linenumber">46</span>)
+<div class="tab-pane" id="tabPane1">
+<script type="text/javascript">
+tp1 = new WebFXTabPane( document.getElementById( "tabPane1" ));
+</script>
+
+<div class="tab-page" id="Description">
+<h2 class="tab">Description</h2>
+<pre>
+<a href="../system-base/CComponent.html">CComponent</a>
+   |
+   --<a href="../system-base/CApplicationComponent.html">CApplicationComponent</a>
+      |
+      --CSecurityManager</pre>
+<p>
+	<b><i>Located in File: <a href="_CSecurityManager.php.html">/CSecurityManager.php</a></i></b><br>
+</p>
+<!-- ========== Info from phpDoc block ========= -->
+<h5>CSecurityManager provides private keys, hashing and encryption functions.</h5>
+<div class="desc"><p>CSecurityManager is used by Yii components and applications for security-related purpose.  For example, it is used in cookie validation feature to prevent cookie data  from being tampered.</p><p>CSecurityManager is mainly used to protect data from being tampered and viewed.  It can generate HMAC and encrypt the data. The private key used to generate HMAC  is set by <a href="../system-base/CSecurityManager.html#methodsetValidationKey">ValidationKey</a>. The key used to encrypt data is  specified by <a href="../system-base/CSecurityManager.html#methodsetEncryptionKey">EncryptionKey</a>. If the above keys are not  explicitly set, random keys will be generated and used.</p><p>To protected data with HMAC, call <a href="../system-base/CSecurityManager.html#methodhashData">hashData()</a>; and to check if the data  is tampered, call <a href="../system-base/CSecurityManager.html#methodvalidateData">validateData()</a>, which will return the real data if  it is not tampered. The algorithm used to generated HMAC is specified by  validation.</p><p>To encrypt and decrypt data, call <a href="../system-base/CSecurityManager.html#methodencrypt">encrypt()</a> and <a href="../system-base/CSecurityManager.html#methoddecrypt">decrypt()</a>  respectively, which uses 3DES encryption algorithm.  Note, the PHP Mcrypt  extension must be installed and loaded.</p><p>CSecurityManager is a core application component that can be accessed via  <a href="../system-base/CApplication.html#methodgetSecurityManager">CApplication::getSecurityManager()</a>.</p></div>
+<ul>
+		<li><strong>property:</strong> - string $validationKey: The private key used to generate HMAC.  If the key is not explicitly set, a random one is generated and returned.</li>
+		<li><strong>property:</strong> - string $encryptionKey: The private key used to encrypt/decrypt data.  If the key is not explicitly set, a random one is generated and returned.</li>
+		<li><strong>author:</strong> - Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+		<li><strong>since:</strong> - 1.0</li>
+	</ul>
+
+<br /><hr />
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "Description" ) );</script>
+<div class="tab-page" id="tabPage1">
+<h2 class="tab">Class Variables</h2>
+<!-- ============ VARIABLE DETAIL =========== -->
+<strong>Summary:</strong><br />
+<div class="var-title">
+    static <span class="var-type">array</span>
+    <a href="#var$encryptionKeyMinimumLengths" title="details" class="property"><strong>$encryptionKeyMinimumLengths</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$cryptAlgorithm" title="details" class="property"><strong>$cryptAlgorithm</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">string</span>
+    <a href="#var$hashAlgorithm" title="details" class="property"><strong>$hashAlgorithm</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">boolean</span>
+    <a href="#var$validateEncryptionKey" title="details" class="property"><strong>$validateEncryptionKey</strong></a>
+</div>
+<hr />
+<a name="var$encryptionKeyMinimumLengths" id="var$encryptionKeyMinimumLengths"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">static $encryptionKeyMinimumLengths = array(<br />		'blowfish'=&gt;4,<br />		'arcfour'=&gt;5,<br />		'rc2'=&gt;5,<br />	)</strong> (line <span class="linenumber">54</span>)
+ </h4>
+<h4>Data type : array</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+		<li><strong>var:</strong> - known minimum lengths per encryption algorithm</li>
+		<li><strong>access:</strong> - protected</li>
+	</ul>
+
+</div>
+<a name="var$cryptAlgorithm" id="var$cryptAlgorithm"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$cryptAlgorithm = 'rijndael-128'</strong> (line <span class="linenumber">93</span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+		<li><strong>var:</strong> - <p>the name of the crypt algorithm to be used by <a href="../system-base/CSecurityManager.html#methodencrypt">encrypt</a> and <a href="../system-base/CSecurityManager.html#methoddecrypt">decrypt</a>.  This will be passed as the first parameter to <a href="http://php.net/manual/en/function.mcrypt-module-open.php">mcrypt_module_open</a>.</p><p>This property can also be configured as an array. In this case, the array elements will be passed in order  as parameters to mcrypt_module_open. For example, <div class="src-code"><ol><li><div class="src-line">array<strong>(</strong><font color="#66cccc">'rijndael-128'</font><strong>,&nbsp;</strong><font color="#66cccc">''</font><strong>,&nbsp;</strong><font color="#66cccc">'ofb'</font><strong>,&nbsp;</strong><font color="#66cccc">''</font><strong>)</strong></div></li>
+</ol></div>.</p><p>Defaults to AES</p><p>Note: MCRYPT_RIJNDAEL_192 and MCRYPT_RIJNDAEL_256 are *not* AES-192 and AES-256. The numbers of the MCRYPT_RIJNDAEL  constants refer to the block size, whereas the numbers of the AES variants refer to the key length. AES is Rijndael  with a block size of 128 bits and a key length of 128 bits, 192 bits or 256 bits. So to use AES in Mcrypt, you need  MCRYPT_RIJNDAEL_128 and a key with 16 bytes (AES-128), 24 bytes (AES-192) or 32 bytes (AES-256). The other two  Rijndael variants in Mcrypt should be avoided, because they're not standardized and have been analyzed much less  than AES.</p></li>
+		<li><strong>since:</strong> - 1.1.3</li>
+		<li><strong>access:</strong> - public</li>
+	</ul>
+
+</div>
+<a name="var$hashAlgorithm" id="var$hashAlgorithm"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$hashAlgorithm = 'sha1'</strong> (line <span class="linenumber">74</span>)
+ </h4>
+<h4>Data type : string</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+		<li><strong>var:</strong> - <p>the name of the hashing algorithm to be used by <a href="../system-base/CSecurityManager.html#methodcomputeHMAC">computeHMAC</a>.  See <a href="http://php.net/manual/en/function.hash-algos.php">hash-algos</a> for the list of possible  hash algorithms. Note that if you are using PHP 5.1.1 or below, you can only use 'sha1' or 'md5'.</p><p>Defaults to 'sha1', meaning using SHA1 hash algorithm.</p></li>
+		<li><strong>since:</strong> - 1.1.3</li>
+		<li><strong>access:</strong> - public</li>
+	</ul>
+
+</div>
+<a name="var$validateEncryptionKey" id="var$validateEncryptionKey"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$validateEncryptionKey = true</strong> (line <span class="linenumber">64</span>)
+ </h4>
+<h4>Data type : boolean</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+		<li><strong>var:</strong> - if encryption key should be validated</li>
+		<li><strong>deprecated:</strong> - </li>
+		<li><strong>access:</strong> - public</li>
+	</ul>
+
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage1" ) );</script>
+
+
+</div>
+<div class="tab-page" id="constantsTabpage">
+<h2 class="tab">Class Constants</h2>
+<!-- ============ VARIABLE DETAIL =========== -->
+<strong>Summary:</strong><br />
+<div class="const-title">
+    <a href="#constSTATE_ENCRYPTION_KEY" title="details" class="property"><strong>STATE_ENCRYPTION_KEY</strong></a>
+</div>
+<div class="const-title">
+    <a href="#constSTATE_VALIDATION_KEY" title="details" class="property"><strong>STATE_VALIDATION_KEY</strong></a>
+</div>
+<hr />
+<a name="constSTATE_ENCRYPTION_KEY" id="constSTATE_ENCRYPTION_KEY"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/Constant.gif" border="0" /> <strong class="property">STATE_ENCRYPTION_KEY = 'Yii.CSecurityManager.encryptionkey'</strong> (line <span class="linenumber">49</span>)
+ </h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+
+</div>
+<a name="constSTATE_VALIDATION_KEY" id="constSTATE_VALIDATION_KEY"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/Constant.gif" border="0" /> <strong class="property">STATE_VALIDATION_KEY = 'Yii.CSecurityManager.validationkey'</strong> (line <span class="linenumber">48</span>)
+ </h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "constantsTabpage" ) );</script>
+
+
+</div>
+<div class="tab-page" id="tabPage2">
+<h2 class="tab">Method Detail</h2>
+<!-- ============ METHOD DETAIL =========== -->
+<strong>Summary:</strong><br />
+<div class="method-summary">
+    <div class="method-definition">
+            <span class="method-result">boolean</span>
+        <a href="#methodcompareString" title="details" class="method-name">compareString</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$expected</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$actual</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodcomputeHMAC" title="details" class="method-name">computeHMAC</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$data</span>, [<span class="var-type">string|null</span>&nbsp;<span class="var-name">$key</span> = <span class="var-default">null</span>], [<span class="var-type">string|null</span>&nbsp;<span class="var-name">$hashAlgorithm</span> = <span class="var-default">null</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methoddecrypt" title="details" class="method-name">decrypt</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$data</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span> = <span class="var-default">null</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodencrypt" title="details" class="method-name">encrypt</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$data</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span> = <span class="var-default">null</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodgeneratePseudoRandomBlock" title="details" class="method-name">generatePseudoRandomBlock</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">boolean|string</span>
+        <a href="#methodgenerateRandomBytes" title="details" class="method-name">generateRandomBytes</a>
+        (<span class="var-type">integer</span>&nbsp;<span class="var-name">$length</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$cryptographicallyStrong</span> = <span class="var-default">true</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodgenerateRandomKey" title="details" class="method-name">generateRandomKey</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string|boolean</span>
+        <a href="#methodgenerateRandomString" title="details" class="method-name">generateRandomString</a>
+        (<span class="var-type">integer</span>&nbsp;<span class="var-name">$length</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$cryptographicallyStrong</span> = <span class="var-default">true</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">boolean|string</span>
+        <a href="#methodgenerateSessionRandomBlock" title="details" class="method-name">generateSessionRandomBlock</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodgetEncryptionKey" title="details" class="method-name">getEncryptionKey</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodgetValidation" title="details" class="method-name">getValidation</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodgetValidationKey" title="details" class="method-name">getValidationKey</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodhashData" title="details" class="method-name">hashData</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$data</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span> = <span class="var-default">null</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodinit" title="details" class="method-name">init</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodlegacyDecrypt" title="details" class="method-name">legacyDecrypt</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$data</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span> = <span class="var-default">null</span>], [<span class="var-type">string|array</span>&nbsp;<span class="var-name">$cipher</span> = <span class="var-default">'des'</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">resource</span>
+        <a href="#methodopenCryptModule" title="details" class="method-name">openCryptModule</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodsetEncryptionKey" title="details" class="method-name">setEncryptionKey</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodsetValidation" title="details" class="method-name">setValidation</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodsetValidationKey" title="details" class="method-name">setValidationKey</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodvalidateData" title="details" class="method-name">validateData</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$data</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span> = <span class="var-default">null</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">boolean</span>
+        <a href="#methodvalidateEncryptionKey" title="details" class="method-name">validateEncryptionKey</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>)
+        </div>
+</div>
+<hr />
+<A NAME='method_detail'></A>
+
+
+<a name="methodcompareString" id="methodcompareString"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method compareString</strong> (line <span class="linenumber">606</span>)
+ </h4> 
+<h4><i>boolean</i> <strong>compareString(
+string
+$expected, string
+$actual)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Performs string comparison using timing attack resistant approach.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $expected</strong>: string to compare.</li>
+			<li><strong>string $actual</strong>: user-supplied string.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - whether strings are equal.</li>
+			<li><strong>see</strong> - <a href="http://codereview.stackexchange.com/questions/13512">http://codereview.stackexchange.com/questions/13512</a></li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodcomputeHMAC" id="methodcomputeHMAC"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method computeHMAC</strong> (line <span class="linenumber">327</span>)
+ </h4> 
+<h4><i>string</i> <strong>computeHMAC(
+string
+$data, [string|null
+$key = null], [string|null
+$hashAlgorithm = null])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Computes the HMAC for the data with getValidationKey. This method has been made public  since 1.1.14.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $data</strong>: data to be generated HMAC.</li>
+			<li><strong>string|null $key</strong>: the private key to be used for generating HMAC. Defaults to null, meaning using  validationKey value.</li>
+			<li><strong>string|null $hashAlgorithm</strong>: the name of the hashing algorithm to be used.  See <a href="http://php.net/manual/en/function.hash-algos.php">hash-algos</a> for the list of possible  hash algorithms. Note that if you are using PHP 5.1.1 or below, you can only use 'sha1' or 'md5'.  Defaults to null, meaning using <a href="../system-base/CSecurityManager.html#var$hashAlgorithm">hashAlgorithm</a> value.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the HMAC for the data.</li>
+			<li><strong>throws</strong> - CException on unsupported hash algorithm given.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methoddecrypt" id="methoddecrypt"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method decrypt</strong> (line <span class="linenumber">240</span>)
+ </h4> 
+<h4><i>string</i> <strong>decrypt(
+string
+$data, [string
+$key = null])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Decrypts data</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $data</strong>: data to be decrypted.</li>
+			<li><strong>string $key</strong>: the decryption key. This defaults to null, meaning using <a href="../system-base/CSecurityManager.html#methodgetEncryptionKey">EncryptionKey</a>.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the decrypted data</li>
+			<li><strong>throws</strong> - CException if PHP Mcrypt extension is not loaded or key is invalid</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodencrypt" id="methodencrypt"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method encrypt</strong> (line <span class="linenumber">218</span>)
+ </h4> 
+<h4><i>string</i> <strong>encrypt(
+string
+$data, [string
+$key = null])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Encrypts data.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $data</strong>: data to be encrypted.</li>
+			<li><strong>string $key</strong>: the decryption key. This defaults to null, meaning using <a href="../system-base/CSecurityManager.html#methodgetEncryptionKey">EncryptionKey</a>.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the encrypted data</li>
+			<li><strong>throws</strong> - CException if PHP Mcrypt extension is not loaded or key is invalid</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgeneratePseudoRandomBlock" id="methodgeneratePseudoRandomBlock"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method generatePseudoRandomBlock</strong> (line <span class="linenumber">440</span>)
+ </h4> 
+<h4><i>string</i> <strong>generatePseudoRandomBlock(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Generate a pseudo random block of data using several sources. On some systems this may be a bit  better than PHP's <a href="http://www.php.net/mt_rand">http://www.php.net/mt_rand</a> built-in function, which is not really random.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - of 64 pseudo random bytes.</li>
+			<li><strong>since</strong> - 1.1.14</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgenerateRandomBytes" id="methodgenerateRandomBytes"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method generateRandomBytes</strong> (line <span class="linenumber">391</span>)
+ </h4> 
+<h4><i>boolean|string</i> <strong>generateRandomBytes(
+integer
+$length, [boolean
+$cryptographicallyStrong = true])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Generates a string of random bytes.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>integer $length</strong>: number of random bytes to be generated.</li>
+			<li><strong>boolean $cryptographicallyStrong</strong>: whether to fail if a cryptographically strong  result cannot be generated. The method attempts to read from a cryptographically strong  pseudorandom number generator (CS-PRNG), see  <a href="https://en.wikipedia.org/wiki/Cryptographically_secure_pseudorandom_number_generator#Requirements">Wikipedia</a>.  However, in some runtime environments, PHP has no access to a CS-PRNG, in which case  the method returns false if $cryptographicallyStrong is true. When $cryptographicallyStrong is false,  the method always returns a pseudorandom result but may fall back to using <a href="../system-base/CSecurityManager.html#methodgeneratePseudoRandomBlock">generatePseudoRandomBlock</a>.  This method does not guarantee that entropy, from sources external to the CS-PRNG, was mixed into  the CS-PRNG state between each successive call. The caller can therefore expect non-blocking  behavior, unlike, for example, reading from /dev/random on Linux, see  <a href="http://eprint.iacr.org/2006/086.pdf">Gutterman et al 2006</a>.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - generated random binary string or false on failure.</li>
+			<li><strong>since</strong> - 1.1.14</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgenerateRandomKey" id="methodgenerateRandomKey"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method generateRandomKey</strong> (line <span class="linenumber">110</span>)
+ </h4> 
+<h4><i>string</i> <strong>generateRandomKey(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - a randomly generated private key.</li>
+			<li><strong>deprecated</strong> - in favor of <a href="../system-base/CSecurityManager.html#methodgenerateRandomString">generateRandomString()</a> since 1.1.14. Never use this method.</li>
+			<li><strong>access</strong> - protected</li>
+		</ul>
+
+</div>
+<a name="methodgenerateRandomString" id="methodgenerateRandomString"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method generateRandomString</strong> (line <span class="linenumber">367</span>)
+ </h4> 
+<h4><i>string|boolean</i> <strong>generateRandomString(
+integer
+$length, [boolean
+$cryptographicallyStrong = true])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Generate a random ASCII string. Generates only [0-9a-zA-z_~] characters which are all  transparent in raw URL encoding.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>integer $length</strong>: length of the generated string in characters.</li>
+			<li><strong>boolean $cryptographicallyStrong</strong>: set this to require cryptographically strong randomness.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - random string or false in case it cannot be generated.</li>
+			<li><strong>since</strong> - 1.1.14</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgenerateSessionRandomBlock" id="methodgenerateSessionRandomBlock"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method generateSessionRandomBlock</strong> (line <span class="linenumber">477</span>)
+ </h4> 
+<h4><i>boolean|string</i> <strong>generateSessionRandomBlock(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Get random bytes from the system entropy source via PHP session manager.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - 20-byte random binary string or false on error.</li>
+			<li><strong>since</strong> - 1.1.14</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetEncryptionKey" id="methodgetEncryptionKey"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getEncryptionKey</strong> (line <span class="linenumber">158</span>)
+ </h4> 
+<h4><i>string</i> <strong>getEncryptionKey(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the private key used to encrypt/decrypt data.  If the key is not explicitly set, a random one is generated and returned.</li>
+			<li><strong>throws</strong> - CException in case random string cannot be generated.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetValidation" id="methodgetValidation"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getValidation</strong> (line <span class="linenumber">195</span>)
+ </h4> 
+<h4><i>string</i> <strong>getValidation(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>This method has been deprecated since version 1.1.3.</h5>
+<div class="desc"><p>Please use <a href="../system-base/CSecurityManager.html#var$hashAlgorithm">hashAlgorithm</a> instead.</p></div>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - -</li>
+			<li><strong>deprecated</strong> - </li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetValidationKey" id="methodgetValidationKey"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getValidationKey</strong> (line <span class="linenumber">120</span>)
+ </h4> 
+<h4><i>string</i> <strong>getValidationKey(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the private key used to generate HMAC.  If the key is not explicitly set, a random one is generated and returned.</li>
+			<li><strong>throws</strong> - CException in case random string cannot be generated.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodhashData" id="methodhashData"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method hashData</strong> (line <span class="linenumber">285</span>)
+ </h4> 
+<h4><i>string</i> <strong>hashData(
+string
+$data, [string
+$key = null])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Prefixes data with an HMAC.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $data</strong>: data to be hashed.</li>
+			<li><strong>string $key</strong>: the private key to be used for generating HMAC. Defaults to null, meaning using validationKey.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - data prefixed with HMAC</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodinit" id="methodinit"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method init</strong> (line <span class="linenumber">100</span>)
+ </h4> 
+<h4><i>void</i> <strong>init(
+)</strong></h4>
+
+<p><strong>Overrides :</strong> <a href="../system-base/CApplicationComponent.html#methodinit">CApplicationComponent::init()</a> Initializes the application component.</p>
+	<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodlegacyDecrypt" id="methodlegacyDecrypt"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method legacyDecrypt</strong> (line <span class="linenumber">566</span>)
+ </h4> 
+<h4><i>string</i> <strong>legacyDecrypt(
+string
+$data, [string
+$key = null], [string|array
+$cipher = 'des'])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Decrypts legacy ciphertext which was produced by the old, broken implementation of encrypt().</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $data</strong>: data to be decrypted.</li>
+			<li><strong>string $key</strong>: the decryption key. This defaults to null, meaning the key should be loaded from persistent storage.</li>
+			<li><strong>string|array $cipher</strong>: the algorithm to be used</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the decrypted data</li>
+			<li><strong>deprecated</strong> - use only to convert data encrypted prior to 1.1.16</li>
+			<li><strong>throws</strong> - CException if PHP Mcrypt extension is not loaded</li>
+			<li><strong>throws</strong> - CException if the key is missing</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodopenCryptModule" id="methodopenCryptModule"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method openCryptModule</strong> (line <span class="linenumber">261</span>)
+ </h4> 
+<h4><i>resource</i> <strong>openCryptModule(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Opens the mcrypt module with the configuration specified in cryptAlgorithm.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the mycrypt module handle.</li>
+			<li><strong>throws</strong> - CException if failed to initialize the mcrypt module or PHP mcrypt extension</li>
+			<li><strong>since</strong> - 1.1.3</li>
+			<li><strong>access</strong> - protected</li>
+		</ul>
+
+</div>
+<a name="methodsetEncryptionKey" id="methodsetEncryptionKey"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method setEncryptionKey</strong> (line <span class="linenumber">183</span>)
+ </h4> 
+<h4><i>void</i> <strong>setEncryptionKey(
+string
+$value)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $value</strong>: the key used to encrypt/decrypt data.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>throws</strong> - CException if the key is empty</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodsetValidation" id="methodsetValidation"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method setValidation</strong> (line <span class="linenumber">206</span>)
+ </h4> 
+<h4><i>void</i> <strong>setValidation(
+string
+$value)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>This method has been deprecated since version 1.1.3.</h5>
+<div class="desc"><p>Please use <a href="../system-base/CSecurityManager.html#var$hashAlgorithm">hashAlgorithm</a> instead.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $value</strong>: -</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>deprecated</strong> - </li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodsetValidationKey" id="methodsetValidationKey"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method setValidationKey</strong> (line <span class="linenumber">145</span>)
+ </h4> 
+<h4><i>void</i> <strong>setValidationKey(
+string
+$value)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $value</strong>: the key used to generate HMAC</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>throws</strong> - CException if the key is empty</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodvalidateData" id="methodvalidateData"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method validateData</strong> (line <span class="linenumber">298</span>)
+ </h4> 
+<h4><i>string</i> <strong>validateData(
+string
+$data, [string
+$key = null])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Validates if data is tampered.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $data</strong>: data to be validated. The data must be previously  generated using <a href="../system-base/CSecurityManager.html#methodhashData">hashData()</a>.</li>
+			<li><strong>string $key</strong>: the private key to be used for generating HMAC. Defaults to null, meaning using validationKey.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the real data with HMAC stripped off. False if the data  is tampered.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodvalidateEncryptionKey" id="methodvalidateEncryptionKey"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method validateEncryptionKey</strong> (line <span class="linenumber">528</span>)
+ </h4> 
+<h4><i>boolean</i> <strong>validateEncryptionKey(
+string
+$key)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Checks if a key is valid for cryptAlgorithm.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $key</strong>: the key to check</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the validation result</li>
+			<li><strong>throws</strong> - CException if the supported key lengths of the cipher are unknown</li>
+			<li><strong>access</strong> - protected</li>
+		</ul>
+
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage2" ) );</script>
+
+</div>
+<div class="tab-page" id="iVars">
+<h2 class="tab">Inherited Variables</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "iVars" ) );</script>
+<!-- =========== VAR INHERITED SUMMARY =========== -->
+<A NAME='var_inherited_summary'><!-- --></A>
+<h3>Inherited Class Variable Summary</h3>
+
+		<!-- =========== Summary =========== -->
+	<h4>Inherited From Class <a href="../system-base/CApplicationComponent.html">CApplicationComponent</a></h4>
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../system-base/CApplicationComponent.html#var$behaviors">CApplicationComponent::$behaviors</a></strong> - 
+	</h4> 
+		</div>
+<div class="tab-page" id="iMethods">
+<h2 class="tab">Inherited Methods</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "iMethods" ) );</script>
+<!-- =========== INHERITED METHOD SUMMARY =========== -->
+<A NAME='functions_inherited'><!-- --></A>
+<h3>Inherited Method Summary</h3>
+
+		<!-- =========== Summary =========== -->
+	<h4>Inherited From Class <a href="../system-base/CApplicationComponent.html">CApplicationComponent</a></h4>
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CApplicationComponent.html#methodgetIsInitialized">CApplicationComponent::getIsInitialized()</a></strong> - Checks if this application component has been initialized.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CApplicationComponent.html#methodinit">CApplicationComponent::init()</a></strong> - Initializes the application component.
+		</h4> 
+
+				<br />
+		<!-- =========== Summary =========== -->
+	<h4>Inherited From Class <a href="../system-base/CComponent.html">CComponent</a></h4>
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodasa">CComponent::asa()</a></strong> - Returns the named behavior object.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodattachBehavior">CComponent::attachBehavior()</a></strong> - Attaches a behavior to this component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodattachBehaviors">CComponent::attachBehaviors()</a></strong> - Attaches a list of behaviors to the component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodattachEventHandler">CComponent::attachEventHandler()</a></strong> - Attaches an event handler to an event.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodcanGetProperty">CComponent::canGetProperty()</a></strong> - Determines whether a property can be read.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodcanSetProperty">CComponent::canSetProperty()</a></strong> - Determines whether a property can be set.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddetachBehavior">CComponent::detachBehavior()</a></strong> - Detaches a behavior from the component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddetachBehaviors">CComponent::detachBehaviors()</a></strong> - Detaches all behaviors from the component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddetachEventHandler">CComponent::detachEventHandler()</a></strong> - Detaches an existing event handler.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddisableBehavior">CComponent::disableBehavior()</a></strong> - Disables an attached behavior.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddisableBehaviors">CComponent::disableBehaviors()</a></strong> - Disables all behaviors attached to this component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodenableBehavior">CComponent::enableBehavior()</a></strong> - Enables an attached behavior.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodenableBehaviors">CComponent::enableBehaviors()</a></strong> - Enables all behaviors attached to this component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodevaluateExpression">CComponent::evaluateExpression()</a></strong> - Evaluates a PHP expression or callback under the context of this component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodgetEventHandlers">CComponent::getEventHandlers()</a></strong> - Returns the list of attached event handlers for an event.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodhasEvent">CComponent::hasEvent()</a></strong> - Determines whether an event is defined.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodhasEventHandler">CComponent::hasEventHandler()</a></strong> - Checks whether the named event has attached handlers.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodhasProperty">CComponent::hasProperty()</a></strong> - Determines whether a property is defined.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodraiseEvent">CComponent::raiseEvent()</a></strong> - Raises an event.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__call">CComponent::__call()</a></strong> - Calls the named method which is not a class method.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__get">CComponent::__get()</a></strong> - Returns a property value, an event handler list or a behavior based on its name.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__isset">CComponent::__isset()</a></strong> - Checks if a property value is null.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__set">CComponent::__set()</a></strong> - Sets value of a component property.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__unset">CComponent::__unset()</a></strong> - Sets a component property to be null.
+		</h4> 
+
+				<br />
+	</div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+
+setupAllTabs();
+
+//]]>
+</script>
+	<div id="credit">
+		<hr />
+		Documentation generated on Mon, 11 Jul 2016 21:51:44 +0800 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.4</a>
+	</div>
+</body>
+</html>
+

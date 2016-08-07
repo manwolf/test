@@ -1,0 +1,901 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Docs For Class CComponent</title>
+  <link rel="stylesheet" href="../media/stylesheet.css" />
+  <script src="../media/lib/classTree.js"></script>
+<link id="webfx-tab-style-sheet" type="text/css" rel="stylesheet" href="../media/lib/tab.webfx.css" />
+<script type="text/javascript" src="../media/lib/tabpane.js"></script>
+  <script language="javascript" type="text/javascript" src="../media/lib/ua.js"></script>
+<script language="javascript" type="text/javascript">
+	var imgPlus = new Image();
+	var imgMinus = new Image();
+	imgPlus.src = "../media/images/plus.gif";
+	imgMinus.src = "../media/images/minus.gif";
+	
+	function showNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgMinus.src;
+		oTable.style.display = "block";
+	}
+	
+	function hideNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgPlus.src;
+		oTable.style.display = "none";
+	}
+	
+	function nodeIsVisible(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+        		break;
+        }
+		return (oTable && oTable.style.display == "block");
+	}
+	
+	function toggleNodeVisibility(Node){
+		if (nodeIsVisible(Node)){
+			hideNode(Node);
+		}else{
+			showNode(Node);
+		}
+	}
+</script>
+<!-- template designed by Julien Damon based on PHPEdit's generated templates, and tweaked by Greg Beaver -->
+<body bgcolor="#ffffff" >
+
+<!-- Start of Class Data -->
+<h2>
+	Class CComponent
+</h2> (line <span class="linenumber">89</span>)
+<div class="tab-pane" id="tabPane1">
+<script type="text/javascript">
+tp1 = new WebFXTabPane( document.getElementById( "tabPane1" ));
+</script>
+
+<div class="tab-page" id="Description">
+<h2 class="tab">Description</h2>
+<pre>
+</pre>
+<p>
+	<b><i>Located in File: <a href="_CComponent.php.html">/CComponent.php</a></i></b><br>
+</p>
+<!-- ========== Info from phpDoc block ========= -->
+<h5>CComponent is the base class for all components.</h5>
+<div class="desc"><p>CComponent implements the protocol of defining, using properties and events.</p><p>A property is defined by a getter method, and/or a setter method.  Properties can be accessed in the way like accessing normal object members.  Reading or writing a property will cause the invocation of the corresponding  getter or setter method, e.g  <pre> $a=$component->text;     // equivalent to $a=$component->getText();
+ $component->text='abc';  // equivalent to $component->setText('abc');</pre>  The signatures of getter and setter methods are as follows,  <pre> // getter, defines a readable property 'text'
+ public function getText() { ... }
+ // setter, defines a writable property 'text' with $value to be set to the property
+ public function setText($value) { ... }</pre></p><p>An event is defined by the presence of a method whose name starts with 'on'.  The event name is the method name. When an event is raised, functions  (called event handlers) attached to the event will be invoked automatically.</p><p>An event can be raised by calling <a href="../system-base/CComponent.html#methodraiseEvent">raiseEvent</a> method, upon which  the attached event handlers will be invoked automatically in the order they  are attached to the event. Event handlers must have the following signature,  <pre> function eventHandler($event) { ... }</pre>  where $event includes parameters associated with the event.</p><p>To attach an event handler to an event, see <a href="../system-base/CComponent.html#methodattachEventHandler">attachEventHandler</a>.  You can also use the following syntax:  <pre> $component->onClick=$callback;    // or $component->onClick->add($callback);</pre>  where $callback refers to a valid PHP callback. Below we show some callback examples:  <pre> 'handleOnClick'                   // handleOnClick() is a global function
+ array($object,'handleOnClick')    // using $object->handleOnClick()
+ array('Page','handleOnClick')     // using Page::handleOnClick()</pre></p><p>To raise an event, use <a href="../system-base/CComponent.html#methodraiseEvent">raiseEvent</a>. The on-method defining an event is  commonly written like the following:  <pre> public function onClick($event)
+ {
+     $this->raiseEvent('onClick',$event);
+ }</pre>  where <div class="src-code"><ol><li><div class="src-line"><strong>$event</strong></div></li>
+</ol></div> is an instance of <a href="../system-base/CEvent.html">CEvent</a> or its child class.  One can then raise the event by calling the on-method instead of <a href="../system-base/CComponent.html#methodraiseEvent">raiseEvent</a> directly.</p><p>Both property names and event names are case-insensitive.</p><p>CComponent supports behaviors. A behavior is an  instance of <a href="../system-base/IBehavior.html">IBehavior</a> which is attached to a component. The methods of  the behavior can be invoked as if they belong to the component. Multiple behaviors  can be attached to the same component.</p><p>To attach a behavior to a component, call <a href="../system-base/CComponent.html#methodattachBehavior">attachBehavior</a>; and to detach the behavior  from the component, call <a href="../system-base/CComponent.html#methoddetachBehavior">detachBehavior</a>.</p><p>A behavior can be temporarily enabled or disabled by calling <a href="../system-base/CComponent.html#methodenableBehavior">enableBehavior</a>  or <a href="../system-base/CComponent.html#methoddisableBehavior">disableBehavior</a>, respectively. When disabled, the behavior methods cannot  be invoked via the component.</p><p>Starting from version 1.1.0, a behavior's properties (either its public member variables or  its properties defined via getters and/or setters) can be accessed through the component it  is attached to.</p></div>
+<ul>
+		<li><strong>author:</strong> - Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+		<li><strong>since:</strong> - 1.0</li>
+	</ul>
+
+<br /><hr />
+<span class="type">Classes extended from CComponent:</span>
+ 		<dl>
+	<dt><a href="../system-base/CBehavior.html">CBehavior</a></dt>
+		<dd>CBehavior is a convenient base class for behavior classes.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../system-base/CModule.html">CModule</a></dt>
+		<dd>CModule is the base class for module and application classes.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../system-base/CEvent.html">CEvent</a></dt>
+		<dd>CEvent is the base class for all event classes.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../system-base/CApplicationComponent.html">CApplicationComponent</a></dt>
+		<dd>CApplicationComponent is the base class for application component classes.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../system-base/CModel.html">CModel</a></dt>
+		<dd>CModel is the base class providing the common features needed by data model objects.</dd>
+	</dl>
+	</p>
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "Description" ) );</script>
+<div class="tab-page" id="tabPage1">
+<h2 class="tab">Class Variables</h2>
+<!-- ============ VARIABLE DETAIL =========== -->
+<strong>Summary:</strong><br />
+<hr />
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage1" ) );</script>
+
+
+</div>
+<div class="tab-page" id="constantsTabpage">
+<h2 class="tab">Class Constants</h2>
+<!-- ============ VARIABLE DETAIL =========== -->
+<strong>Summary:</strong><br />
+<hr />
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "constantsTabpage" ) );</script>
+
+
+</div>
+<div class="tab-page" id="tabPage2">
+<h2 class="tab">Method Detail</h2>
+<!-- ============ METHOD DETAIL =========== -->
+<strong>Summary:</strong><br />
+<div class="method-summary">
+    <div class="method-definition">
+            <span class="method-result"><a href="../system-base/IBehavior.html">IBehavior</a></span>
+        <a href="#methodasa" title="details" class="method-name">asa</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$behavior</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result"><a href="../system-base/IBehavior.html">IBehavior</a></span>
+        <a href="#methodattachBehavior" title="details" class="method-name">attachBehavior</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$behavior</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodattachBehaviors" title="details" class="method-name">attachBehaviors</a>
+        (<span class="var-type">array</span>&nbsp;<span class="var-name">$behaviors</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodattachEventHandler" title="details" class="method-name">attachEventHandler</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">callback</span>&nbsp;<span class="var-name">$handler</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">boolean</span>
+        <a href="#methodcanGetProperty" title="details" class="method-name">canGetProperty</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">boolean</span>
+        <a href="#methodcanSetProperty" title="details" class="method-name">canSetProperty</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result"><a href="../system-base/IBehavior.html">IBehavior</a></span>
+        <a href="#methoddetachBehavior" title="details" class="method-name">detachBehavior</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methoddetachBehaviors" title="details" class="method-name">detachBehaviors</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">boolean</span>
+        <a href="#methoddetachEventHandler" title="details" class="method-name">detachEventHandler</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">callback</span>&nbsp;<span class="var-name">$handler</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methoddisableBehavior" title="details" class="method-name">disableBehavior</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methoddisableBehaviors" title="details" class="method-name">disableBehaviors</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodenableBehavior" title="details" class="method-name">enableBehavior</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodenableBehaviors" title="details" class="method-name">enableBehaviors</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">mixed</span>
+        <a href="#methodevaluateExpression" title="details" class="method-name">evaluateExpression</a>
+        (<span class="var-type">mixed</span>&nbsp;<span class="var-name">$_expression_</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$_data_</span> = <span class="var-default">array()</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">CList</span>
+        <a href="#methodgetEventHandlers" title="details" class="method-name">getEventHandlers</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">boolean</span>
+        <a href="#methodhasEvent" title="details" class="method-name">hasEvent</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">boolean</span>
+        <a href="#methodhasEventHandler" title="details" class="method-name">hasEventHandler</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">boolean</span>
+        <a href="#methodhasProperty" title="details" class="method-name">hasProperty</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodraiseEvent" title="details" class="method-name">raiseEvent</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type"><a href="../system-base/CEvent.html">CEvent</a></span>&nbsp;<span class="var-name">$event</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">mixed</span>
+        <a href="#method__call" title="details" class="method-name">__call</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$parameters</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">mixed</span>
+        <a href="#method__get" title="details" class="method-name">__get</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">boolean</span>
+        <a href="#method__isset" title="details" class="method-name">__isset</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">mixed</span>
+        <a href="#method__set" title="details" class="method-name">__set</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">mixed</span>
+        <a href="#method__unset" title="details" class="method-name">__unset</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+        </div>
+</div>
+<hr />
+<A NAME='method_detail'></A>
+
+
+<a name="methodasa" id="methodasa"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method asa</strong> (line <span class="linenumber">276</span>)
+ </h4> 
+<h4><i><a href="../system-base/IBehavior.html">IBehavior</a></i> <strong>asa(
+string
+$behavior)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the named behavior object.</h5>
+<div class="desc"><p>The name 'asa' stands for 'as a'.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $behavior</strong>: the behavior name</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the behavior object, or null if the behavior does not exist</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodattachBehavior" id="methodattachBehavior"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method attachBehavior</strong> (line <span class="linenumber">326</span>)
+ </h4> 
+<h4><i><a href="../system-base/IBehavior.html">IBehavior</a></i> <strong>attachBehavior(
+string
+$name, mixed
+$behavior)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Attaches a behavior to this component.</h5>
+<div class="desc"><p>This method will create the behavior object based on the given  configuration. After that, the behavior object will be initialized  by calling its IBehavior::attach method.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $name</strong>: the behavior's name. It should uniquely identify this behavior.</li>
+			<li><strong>mixed $behavior</strong>: the behavior configuration. This is passed as the first  parameter to YiiBase::createComponent to create the behavior object.  You can also pass an already created behavior instance (the new behavior will replace an already created  behavior with the same name, if it exists).</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the behavior object</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodattachBehaviors" id="methodattachBehaviors"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method attachBehaviors</strong> (line <span class="linenumber">295</span>)
+ </h4> 
+<h4><i>void</i> <strong>attachBehaviors(
+array
+$behaviors)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Attaches a list of behaviors to the component.</h5>
+<div class="desc"><p>Each behavior is indexed by its name and should be an instance of  <a href="../system-base/IBehavior.html">IBehavior</a>, a string specifying the behavior class, or an  array of the following structure:  <pre> array(
+     'class'=>'path.to.BehaviorClass',
+     'property1'=>'value1',
+     'property2'=>'value2',
+ )</pre></p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>array $behaviors</strong>: list of behaviors to be attached to the component</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodattachEventHandler" id="methodattachEventHandler"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method attachEventHandler</strong> (line <span class="linenumber">514</span>)
+ </h4> 
+<h4><i>void</i> <strong>attachEventHandler(
+string
+$name, callback
+$handler)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Attaches an event handler to an event.</h5>
+<div class="desc"><p>An event handler must be a valid PHP callback, i.e., a string referring to  a global function name, or an array containing two elements with  the first element being an object and the second element a method name  of the object.</p><p>An event handler must be defined with the following signature,  <pre> function handlerName($event) {}</pre>  where $event includes parameters associated with the event.</p><p>This is a convenient method of attaching a handler to an event.  It is equivalent to the following code:  <pre> $component->getEventHandlers($eventName)->add($eventHandler);</pre></p><p>Using <a href="../system-base/CComponent.html#methodgetEventHandlers">getEventHandlers</a>, one can also specify the execution order  of multiple handlers attaching to the same event. For example:  <pre> $component->getEventHandlers($eventName)->insertAt(0,$eventHandler);</pre>  makes the handler to be invoked first.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $name</strong>: the event name</li>
+			<li><strong>callback $handler</strong>: the event handler</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>see</strong> - <a href="../system-base/CComponent.html#methoddetachEventHandler">CComponent::detachEventHandler()</a></li>
+			<li><strong>throws</strong> - CException if the event is not defined</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodcanGetProperty" id="methodcanGetProperty"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method canGetProperty</strong> (line <span class="linenumber">421</span>)
+ </h4> 
+<h4><i>boolean</i> <strong>canGetProperty(
+string
+$name)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Determines whether a property can be read.</h5>
+<div class="desc"><p>A property can be read if the class has a getter method  for the property name. Note, property name is case-insensitive.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $name</strong>: the property name</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - whether the property can be read</li>
+			<li><strong>see</strong> - <a href="../system-base/CComponent.html#methodcanSetProperty">CComponent::canSetProperty()</a></li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodcanSetProperty" id="methodcanSetProperty"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method canSetProperty</strong> (line <span class="linenumber">434</span>)
+ </h4> 
+<h4><i>boolean</i> <strong>canSetProperty(
+string
+$name)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Determines whether a property can be set.</h5>
+<div class="desc"><p>A property can be written if the class has a setter method  for the property name. Note, property name is case-insensitive.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $name</strong>: the property name</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - whether the property can be written</li>
+			<li><strong>see</strong> - <a href="../system-base/CComponent.html#methodcanGetProperty">CComponent::canGetProperty()</a></li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methoddetachBehavior" id="methoddetachBehavior"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method detachBehavior</strong> (line <span class="linenumber">341</span>)
+ </h4> 
+<h4><i><a href="../system-base/IBehavior.html">IBehavior</a></i> <strong>detachBehavior(
+string
+$name)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Detaches a behavior from the component.</h5>
+<div class="desc"><p>The behavior's IBehavior::detach method will be invoked.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $name</strong>: the behavior's name. It uniquely identifies the behavior.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the detached behavior. Null if the behavior does not exist.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methoddetachBehaviors" id="methoddetachBehaviors"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method detachBehaviors</strong> (line <span class="linenumber">304</span>)
+ </h4> 
+<h4><i>void</i> <strong>detachBehaviors(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Detaches all behaviors from the component.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methoddetachEventHandler" id="methoddetachEventHandler"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method detachEventHandler</strong> (line <span class="linenumber">527</span>)
+ </h4> 
+<h4><i>boolean</i> <strong>detachEventHandler(
+string
+$name, callback
+$handler)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Detaches an existing event handler.</h5>
+<div class="desc"><p>This method is the opposite of <a href="../system-base/CComponent.html#methodattachEventHandler">attachEventHandler</a>.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $name</strong>: event name</li>
+			<li><strong>callback $handler</strong>: the event handler to be removed</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - if the detachment process is successful</li>
+			<li><strong>see</strong> - <a href="../system-base/CComponent.html#methodattachEventHandler">CComponent::attachEventHandler()</a></li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methoddisableBehavior" id="methoddisableBehavior"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method disableBehavior</strong> (line <span class="linenumber">393</span>)
+ </h4> 
+<h4><i>void</i> <strong>disableBehavior(
+string
+$name)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Disables an attached behavior.</h5>
+<div class="desc"><p>A behavior is only effective when it is enabled.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $name</strong>: the behavior's name. It uniquely identifies the behavior.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methoddisableBehaviors" id="methoddisableBehaviors"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method disableBehaviors</strong> (line <span class="linenumber">367</span>)
+ </h4> 
+<h4><i>void</i> <strong>disableBehaviors(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Disables all behaviors attached to this component.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodenableBehavior" id="methodenableBehavior"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method enableBehavior</strong> (line <span class="linenumber">382</span>)
+ </h4> 
+<h4><i>void</i> <strong>enableBehavior(
+string
+$name)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Enables an attached behavior.</h5>
+<div class="desc"><p>A behavior is only effective when it is enabled.  A behavior is enabled when first attached.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $name</strong>: the behavior's name. It uniquely identifies the behavior.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodenableBehaviors" id="methodenableBehaviors"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method enableBehaviors</strong> (line <span class="linenumber">355</span>)
+ </h4> 
+<h4><i>void</i> <strong>enableBehaviors(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Enables all behaviors attached to this component.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodevaluateExpression" id="methodevaluateExpression"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method evaluateExpression</strong> (line <span class="linenumber">607</span>)
+ </h4> 
+<h4><i>mixed</i> <strong>evaluateExpression(
+mixed
+$_expression_, [array
+$_data_ = array()])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Evaluates a PHP expression or callback under the context of this component.</h5>
+<div class="desc"><p>Valid PHP callback can be class method name in the form of  array(ClassName/Object, MethodName), or anonymous function (only available in PHP 5.3.0 or above).</p><p>If a PHP callback is used, the corresponding function/method signature should be  <pre> function foo($param1, $param2, ..., $component) { ... }</pre>  where the array elements in the second parameter to this method will be passed  to the callback as $param1, $param2, ...; and the last parameter will be the component itself.</p><p>If a PHP expression is used, the second parameter will be &quot;extracted&quot; into PHP variables  that can be directly accessed in the expression. See <a href="http://us.php.net/manual/en/function.extract.php">PHP extract</a>  for more details. In the expression, the component object can be accessed using $this.</p><p>A PHP expression can be any PHP code that has a value. To learn more about what an expression is,  please refer to the <a href="http://www.php.net/manual/en/language.expressions.php">php manual</a>.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>mixed $_expression_</strong>: a PHP expression or PHP callback to be evaluated.</li>
+			<li><strong>array $_data_</strong>: additional parameters to be passed to the above expression/callback.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the expression result</li>
+			<li><strong>since</strong> - 1.1.0</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetEventHandlers" id="methodgetEventHandlers"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getEventHandlers</strong> (line <span class="linenumber">468</span>)
+ </h4> 
+<h4><i>CList</i> <strong>getEventHandlers(
+string
+$name)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the list of attached event handlers for an event.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $name</strong>: the event name</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - list of attached event handlers for the event</li>
+			<li><strong>throws</strong> - CException if the event is not defined</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodhasEvent" id="methodhasEvent"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method hasEvent</strong> (line <span class="linenumber">446</span>)
+ </h4> 
+<h4><i>boolean</i> <strong>hasEvent(
+string
+$name)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Determines whether an event is defined.</h5>
+<div class="desc"><p>An event is defined if the class has a method named like 'onXXX'.  Note, event name is case-insensitive.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $name</strong>: the event name</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - whether an event is defined</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodhasEventHandler" id="methodhasEventHandler"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method hasEventHandler</strong> (line <span class="linenumber">456</span>)
+ </h4> 
+<h4><i>boolean</i> <strong>hasEventHandler(
+string
+$name)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Checks whether the named event has attached handlers.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $name</strong>: the event name</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - whether an event has been attached one or several handlers</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodhasProperty" id="methodhasProperty"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method hasProperty</strong> (line <span class="linenumber">408</span>)
+ </h4> 
+<h4><i>boolean</i> <strong>hasProperty(
+string
+$name)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Determines whether a property is defined.</h5>
+<div class="desc"><p>A property is defined if there is a getter or setter method  defined in the class. Note, property names are case-insensitive.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $name</strong>: the property name</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - whether the property is defined</li>
+			<li><strong>see</strong> - <a href="../system-base/CComponent.html#methodcanGetProperty">CComponent::canGetProperty()</a></li>
+			<li><strong>see</strong> - <a href="../system-base/CComponent.html#methodcanSetProperty">CComponent::canSetProperty()</a></li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodraiseEvent" id="methodraiseEvent"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method raiseEvent</strong> (line <span class="linenumber">543</span>)
+ </h4> 
+<h4><i>void</i> <strong>raiseEvent(
+string
+$name, <a href="../system-base/CEvent.html">CEvent</a>
+$event)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Raises an event.</h5>
+<div class="desc"><p>This method represents the happening of an event. It invokes  all attached handlers for the event.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $name</strong>: the event name</li>
+			<li><strong><a href="../system-base/CEvent.html">CEvent</a> $event</strong>: the event parameter</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>throws</strong> - CException if the event is undefined or an event handler is invalid.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="method__call" id="method__call"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method __call</strong> (line <span class="linenumber">254</span>)
+ </h4> 
+<h4><i>mixed</i> <strong>__call(
+string
+$name, array
+$parameters)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Calls the named method which is not a class method.</h5>
+<div class="desc"><p>Do not call this method. This is a PHP magic method that we override  to implement the behavior feature.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $name</strong>: the method name</li>
+			<li><strong>array $parameters</strong>: method parameters</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the method return value</li>
+			<li><strong>throws</strong> - CException if current class and its behaviors do not have a method or closure with the given name</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="method__get" id="method__get"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method __get</strong> (line <span class="linenumber">107</span>)
+ </h4> 
+<h4><i>mixed</i> <strong>__get(
+string
+$name)</strong></h4>
+	<p>Overridden in child classes as:<br />
+		<dl>
+	<dt><a href="../system-base/CModule.html#method__get">CModule::__get()</a></dt>
+		<dd>Getter magic method.</dd>
+	</dl>
+	</p>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns a property value, an event handler list or a behavior based on its name.</h5>
+<div class="desc"><p>Do not call this method. This is a PHP magic method that we override  to allow using the following syntax to read a property or obtain event handlers:  <pre> $value=$component->propertyName;
+ $handlers=$component->eventName;</pre></p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $name</strong>: the property name or event name</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the property value, event handlers attached to the event, or the named behavior</li>
+			<li><strong>see</strong> - <a href="../system-base/CComponent.html#method__set">CComponent::__set()</a></li>
+			<li><strong>throws</strong> - CException if the property or event is not defined</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="method__isset" id="method__isset"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method __isset</strong> (line <span class="linenumber">184</span>)
+ </h4> 
+<h4><i>boolean</i> <strong>__isset(
+string
+$name)</strong></h4>
+	<p>Overridden in child classes as:<br />
+		<dl>
+	<dt><a href="../system-base/CModule.html#method__isset">CModule::__isset()</a></dt>
+		<dd>Checks if a property value is null.</dd>
+	</dl>
+	</p>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Checks if a property value is null.</h5>
+<div class="desc"><p>Do not call this method. This is a PHP magic method that we override  to allow using isset() to detect if a component property is set or not.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $name</strong>: the property name or the event name</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="method__set" id="method__set"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method __set</strong> (line <span class="linenumber">148</span>)
+ </h4> 
+<h4><i>mixed</i> <strong>__set(
+string
+$name, mixed
+$value)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Sets value of a component property.</h5>
+<div class="desc"><p>Do not call this method. This is a PHP magic method that we override  to allow using the following syntax to set a property or attach an event handler  <pre> $this->propertyName=$value;
+ $this->eventName=$callback;</pre></p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $name</strong>: the property name or the event name</li>
+			<li><strong>mixed $value</strong>: the property value or callback</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>see</strong> - <a href="../system-base/CComponent.html#method__get">CComponent::__get()</a></li>
+			<li><strong>throws</strong> - CException if the property/event is not defined or the property is read only.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="method__unset" id="method__unset"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method __unset</strong> (line <span class="linenumber">215</span>)
+ </h4> 
+<h4><i>mixed</i> <strong>__unset(
+string
+$name)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Sets a component property to be null.</h5>
+<div class="desc"><p>Do not call this method. This is a PHP magic method that we override  to allow using unset() to set a component property to be null.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $name</strong>: the property name or the event name</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>throws</strong> - CException if the property is read only.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage2" ) );</script>
+
+</div>
+<div class="tab-page" id="iVars">
+<h2 class="tab">Inherited Variables</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "iVars" ) );</script>
+<!-- =========== VAR INHERITED SUMMARY =========== -->
+<A NAME='var_inherited_summary'><!-- --></A>
+<h3>Inherited Class Variable Summary</h3>
+
+	</div>
+<div class="tab-page" id="iMethods">
+<h2 class="tab">Inherited Methods</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "iMethods" ) );</script>
+<!-- =========== INHERITED METHOD SUMMARY =========== -->
+<A NAME='functions_inherited'><!-- --></A>
+<h3>Inherited Method Summary</h3>
+
+	</div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+
+setupAllTabs();
+
+//]]>
+</script>
+	<div id="credit">
+		<hr />
+		Documentation generated on Mon, 11 Jul 2016 21:51:43 +0800 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.4</a>
+	</div>
+</body>
+</html>
+

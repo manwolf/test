@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Docs For Class ICache</title>
+  <link rel="stylesheet" href="../media/stylesheet.css" />
+  <script src="../media/lib/classTree.js"></script>
+<link id="webfx-tab-style-sheet" type="text/css" rel="stylesheet" href="../media/lib/tab.webfx.css" />
+<script type="text/javascript" src="../media/lib/tabpane.js"></script>
+  <script language="javascript" type="text/javascript" src="../media/lib/ua.js"></script>
+<script language="javascript" type="text/javascript">
+	var imgPlus = new Image();
+	var imgMinus = new Image();
+	imgPlus.src = "../media/images/plus.gif";
+	imgMinus.src = "../media/images/minus.gif";
+	
+	function showNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgMinus.src;
+		oTable.style.display = "block";
+	}
+	
+	function hideNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgPlus.src;
+		oTable.style.display = "none";
+	}
+	
+	function nodeIsVisible(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+        		break;
+        }
+		return (oTable && oTable.style.display == "block");
+	}
+	
+	function toggleNodeVisibility(Node){
+		if (nodeIsVisible(Node)){
+			hideNode(Node);
+		}else{
+			showNode(Node);
+		}
+	}
+</script>
+<!-- template designed by Julien Damon based on PHPEdit's generated templates, and tweaked by Greg Beaver -->
+<body bgcolor="#ffffff" >
+
+<!-- Start of Class Data -->
+<h2>
+	Interface ICache
+</h2> (line <span class="linenumber">43</span>)
+<div class="tab-pane" id="tabPane1">
+<script type="text/javascript">
+tp1 = new WebFXTabPane( document.getElementById( "tabPane1" ));
+</script>
+
+<div class="tab-page" id="Description">
+<h2 class="tab">Description</h2>
+<pre>
+</pre>
+<p>
+	<b><i>Located in File: <a href="_interfaces.php.html">/interfaces.php</a></i></b><br>
+</p>
+<!-- ========== Info from phpDoc block ========= -->
+<h5>ICache is the interface that must be implemented by cache components.</h5>
+<div class="desc"><p>This interface must be implemented by classes supporting caching feature.</p></div>
+<ul>
+		<li><strong>author:</strong> - Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+		<li><strong>since:</strong> - 1.0</li>
+	</ul>
+
+<br /><hr />
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "Description" ) );</script>
+<div class="tab-page" id="tabPage1">
+<h2 class="tab">Class Variables</h2>
+<!-- ============ VARIABLE DETAIL =========== -->
+<strong>Summary:</strong><br />
+<hr />
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage1" ) );</script>
+
+
+</div>
+<div class="tab-page" id="constantsTabpage">
+<h2 class="tab">Class Constants</h2>
+<!-- ============ VARIABLE DETAIL =========== -->
+<strong>Summary:</strong><br />
+<hr />
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "constantsTabpage" ) );</script>
+
+
+</div>
+<div class="tab-page" id="tabPage2">
+<h2 class="tab">Method Detail</h2>
+<!-- ============ METHOD DETAIL =========== -->
+<strong>Summary:</strong><br />
+<div class="method-summary">
+    <div class="method-definition">
+            <span class="method-result">boolean</span>
+        <a href="#methodadd" title="details" class="method-name">add</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$expire</span> = <span class="var-default">0</span>], [<span class="var-type"><a href="../system-caching/ICacheDependency.html">ICacheDependency</a></span>&nbsp;<span class="var-name">$dependency</span> = <span class="var-default">null</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">boolean</span>
+        <a href="#methoddelete" title="details" class="method-name">delete</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">boolean</span>
+        <a href="#methodflush" title="details" class="method-name">flush</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">mixed</span>
+        <a href="#methodget" title="details" class="method-name">get</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">array</span>
+        <a href="#methodmget" title="details" class="method-name">mget</a>
+        (<span class="var-type">array</span>&nbsp;<span class="var-name">$ids</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">boolean</span>
+        <a href="#methodset" title="details" class="method-name">set</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$expire</span> = <span class="var-default">0</span>], [<span class="var-type"><a href="../system-caching/ICacheDependency.html">ICacheDependency</a></span>&nbsp;<span class="var-name">$dependency</span> = <span class="var-default">null</span>])
+        </div>
+</div>
+<hr />
+<A NAME='method_detail'></A>
+
+
+<a name="methodadd" id="methodadd"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method add</strong> (line <span class="linenumber">83</span>)
+ </h4> 
+<h4><i>boolean</i> <strong>add(
+string
+$id, mixed
+$value, [integer
+$expire = 0], [<a href="../system-caching/ICacheDependency.html">ICacheDependency</a>
+$dependency = null])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Stores a value identified by a key into cache if the cache does not contain this key.</h5>
+<div class="desc"><p>Nothing will be done if the cache already contains the key.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $id</strong>: the key identifying the value to be cached</li>
+			<li><strong>mixed $value</strong>: the value to be cached</li>
+			<li><strong>integer $expire</strong>: the number of seconds in which the cached value will expire. 0 means never expire.</li>
+			<li><strong><a href="../system-caching/ICacheDependency.html">ICacheDependency</a> $dependency</strong>: dependency of the cached item. If the dependency changes, the item is labelled invalid.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - true if the value is successfully stored into cache, false otherwise</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methoddelete" id="methoddelete"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method delete</strong> (line <span class="linenumber">89</span>)
+ </h4> 
+<h4><i>boolean</i> <strong>delete(
+string
+$id)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Deletes a value with the specified key from cache</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $id</strong>: the key of the value to be deleted</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - whether the deletion is successful</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodflush" id="methodflush"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method flush</strong> (line <span class="linenumber">95</span>)
+ </h4> 
+<h4><i>boolean</i> <strong>flush(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Deletes all values from cache.</h5>
+<div class="desc"><p>Be careful of performing this operation if the cache is shared by multiple applications.</p></div>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - whether the flush operation was successful.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodget" id="methodget"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method get</strong> (line <span class="linenumber">50</span>)
+ </h4> 
+<h4><i>mixed</i> <strong>get(
+string
+$id)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Retrieves a value from cache with a specified key.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $id</strong>: a key identifying the cached value</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the value stored in cache, false if the value is not in the cache or expired.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodmget" id="methodmget"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method mget</strong> (line <span class="linenumber">61</span>)
+ </h4> 
+<h4><i>array</i> <strong>mget(
+array
+$ids)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Retrieves multiple values from cache with the specified keys.</h5>
+<div class="desc"><p>Some caches (such as memcache, apc) allow retrieving multiple cached values at one time,  which may improve the performance since it reduces the communication cost.  In case a cache doesn't support this feature natively, it will be simulated by this method.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>array $ids</strong>: list of keys identifying the cached values</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - list of cached values corresponding to the specified keys. The array  is returned in terms of (key,value) pairs.  If a value is not cached or expired, the corresponding array value will be false.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodset" id="methodset"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method set</strong> (line <span class="linenumber">73</span>)
+ </h4> 
+<h4><i>boolean</i> <strong>set(
+string
+$id, mixed
+$value, [integer
+$expire = 0], [<a href="../system-caching/ICacheDependency.html">ICacheDependency</a>
+$dependency = null])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Stores a value identified by a key into cache.</h5>
+<div class="desc"><p>If the cache already contains such a key, the existing value and  expiration time will be replaced with the new ones.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $id</strong>: the key identifying the value to be cached</li>
+			<li><strong>mixed $value</strong>: the value to be cached</li>
+			<li><strong>integer $expire</strong>: the number of seconds in which the cached value will expire. 0 means never expire.</li>
+			<li><strong><a href="../system-caching/ICacheDependency.html">ICacheDependency</a> $dependency</strong>: dependency of the cached item. If the dependency changes, the item is labelled invalid.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - true if the value is successfully stored into cache, false otherwise</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage2" ) );</script>
+
+</div>
+<div class="tab-page" id="iVars">
+<h2 class="tab">Inherited Variables</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "iVars" ) );</script>
+<!-- =========== VAR INHERITED SUMMARY =========== -->
+<A NAME='var_inherited_summary'><!-- --></A>
+<h3>Inherited Class Variable Summary</h3>
+
+	</div>
+<div class="tab-page" id="iMethods">
+<h2 class="tab">Inherited Methods</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "iMethods" ) );</script>
+<!-- =========== INHERITED METHOD SUMMARY =========== -->
+<A NAME='functions_inherited'><!-- --></A>
+<h3>Inherited Method Summary</h3>
+
+	</div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+
+setupAllTabs();
+
+//]]>
+</script>
+	<div id="credit">
+		<hr />
+		Documentation generated on Mon, 11 Jul 2016 21:51:44 +0800 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.4</a>
+	</div>
+</body>
+</html>
+
