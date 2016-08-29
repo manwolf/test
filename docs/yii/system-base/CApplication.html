@@ -1,0 +1,1845 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Docs For Class CApplication</title>
+  <link rel="stylesheet" href="../media/stylesheet.css" />
+  <script src="../media/lib/classTree.js"></script>
+<link id="webfx-tab-style-sheet" type="text/css" rel="stylesheet" href="../media/lib/tab.webfx.css" />
+<script type="text/javascript" src="../media/lib/tabpane.js"></script>
+  <script language="javascript" type="text/javascript" src="../media/lib/ua.js"></script>
+<script language="javascript" type="text/javascript">
+	var imgPlus = new Image();
+	var imgMinus = new Image();
+	imgPlus.src = "../media/images/plus.gif";
+	imgMinus.src = "../media/images/minus.gif";
+	
+	function showNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgMinus.src;
+		oTable.style.display = "block";
+	}
+	
+	function hideNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgPlus.src;
+		oTable.style.display = "none";
+	}
+	
+	function nodeIsVisible(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+        		break;
+        }
+		return (oTable && oTable.style.display == "block");
+	}
+	
+	function toggleNodeVisibility(Node){
+		if (nodeIsVisible(Node)){
+			hideNode(Node);
+		}else{
+			showNode(Node);
+		}
+	}
+</script>
+<!-- template designed by Julien Damon based on PHPEdit's generated templates, and tweaked by Greg Beaver -->
+<body bgcolor="#ffffff" >
+
+<!-- Start of Class Data -->
+<h2>
+	Class CApplication
+</h2> (line <span class="linenumber">86</span>)
+<div class="tab-pane" id="tabPane1">
+<script type="text/javascript">
+tp1 = new WebFXTabPane( document.getElementById( "tabPane1" ));
+</script>
+
+<div class="tab-page" id="Description">
+<h2 class="tab">Description</h2>
+<pre>
+<a href="../system-base/CComponent.html">CComponent</a>
+   |
+   --<a href="../system-base/CModule.html">CModule</a>
+      |
+      --CApplication</pre>
+<p>
+	<b><i>Located in File: <a href="_CApplication.php.html">/CApplication.php</a></i></b><br>
+</p>
+<!-- ========== Info from phpDoc block ========= -->
+<h5>CApplication is the base class for all application classes.</h5>
+<div class="desc"><p>An application serves as the global context that the user request  is being processed. It manages a set of application components that  provide specific functionalities to the whole application.</p><p>The core application components provided by CApplication are the following:  <ul><li><a href="../system-base/CApplication.html#methodgetErrorHandler">errorHandler</a>: handles PHP errors and
+   uncaught exceptions. This application component is dynamically loaded when needed.</li><li><a href="../system-base/CApplication.html#methodgetSecurityManager">securityManager</a>: provides security-related
+   services, such as hashing, encryption. This application component is dynamically
+   loaded when needed.</li><li><a href="../system-base/CApplication.html#methodgetStatePersister">statePersister</a>: provides global state
+   persistence method. This application component is dynamically loaded when needed.</li><li><a href="../system-base/CApplication.html#methodgetCache">cache</a>: provides caching feature. This application component is
+   disabled by default.</li><li><a href="../system-base/CApplication.html#methodgetMessages">messages</a>: provides the message source for translating
+   application messages. This application component is dynamically loaded when needed.</li><li><a href="../system-base/CApplication.html#methodgetCoreMessages">coreMessages</a>: provides the message source for translating
+   Yii framework messages. This application component is dynamically loaded when needed.</li><li><a href="../system-base/CApplication.html#methodgetUrlManager">urlManager</a>: provides URL construction as well as parsing functionality.
+   This application component is dynamically loaded when needed.</li><li><a href="../system-base/CApplication.html#methodgetRequest">request</a>: represents the current HTTP request by encapsulating
+   the $_SERVER variable and managing cookies sent from and sent to the user.
+   This application component is dynamically loaded when needed.</li><li><a href="../system-base/CApplication.html#methodgetFormat">format</a>: provides a set of commonly used data formatting methods.
+   This application component is dynamically loaded when needed.</li></ul></p><p>CApplication will undergo the following lifecycles when processing a user request:  <ol><li>load application configuration;</li><li>set up error handling;</li><li>load static application components;</li><li><a href="../system-base/CApplication.html#methodonBeginRequest">onBeginRequest</a>: preprocess the user request;</li><li><a href="../system-base/CApplication.html#methodprocessRequest">processRequest</a>: process the user request;</li><li><a href="../system-base/CApplication.html#methodonEndRequest">onEndRequest</a>: postprocess the user request;</li></ol></p><p>Starting from lifecycle 3, if a PHP error or an uncaught exception occurs,  the application will switch to its error handling logic and jump to step 6 afterwards.</p></div>
+<ul>
+		<li><strong>property:</strong> - string $id: The unique identifier for the application.</li>
+		<li><strong>property:</strong> - string $basePath: The root directory of the application. Defaults to 'protected'.</li>
+		<li><strong>property:</strong> - string $runtimePath: The directory that stores runtime files. Defaults to 'protected/runtime'.</li>
+		<li><strong>property:</strong> - string $extensionPath: The directory that contains all extensions. Defaults to the 'extensions' directory under 'protected'.</li>
+		<li><strong>property:</strong> - string $language: The language that the user is using and the application should be targeted to.  Defaults to the <a href="../system-base/CApplication.html#var$sourceLanguage">source language</a>.</li>
+		<li><strong>property:</strong> - string $timeZone: The time zone used by this application.</li>
+		<li><strong>property:</strong> - CLocale $locale: The locale instance.</li>
+		<li><strong>property:</strong> - string $localeDataPath: The directory that contains the locale data. It defaults to 'framework/i18n/data'.</li>
+		<li><strong>property:</strong> - CNumberFormatter $numberFormatter: The locale-dependent number formatter.  The current <a href="../system-base/CApplication.html#methodgetLocale">application locale</a> will be used.</li>
+		<li><strong>property:</strong> - CDateFormatter $dateFormatter: The locale-dependent date formatter.  The current <a href="../system-base/CApplication.html#methodgetLocale">application locale</a> will be used.</li>
+		<li><strong>property:</strong> - CDbConnection $db: The database connection.</li>
+		<li><strong>property:</strong> - <a href="../system-base/CErrorHandler.html">CErrorHandler</a> $errorHandler: The error handler application component.</li>
+		<li><strong>property:</strong> - <a href="../system-base/CSecurityManager.html">CSecurityManager</a> $securityManager: The security manager application component.</li>
+		<li><strong>property:</strong> - <a href="../system-base/CStatePersister.html">CStatePersister</a> $statePersister: The state persister application component.</li>
+		<li><strong>property:</strong> - CCache $cache: The cache application component. Null if the component is not enabled.</li>
+		<li><strong>property:</strong> - CPhpMessageSource $coreMessages: The core message translations.</li>
+		<li><strong>property:</strong> - CMessageSource $messages: The application message translations.</li>
+		<li><strong>property:</strong> - CHttpRequest $request: The request component.</li>
+		<li><strong>property:</strong> - CFormatter $format: The formatter component.</li>
+		<li><strong>property:</strong> - CUrlManager $urlManager: The URL manager component.</li>
+		<li><strong>property:</strong> - CController $controller: The currently active controller. Null is returned in this base class.</li>
+		<li><strong>property:</strong> - string $baseUrl: The relative URL for the application.</li>
+		<li><strong>property:</strong> - string $homeUrl: The homepage URL.</li>
+		<li><strong>author:</strong> - Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+		<li><strong>abstract:</strong> - </li>
+		<li><strong>since:</strong> - 1.0</li>
+	</ul>
+
+<br /><hr />
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "Description" ) );</script>
+<div class="tab-page" id="tabPage1">
+<h2 class="tab">Class Variables</h2>
+<!-- ============ VARIABLE DETAIL =========== -->
+<strong>Summary:</strong><br />
+<div class="var-title">
+    <span class="var-type">string</span>
+    <a href="#var$charset" title="details" class="property"><strong>$charset</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">string</span>
+    <a href="#var$localeClass" title="details" class="property"><strong>$localeClass</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">string</span>
+    <a href="#var$name" title="details" class="property"><strong>$name</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">string</span>
+    <a href="#var$sourceLanguage" title="details" class="property"><strong>$sourceLanguage</strong></a>
+</div>
+<hr />
+<a name="var$charset" id="var$charset"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$charset = 'UTF-8'</strong> (line <span class="linenumber">95</span>)
+ </h4>
+<h4>Data type : string</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+		<li><strong>var:</strong> - the charset currently used for the application. Defaults to 'UTF-8'.</li>
+		<li><strong>access:</strong> - public</li>
+	</ul>
+
+</div>
+<a name="var$localeClass" id="var$localeClass"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$localeClass = 'CLocale'</strong> (line <span class="linenumber">104</span>)
+ </h4>
+<h4>Data type : string</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+		<li><strong>var:</strong> - the class used to get locale data. Defaults to 'CLocale'.</li>
+		<li><strong>access:</strong> - public</li>
+	</ul>
+
+</div>
+<a name="var$name" id="var$name"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$name = 'My Application'</strong> (line <span class="linenumber">91</span>)
+ </h4>
+<h4>Data type : string</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+		<li><strong>var:</strong> - the application name. Defaults to 'My Application'.</li>
+		<li><strong>access:</strong> - public</li>
+	</ul>
+
+</div>
+<a name="var$sourceLanguage" id="var$sourceLanguage"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$sourceLanguage = 'en_us'</strong> (line <span class="linenumber">100</span>)
+ </h4>
+<h4>Data type : string</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+		<li><strong>var:</strong> - the language that the application is written in. This mainly refers to  the language that the messages and view files are in. Defaults to 'en_us' (US English).</li>
+		<li><strong>access:</strong> - public</li>
+	</ul>
+
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage1" ) );</script>
+
+
+</div>
+<div class="tab-page" id="constantsTabpage">
+<h2 class="tab">Class Constants</h2>
+<!-- ============ VARIABLE DETAIL =========== -->
+<strong>Summary:</strong><br />
+<hr />
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "constantsTabpage" ) );</script>
+
+
+</div>
+<div class="tab-page" id="tabPage2">
+<h2 class="tab">Method Detail</h2>
+<!-- ============ METHOD DETAIL =========== -->
+<strong>Summary:</strong><br />
+<div class="method-summary">
+    <div class="method-definition">
+            <span class="method-result">CApplication</span>
+        <a href="#method__construct" title="details" class="method-name">__construct</a>
+        ([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$config</span> = <span class="var-default">null</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodclearGlobalState" title="details" class="method-name">clearGlobalState</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodcreateAbsoluteUrl" title="details" class="method-name">createAbsoluteUrl</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$route</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">array()</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$schema</span> = <span class="var-default">''</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$ampersand</span> = <span class="var-default">'&amp;'</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodcreateUrl" title="details" class="method-name">createUrl</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$route</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">array()</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$ampersand</span> = <span class="var-default">'&amp;'</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methoddisplayError" title="details" class="method-name">displayError</a>
+        (<span class="var-type">integer</span>&nbsp;<span class="var-name">$code</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$message</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$file</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$line</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methoddisplayException" title="details" class="method-name">displayException</a>
+        (<span class="var-type">Exception</span>&nbsp;<span class="var-name">$exception</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodend" title="details" class="method-name">end</a>
+        ([<span class="var-type">integer</span>&nbsp;<span class="var-name">$status</span> = <span class="var-default">0</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$exit</span> = <span class="var-default">true</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodfindLocalizedFile" title="details" class="method-name">findLocalizedFile</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$srcFile</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$srcLanguage</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$language</span> = <span class="var-default">null</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodgetBasePath" title="details" class="method-name">getBasePath</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodgetBaseUrl" title="details" class="method-name">getBaseUrl</a>
+        ([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$absolute</span> = <span class="var-default">false</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">CCache</span>
+        <a href="#methodgetCache" title="details" class="method-name">getCache</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">CController</span>
+        <a href="#methodgetController" title="details" class="method-name">getController</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">CPhpMessageSource</span>
+        <a href="#methodgetCoreMessages" title="details" class="method-name">getCoreMessages</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">CDateFormatter</span>
+        <a href="#methodgetDateFormatter" title="details" class="method-name">getDateFormatter</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">CDbConnection</span>
+        <a href="#methodgetDb" title="details" class="method-name">getDb</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result"><a href="../system-base/CErrorHandler.html">CErrorHandler</a></span>
+        <a href="#methodgetErrorHandler" title="details" class="method-name">getErrorHandler</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodgetExtensionPath" title="details" class="method-name">getExtensionPath</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">CFormatter</span>
+        <a href="#methodgetFormat" title="details" class="method-name">getFormat</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">mixed</span>
+        <a href="#methodgetGlobalState" title="details" class="method-name">getGlobalState</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$defaultValue</span> = <span class="var-default">null</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodgetHomeUrl" title="details" class="method-name">getHomeUrl</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodgetId" title="details" class="method-name">getId</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodgetLanguage" title="details" class="method-name">getLanguage</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">an</span>
+        <a href="#methodgetLocale" title="details" class="method-name">getLocale</a>
+        ([<span class="var-type">string</span>&nbsp;<span class="var-name">$localeID</span> = <span class="var-default">null</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodgetLocaleDataPath" title="details" class="method-name">getLocaleDataPath</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">CMessageSource</span>
+        <a href="#methodgetMessages" title="details" class="method-name">getMessages</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">CNumberFormatter</span>
+        <a href="#methodgetNumberFormatter" title="details" class="method-name">getNumberFormatter</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">CHttpRequest</span>
+        <a href="#methodgetRequest" title="details" class="method-name">getRequest</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodgetRuntimePath" title="details" class="method-name">getRuntimePath</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result"><a href="../system-base/CSecurityManager.html">CSecurityManager</a></span>
+        <a href="#methodgetSecurityManager" title="details" class="method-name">getSecurityManager</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result"><a href="../system-base/CStatePersister.html">CStatePersister</a></span>
+        <a href="#methodgetStatePersister" title="details" class="method-name">getStatePersister</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodgetTimeZone" title="details" class="method-name">getTimeZone</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">CUrlManager</span>
+        <a href="#methodgetUrlManager" title="details" class="method-name">getUrlManager</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodhandleError" title="details" class="method-name">handleError</a>
+        (<span class="var-type">integer</span>&nbsp;<span class="var-name">$code</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$message</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$file</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$line</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodhandleException" title="details" class="method-name">handleException</a>
+        (<span class="var-type">Exception</span>&nbsp;<span class="var-name">$exception</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodinitSystemHandlers" title="details" class="method-name">initSystemHandlers</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodloadGlobalState" title="details" class="method-name">loadGlobalState</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodonBeginRequest" title="details" class="method-name">onBeginRequest</a>
+        (<span class="var-type"><a href="../system-base/CEvent.html">CEvent</a></span>&nbsp;<span class="var-name">$event</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodonEndRequest" title="details" class="method-name">onEndRequest</a>
+        (<span class="var-type"><a href="../system-base/CEvent.html">CEvent</a></span>&nbsp;<span class="var-name">$event</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodonError" title="details" class="method-name">onError</a>
+        (<span class="var-type"><a href="../system-base/CErrorEvent.html">CErrorEvent</a></span>&nbsp;<span class="var-name">$event</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodonException" title="details" class="method-name">onException</a>
+        (<span class="var-type"><a href="../system-base/CExceptionEvent.html">CExceptionEvent</a></span>&nbsp;<span class="var-name">$event</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodprocessRequest" title="details" class="method-name">processRequest</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodregisterCoreComponents" title="details" class="method-name">registerCoreComponents</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodrun" title="details" class="method-name">run</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodsaveGlobalState" title="details" class="method-name">saveGlobalState</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodsetBasePath" title="details" class="method-name">setBasePath</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodsetExtensionPath" title="details" class="method-name">setExtensionPath</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodsetGlobalState" title="details" class="method-name">setGlobalState</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$defaultValue</span> = <span class="var-default">null</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodsetHomeUrl" title="details" class="method-name">setHomeUrl</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodsetId" title="details" class="method-name">setId</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodsetLanguage" title="details" class="method-name">setLanguage</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$language</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodsetLocaleDataPath" title="details" class="method-name">setLocaleDataPath</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodsetRuntimePath" title="details" class="method-name">setRuntimePath</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodsetTimeZone" title="details" class="method-name">setTimeZone</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+        </div>
+</div>
+<hr />
+<A NAME='method_detail'></A>
+
+
+<a name="method__construct" id="method__construct"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/Constructor.gif" border="0" /> <strong class="method">Constructor __construct</strong> (line <span class="linenumber">132</span>)
+ </h4> 
+<h4><i>CApplication</i> <strong>__construct(
+[mixed
+$config = null])</strong></h4>
+
+<p><strong>Overrides :</strong> <a href="../system-base/CModule.html#method__construct">CModule::__construct()</a> Constructor.</p>
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Constructor.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>mixed $config</strong>: application configuration.  If a string, it is treated as the path of the file that contains the configuration;  If an array, it is the actual configuration information.  Please make sure you specify the <a href="../system-base/CApplication.html#methodgetBasePath">basePath</a> property in the configuration,  which should point to the directory containing all application logic, template and data.  If not, the directory will be defaulted to 'protected'.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodclearGlobalState" id="methodclearGlobalState"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method clearGlobalState</strong> (line <span class="linenumber">676</span>)
+ </h4> 
+<h4><i>void</i> <strong>clearGlobalState(
+string
+$key)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Clears a global value.</h5>
+<div class="desc"><p>The value cleared will no longer be available in this request and the following requests.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $key</strong>: the name of the value to be cleared</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodcreateAbsoluteUrl" id="methodcreateAbsoluteUrl"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method createAbsoluteUrl</strong> (line <span class="linenumber">572</span>)
+ </h4> 
+<h4><i>string</i> <strong>createAbsoluteUrl(
+string
+$route, [array
+$params = array()], [string
+$schema = ''], [string
+$ampersand = '&amp;'])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Creates an absolute URL based on the given controller and action information.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $route</strong>: the URL route. This should be in the format of 'ControllerID/ActionID'.</li>
+			<li><strong>array $params</strong>: additional GET parameters (name=&gt;value). Both the name and value will be URL-encoded.</li>
+			<li><strong>string $schema</strong>: schema to use (e.g. http, https). If empty, the schema used for the current request will be used.</li>
+			<li><strong>string $ampersand</strong>: the token separating name-value pairs in the URL.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the constructed URL</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodcreateUrl" id="methodcreateUrl"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method createUrl</strong> (line <span class="linenumber">559</span>)
+ </h4> 
+<h4><i>string</i> <strong>createUrl(
+string
+$route, [array
+$params = array()], [string
+$ampersand = '&amp;'])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Creates a relative URL based on the given controller and action information.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $route</strong>: the URL route. This should be in the format of 'ControllerID/ActionID'.</li>
+			<li><strong>array $params</strong>: additional GET parameters (name=&gt;value). Both the name and value will be URL-encoded.</li>
+			<li><strong>string $ampersand</strong>: the token separating name-value pairs in the URL.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the constructed URL</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methoddisplayError" id="methoddisplayError"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method displayError</strong> (line <span class="linenumber">901</span>)
+ </h4> 
+<h4><i>void</i> <strong>displayError(
+integer
+$code, string
+$message, string
+$file, string
+$line)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Displays the captured PHP error.</h5>
+<div class="desc"><p>This method displays the error in HTML when there is  no active error handler.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>integer $code</strong>: error code</li>
+			<li><strong>string $message</strong>: error message</li>
+			<li><strong>string $file</strong>: error file</li>
+			<li><strong>string $line</strong>: error line</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methoddisplayException" id="methoddisplayException"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method displayException</strong> (line <span class="linenumber">942</span>)
+ </h4> 
+<h4><i>void</i> <strong>displayException(
+Exception
+$exception)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Displays the uncaught PHP exception.</h5>
+<div class="desc"><p>This method displays the exception in HTML when there is  no active error handler.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>Exception $exception</strong>: the uncaught exception</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodend" id="methodend"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method end</strong> (line <span class="linenumber">198</span>)
+ </h4> 
+<h4><i>void</i> <strong>end(
+[integer
+$status = 0], [boolean
+$exit = true])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Terminates the application.</h5>
+<div class="desc"><p>This method replaces PHP's exit() function by calling  <a href="../system-base/CApplication.html#methodonEndRequest">onEndRequest</a> before exiting.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>integer $status</strong>: exit status (value 0 means normal exit while other values mean abnormal exit).</li>
+			<li><strong>boolean $exit</strong>: whether to exit the current request. This parameter has been available since version 1.1.5.  It defaults to true, meaning the PHP's exit() function will be called at the end of this method.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodfindLocalizedFile" id="methodfindLocalizedFile"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method findLocalizedFile</strong> (line <span class="linenumber">388</span>)
+ </h4> 
+<h4><i>string</i> <strong>findLocalizedFile(
+string
+$srcFile, [string
+$srcLanguage = null], [string
+$language = null])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the localized version of a specified file.</h5>
+<div class="desc"><p>The searching is based on the specified language code. In particular,  a file with the same name will be looked for under the subdirectory  named as the locale ID. For example, given the file &quot;path/to/view.php&quot;  and locale ID &quot;zh_cn&quot;, the localized file will be looked for as  &quot;path/to/zh_cn/view.php&quot;. If the file is not found, the original file  will be returned.</p><p>For consistency, it is recommended that the locale ID is given  in lower case and in the format of LanguageID_RegionID (e.g. &quot;en_us&quot;).</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $srcFile</strong>: the original file</li>
+			<li><strong>string $srcLanguage</strong>: the language that the original file is in. If null, the application <a href="../system-base/CApplication.html#var$sourceLanguage">source language</a> is used.</li>
+			<li><strong>string $language</strong>: the desired language that the file should be localized to. If null, the <a href="../system-base/CApplication.html#methodgetLanguage">application language</a> will be used.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the matching localized file. The original file is returned if no localized version is found  or if source language is the same as the desired language.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetBasePath" id="methodgetBasePath"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getBasePath</strong> (line <span class="linenumber">253</span>)
+ </h4> 
+<h4><i>string</i> <strong>getBasePath(
+)</strong></h4>
+
+<p><strong>Overrides :</strong> <a href="../system-base/CModule.html#methodgetBasePath">CModule::getBasePath()</a> Returns the root directory of the module.</p>
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the root path of the application.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the root directory of the application. Defaults to 'protected'.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetBaseUrl" id="methodgetBaseUrl"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getBaseUrl</strong> (line <span class="linenumber">588</span>)
+ </h4> 
+<h4><i>string</i> <strong>getBaseUrl(
+[boolean
+$absolute = false])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the relative URL for the application.</h5>
+<div class="desc"><p>This is a shortcut method to CHttpRequest::getBaseUrl().</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>boolean $absolute</strong>: whether to return an absolute URL. Defaults to false, meaning returning a relative one.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the relative URL for the application</li>
+			<li><strong>see</strong> - CHttpRequest::getBaseUrl()</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetCache" id="methodgetCache"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getCache</strong> (line <span class="linenumber">493</span>)
+ </h4> 
+<h4><i>CCache</i> <strong>getCache(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the cache component.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the cache application component. Null if the component is not enabled.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetController" id="methodgetController"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getController</strong> (line <span class="linenumber">547</span>)
+ </h4> 
+<h4><i>CController</i> <strong>getController(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the currently active controller. Null is returned in this base class.</li>
+			<li><strong>since</strong> - 1.1.8</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetCoreMessages" id="methodgetCoreMessages"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getCoreMessages</strong> (line <span class="linenumber">502</span>)
+ </h4> 
+<h4><i>CPhpMessageSource</i> <strong>getCoreMessages(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the core message translations component.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the core message translations</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetDateFormatter" id="methodgetDateFormatter"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getDateFormatter</strong> (line <span class="linenumber">448</span>)
+ </h4> 
+<h4><i>CDateFormatter</i> <strong>getDateFormatter(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the locale-dependent date formatter.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the locale-dependent date formatter.  The current <a href="../system-base/CApplication.html#methodgetLocale">application locale</a> will be used.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetDb" id="methodgetDb"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getDb</strong> (line <span class="linenumber">457</span>)
+ </h4> 
+<h4><i>CDbConnection</i> <strong>getDb(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the database connection component.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the database connection</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetErrorHandler" id="methodgetErrorHandler"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getErrorHandler</strong> (line <span class="linenumber">466</span>)
+ </h4> 
+<h4><i><a href="../system-base/CErrorHandler.html">CErrorHandler</a></i> <strong>getErrorHandler(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the error handler component.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the error handler application component.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetExtensionPath" id="methodgetExtensionPath"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getExtensionPath</strong> (line <span class="linenumber">303</span>)
+ </h4> 
+<h4><i>string</i> <strong>getExtensionPath(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the root directory that holds all third-party extensions.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the directory that contains all extensions. Defaults to the 'extensions' directory under 'protected'.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetFormat" id="methodgetFormat"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getFormat</strong> (line <span class="linenumber">538</span>)
+ </h4> 
+<h4><i>CFormatter</i> <strong>getFormat(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the formatter component.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the formatter component</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetGlobalState" id="methodgetGlobalState"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getGlobalState</strong> (line <span class="linenumber">626</span>)
+ </h4> 
+<h4><i>mixed</i> <strong>getGlobalState(
+string
+$key, [mixed
+$defaultValue = null])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns a global value.</h5>
+<div class="desc"><p>A global value is one that is persistent across users sessions and requests.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $key</strong>: the name of the value to be returned</li>
+			<li><strong>mixed $defaultValue</strong>: the default value. If the named global value is not found, this will be returned instead.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the named global value</li>
+			<li><strong>see</strong> - <a href="../system-base/CApplication.html#methodsetGlobalState">CApplication::setGlobalState()</a></li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetHomeUrl" id="methodgetHomeUrl"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getHomeUrl</strong> (line <span class="linenumber">596</span>)
+ </h4> 
+<h4><i>string</i> <strong>getHomeUrl(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the homepage URL</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetId" id="methodgetId"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getId</strong> (line <span class="linenumber">232</span>)
+ </h4> 
+<h4><i>string</i> <strong>getId(
+)</strong></h4>
+
+<p><strong>Overrides :</strong> <a href="../system-base/CModule.html#methodgetId">CModule::getId()</a> Returns the module ID.</p>
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the unique identifier for the application.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the unique identifier for the application.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetLanguage" id="methodgetLanguage"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getLanguage</strong> (line <span class="linenumber">326</span>)
+ </h4> 
+<h4><i>string</i> <strong>getLanguage(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the language that the user is using and the application should be targeted to.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the language that the user is using and the application should be targeted to.  Defaults to the <a href="../system-base/CApplication.html#var$sourceLanguage">source language</a>.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetLocale" id="methodgetLocale"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getLocale</strong> (line <span class="linenumber">405</span>)
+ </h4> 
+<h4><i>an</i> <strong>getLocale(
+[string
+$localeID = null])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the locale instance.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $localeID</strong>: the locale ID (e.g. en_US). If null, the <a href="../system-base/CApplication.html#methodgetLanguage">application language ID</a> will be used.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - instance of CLocale</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetLocaleDataPath" id="methodgetLocaleDataPath"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getLocaleDataPath</strong> (line <span class="linenumber">415</span>)
+ </h4> 
+<h4><i>string</i> <strong>getLocaleDataPath(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the directory that contains the locale data.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the directory that contains the locale data. It defaults to 'framework/i18n/data'.</li>
+			<li><strong>since</strong> - 1.1.0</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetMessages" id="methodgetMessages"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getMessages</strong> (line <span class="linenumber">511</span>)
+ </h4> 
+<h4><i>CMessageSource</i> <strong>getMessages(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the application message translations component.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the application message translations</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetNumberFormatter" id="methodgetNumberFormatter"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getNumberFormatter</strong> (line <span class="linenumber">438</span>)
+ </h4> 
+<h4><i>CNumberFormatter</i> <strong>getNumberFormatter(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the locale-dependent number formatter.  The current <a href="../system-base/CApplication.html#methodgetLocale">application locale</a> will be used.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetRequest" id="methodgetRequest"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getRequest</strong> (line <span class="linenumber">520</span>)
+ </h4> 
+<h4><i>CHttpRequest</i> <strong>getRequest(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the request component.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the request component</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetRuntimePath" id="methodgetRuntimePath"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getRuntimePath</strong> (line <span class="linenumber">275</span>)
+ </h4> 
+<h4><i>string</i> <strong>getRuntimePath(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the directory that stores runtime files.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the directory that stores runtime files. Defaults to 'protected/runtime'.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetSecurityManager" id="methodgetSecurityManager"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getSecurityManager</strong> (line <span class="linenumber">475</span>)
+ </h4> 
+<h4><i><a href="../system-base/CSecurityManager.html">CSecurityManager</a></i> <strong>getSecurityManager(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the security manager component.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the security manager application component.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetStatePersister" id="methodgetStatePersister"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getStatePersister</strong> (line <span class="linenumber">484</span>)
+ </h4> 
+<h4><i><a href="../system-base/CStatePersister.html">CStatePersister</a></i> <strong>getStatePersister(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the state persister component.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the state persister application component.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetTimeZone" id="methodgetTimeZone"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getTimeZone</strong> (line <span class="linenumber">353</span>)
+ </h4> 
+<h4><i>string</i> <strong>getTimeZone(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the time zone used by this application.</h5>
+<div class="desc"><p>This is a simple wrapper of PHP function date_default_timezone_get().</p></div>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the time zone used by this application.</li>
+			<li><strong>see</strong> - <a href="http://php.net/manual/en/function.date-default-timezone-get.php">http://php.net/manual/en/function.date-default-timezone-get.php</a></li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetUrlManager" id="methodgetUrlManager"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getUrlManager</strong> (line <span class="linenumber">529</span>)
+ </h4> 
+<h4><i>CUrlManager</i> <strong>getUrlManager(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the URL manager component.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the URL manager component</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodhandleError" id="methodhandleError"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method handleError</strong> (line <span class="linenumber">795</span>)
+ </h4> 
+<h4><i>void</i> <strong>handleError(
+integer
+$code, string
+$message, string
+$file, integer
+$line)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Handles PHP execution errors such as warnings, notices.</h5>
+<div class="desc"><p>This method is implemented as a PHP error handler. It requires  that constant YII_ENABLE_ERROR_HANDLER be defined true.</p><p>This method will first raise an <a href="../system-base/CApplication.html#methodonError">onError</a> event.  If the error is not handled by any event handler, it will call  <a href="../system-base/CApplication.html#methodgetErrorHandler">errorHandler</a> to process the error.</p><p>The application will be terminated by this method.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>integer $code</strong>: the level of the error raised</li>
+			<li><strong>string $message</strong>: the error message</li>
+			<li><strong>string $file</strong>: the filename that the error was raised in</li>
+			<li><strong>integer $line</strong>: the line number the error was raised at</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodhandleException" id="methodhandleException"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method handleException</strong> (line <span class="linenumber">724</span>)
+ </h4> 
+<h4><i>void</i> <strong>handleException(
+Exception
+$exception)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Handles uncaught PHP exceptions.</h5>
+<div class="desc"><p>This method is implemented as a PHP exception handler. It requires  that constant YII_ENABLE_EXCEPTION_HANDLER be defined true.</p><p>This method will first raise an <a href="../system-base/CApplication.html#methodonException">onException</a> event.  If the exception is not handled by any event handler, it will call  <a href="../system-base/CApplication.html#methodgetErrorHandler">errorHandler</a> to process the exception.</p><p>The application will be terminated by this method.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>Exception $exception</strong>: exception that is not caught</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodinitSystemHandlers" id="methodinitSystemHandlers"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method initSystemHandlers</strong> (line <span class="linenumber">960</span>)
+ </h4> 
+<h4><i>void</i> <strong>initSystemHandlers(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Initializes the error handlers.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - protected</li>
+		</ul>
+
+</div>
+<a name="methodloadGlobalState" id="methodloadGlobalState"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method loadGlobalState</strong> (line <span class="linenumber">686</span>)
+ </h4> 
+<h4><i>void</i> <strong>loadGlobalState(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Loads the global state data from persistent storage.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>see</strong> - <a href="../system-base/CApplication.html#methodgetStatePersister">CApplication::getStatePersister()</a></li>
+			<li><strong>throws</strong> - CException if the state persister is not available</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodonBeginRequest" id="methodonBeginRequest"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method onBeginRequest</strong> (line <span class="linenumber">210</span>)
+ </h4> 
+<h4><i>void</i> <strong>onBeginRequest(
+<a href="../system-base/CEvent.html">CEvent</a>
+$event)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Raised right BEFORE the application processes the request.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong><a href="../system-base/CEvent.html">CEvent</a> $event</strong>: the event parameter</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodonEndRequest" id="methodonEndRequest"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method onEndRequest</strong> (line <span class="linenumber">219</span>)
+ </h4> 
+<h4><i>void</i> <strong>onEndRequest(
+<a href="../system-base/CEvent.html">CEvent</a>
+$event)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Raised right AFTER the application processes the request.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong><a href="../system-base/CEvent.html">CEvent</a> $event</strong>: the event parameter</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodonError" id="methodonError"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method onError</strong> (line <span class="linenumber">887</span>)
+ </h4> 
+<h4><i>void</i> <strong>onError(
+<a href="../system-base/CErrorEvent.html">CErrorEvent</a>
+$event)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Raised when a PHP execution error occurs.</h5>
+<div class="desc"><p>An event handler can set the CErrorEvent::handled  property of the event parameter to be true to indicate no further error  handling is needed. Otherwise, the <a href="../system-base/CApplication.html#methodgetErrorHandler">errorHandler</a>  application component will continue processing the error.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong><a href="../system-base/CErrorEvent.html">CErrorEvent</a> $event</strong>: event parameter</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodonException" id="methodonException"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method onException</strong> (line <span class="linenumber">872</span>)
+ </h4> 
+<h4><i>void</i> <strong>onException(
+<a href="../system-base/CExceptionEvent.html">CExceptionEvent</a>
+$event)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Raised when an uncaught PHP exception occurs.</h5>
+<div class="desc"><p>An event handler can set the CExceptionEvent::handled  property of the event parameter to be true to indicate no further error  handling is needed. Otherwise, the <a href="../system-base/CApplication.html#methodgetErrorHandler">errorHandler</a>  application component will continue processing the error.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong><a href="../system-base/CExceptionEvent.html">CExceptionEvent</a> $event</strong>: event parameter</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodprocessRequest" id="methodprocessRequest"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method processRequest</strong> (line <span class="linenumber">121</span>)
+ </h4> 
+<h4><i>void</i> <strong>processRequest(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Processes the request.</h5>
+<div class="desc"><p>This is the place where the actual request processing work is done.  Derived classes should override this method.</p></div>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>abstract</strong> - </li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodregisterCoreComponents" id="methodregisterCoreComponents"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method registerCoreComponents</strong> (line <span class="linenumber">972</span>)
+ </h4> 
+<h4><i>void</i> <strong>registerCoreComponents(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Registers the core application components.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>see</strong> - <a href="../system-base/CModule.html#methodsetComponents">CModule::setComponents()</a></li>
+			<li><strong>access</strong> - protected</li>
+		</ul>
+
+</div>
+<a name="methodrun" id="methodrun"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method run</strong> (line <span class="linenumber">180</span>)
+ </h4> 
+<h4><i>void</i> <strong>run(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Runs the application.</h5>
+<div class="desc"><p>This method loads static application components. Derived classes usually overrides this  method to do more application-specific tasks.  Remember to call the parent implementation so that static application components are loaded.</p></div>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodsaveGlobalState" id="methodsaveGlobalState"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method saveGlobalState</strong> (line <span class="linenumber">700</span>)
+ </h4> 
+<h4><i>void</i> <strong>saveGlobalState(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Saves the global state data into persistent storage.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>see</strong> - <a href="../system-base/CApplication.html#methodgetStatePersister">CApplication::getStatePersister()</a></li>
+			<li><strong>throws</strong> - CException if the state persister is not available</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodsetBasePath" id="methodsetBasePath"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method setBasePath</strong> (line <span class="linenumber">264</span>)
+ </h4> 
+<h4><i>void</i> <strong>setBasePath(
+string
+$path)</strong></h4>
+
+<p><strong>Overrides :</strong> <a href="../system-base/CModule.html#methodsetBasePath">CModule::setBasePath()</a> Sets the root directory of the module.</p>
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Sets the root directory of the application.</h5>
+<div class="desc"><p>This method can only be invoked at the begin of the constructor.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $path</strong>: the root directory of the application.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>throws</strong> - CException if the directory does not exist.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodsetExtensionPath" id="methodsetExtensionPath"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method setExtensionPath</strong> (line <span class="linenumber">313</span>)
+ </h4> 
+<h4><i>void</i> <strong>setExtensionPath(
+string
+$path)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Sets the root directory that holds all third-party extensions.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $path</strong>: the directory that contains all third-party extensions.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>throws</strong> - CException if the directory does not exist</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodsetGlobalState" id="methodsetGlobalState"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method setGlobalState</strong> (line <span class="linenumber">646</span>)
+ </h4> 
+<h4><i>void</i> <strong>setGlobalState(
+string
+$key, mixed
+$value, [mixed
+$defaultValue = null])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Sets a global value.</h5>
+<div class="desc"><p>A global value is one that is persistent across users sessions and requests.  Make sure that the value is serializable and unserializable.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $key</strong>: the name of the value to be saved</li>
+			<li><strong>mixed $value</strong>: the global value to be saved. It must be serializable.</li>
+			<li><strong>mixed $defaultValue</strong>: the default value. If the named global value is the same as this value, it will be cleared from the current storage.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>see</strong> - <a href="../system-base/CApplication.html#methodgetGlobalState">CApplication::getGlobalState()</a></li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodsetHomeUrl" id="methodsetHomeUrl"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method setHomeUrl</strong> (line <span class="linenumber">612</span>)
+ </h4> 
+<h4><i>void</i> <strong>setHomeUrl(
+string
+$value)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $value</strong>: the homepage URL</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodsetId" id="methodsetId"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method setId</strong> (line <span class="linenumber">244</span>)
+ </h4> 
+<h4><i>void</i> <strong>setId(
+string
+$id)</strong></h4>
+
+<p><strong>Overrides :</strong> <a href="../system-base/CModule.html#methodsetId">CModule::setId()</a> Sets the module ID.</p>
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Sets the unique identifier for the application.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $id</strong>: the unique identifier for the application.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodsetLanguage" id="methodsetLanguage"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method setLanguage</strong> (line <span class="linenumber">342</span>)
+ </h4> 
+<h4><i>void</i> <strong>setLanguage(
+string
+$language)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Specifies which language the application is targeted to.</h5>
+<div class="desc"><p>This is the language that the application displays to end users.  If set null, it uses the <a href="../system-base/CApplication.html#var$sourceLanguage">source language</a>.</p><p>Unless your application needs to support multiple languages, you should always  set this language to null to maximize the application's performance.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $language</strong>: the user language (e.g. 'en_US', 'zh_CN').  If it is null, the <a href="../system-base/CApplication.html#var$sourceLanguage">sourceLanguage</a> will be used.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodsetLocaleDataPath" id="methodsetLocaleDataPath"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method setLocaleDataPath</strong> (line <span class="linenumber">428</span>)
+ </h4> 
+<h4><i>void</i> <strong>setLocaleDataPath(
+string
+$value)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Sets the directory that contains the locale data.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $value</strong>: the directory that contains the locale data.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>since</strong> - 1.1.0</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodsetRuntimePath" id="methodsetRuntimePath"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method setRuntimePath</strong> (line <span class="linenumber">291</span>)
+ </h4> 
+<h4><i>void</i> <strong>setRuntimePath(
+string
+$path)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Sets the directory that stores runtime files.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $path</strong>: the directory that stores runtime files.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>throws</strong> - CException if the directory does not exist or is not writable</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodsetTimeZone" id="methodsetTimeZone"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method setTimeZone</strong> (line <span class="linenumber">364</span>)
+ </h4> 
+<h4><i>void</i> <strong>setTimeZone(
+string
+$value)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Sets the time zone used by this application.</h5>
+<div class="desc"><p>This is a simple wrapper of PHP function date_default_timezone_set().</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $value</strong>: the time zone used by this application.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>see</strong> - <a href="http://php.net/manual/en/function.date-default-timezone-set.php">http://php.net/manual/en/function.date-default-timezone-set.php</a></li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage2" ) );</script>
+
+</div>
+<div class="tab-page" id="iVars">
+<h2 class="tab">Inherited Variables</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "iVars" ) );</script>
+<!-- =========== VAR INHERITED SUMMARY =========== -->
+<A NAME='var_inherited_summary'><!-- --></A>
+<h3>Inherited Class Variable Summary</h3>
+
+		<!-- =========== Summary =========== -->
+	<h4>Inherited From Class <a href="../system-base/CModule.html">CModule</a></h4>
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../system-base/CModule.html#var$behaviors">CModule::$behaviors</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../system-base/CModule.html#var$preload">CModule::$preload</a></strong> - 
+	</h4> 
+		</div>
+<div class="tab-page" id="iMethods">
+<h2 class="tab">Inherited Methods</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "iMethods" ) );</script>
+<!-- =========== INHERITED METHOD SUMMARY =========== -->
+<A NAME='functions_inherited'><!-- --></A>
+<h3>Inherited Method Summary</h3>
+
+		<!-- =========== Summary =========== -->
+	<h4>Inherited From Class <a href="../system-base/CModule.html">CModule</a></h4>
+				<h4>
+<img src="../media/images/Constructor.gif" border="0" /><strong class="method"> <a href="../system-base/CModule.html#method__construct">CModule::__construct()</a></strong> - Constructor.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CModule.html#methodconfigure">CModule::configure()</a></strong> - Configures the module with the specified configuration.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CModule.html#methodgetBasePath">CModule::getBasePath()</a></strong> - Returns the root directory of the module.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CModule.html#methodgetComponent">CModule::getComponent()</a></strong> - Retrieves the named application component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CModule.html#methodgetComponents">CModule::getComponents()</a></strong> - Returns the application components.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CModule.html#methodgetId">CModule::getId()</a></strong> - Returns the module ID.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CModule.html#methodgetModule">CModule::getModule()</a></strong> - Retrieves the named application module.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CModule.html#methodgetModulePath">CModule::getModulePath()</a></strong> - Returns the directory that contains the application modules.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CModule.html#methodgetModules">CModule::getModules()</a></strong> - Returns the configuration of the currently installed modules.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CModule.html#methodgetParams">CModule::getParams()</a></strong> - Returns user-defined parameters.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CModule.html#methodgetParentModule">CModule::getParentModule()</a></strong> - Returns the parent module.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CModule.html#methodhasComponent">CModule::hasComponent()</a></strong> - Checks whether the named component exists.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CModule.html#methodhasModule">CModule::hasModule()</a></strong> - Returns a value indicating whether the specified module is installed.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CModule.html#methodinit">CModule::init()</a></strong> - Initializes the module.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CModule.html#methodpreinit">CModule::preinit()</a></strong> - Preinitializes the module.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CModule.html#methodpreloadComponents">CModule::preloadComponents()</a></strong> - Loads static application components.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CModule.html#methodsetAliases">CModule::setAliases()</a></strong> - Defines the root aliases.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CModule.html#methodsetBasePath">CModule::setBasePath()</a></strong> - Sets the root directory of the module.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CModule.html#methodsetComponent">CModule::setComponent()</a></strong> - Puts a component under the management of the module.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CModule.html#methodsetComponents">CModule::setComponents()</a></strong> - Sets the application components.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CModule.html#methodsetId">CModule::setId()</a></strong> - Sets the module ID.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CModule.html#methodsetImport">CModule::setImport()</a></strong> - Sets the aliases that are used in the module.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CModule.html#methodsetModulePath">CModule::setModulePath()</a></strong> - Sets the directory that contains the application modules.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CModule.html#methodsetModules">CModule::setModules()</a></strong> - Configures the sub-modules of this module.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CModule.html#methodsetParams">CModule::setParams()</a></strong> - Sets user-defined parameters.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CModule.html#method__get">CModule::__get()</a></strong> - Getter magic method.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CModule.html#method__isset">CModule::__isset()</a></strong> - Checks if a property value is null.
+		</h4> 
+
+				<br />
+		<!-- =========== Summary =========== -->
+	<h4>Inherited From Class <a href="../system-base/CComponent.html">CComponent</a></h4>
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodasa">CComponent::asa()</a></strong> - Returns the named behavior object.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodattachBehavior">CComponent::attachBehavior()</a></strong> - Attaches a behavior to this component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodattachBehaviors">CComponent::attachBehaviors()</a></strong> - Attaches a list of behaviors to the component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodattachEventHandler">CComponent::attachEventHandler()</a></strong> - Attaches an event handler to an event.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodcanGetProperty">CComponent::canGetProperty()</a></strong> - Determines whether a property can be read.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodcanSetProperty">CComponent::canSetProperty()</a></strong> - Determines whether a property can be set.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddetachBehavior">CComponent::detachBehavior()</a></strong> - Detaches a behavior from the component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddetachBehaviors">CComponent::detachBehaviors()</a></strong> - Detaches all behaviors from the component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddetachEventHandler">CComponent::detachEventHandler()</a></strong> - Detaches an existing event handler.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddisableBehavior">CComponent::disableBehavior()</a></strong> - Disables an attached behavior.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddisableBehaviors">CComponent::disableBehaviors()</a></strong> - Disables all behaviors attached to this component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodenableBehavior">CComponent::enableBehavior()</a></strong> - Enables an attached behavior.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodenableBehaviors">CComponent::enableBehaviors()</a></strong> - Enables all behaviors attached to this component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodevaluateExpression">CComponent::evaluateExpression()</a></strong> - Evaluates a PHP expression or callback under the context of this component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodgetEventHandlers">CComponent::getEventHandlers()</a></strong> - Returns the list of attached event handlers for an event.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodhasEvent">CComponent::hasEvent()</a></strong> - Determines whether an event is defined.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodhasEventHandler">CComponent::hasEventHandler()</a></strong> - Checks whether the named event has attached handlers.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodhasProperty">CComponent::hasProperty()</a></strong> - Determines whether a property is defined.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodraiseEvent">CComponent::raiseEvent()</a></strong> - Raises an event.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__call">CComponent::__call()</a></strong> - Calls the named method which is not a class method.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__get">CComponent::__get()</a></strong> - Returns a property value, an event handler list or a behavior based on its name.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__isset">CComponent::__isset()</a></strong> - Checks if a property value is null.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__set">CComponent::__set()</a></strong> - Sets value of a component property.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__unset">CComponent::__unset()</a></strong> - Sets a component property to be null.
+		</h4> 
+
+				<br />
+	</div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+
+setupAllTabs();
+
+//]]>
+</script>
+	<div id="credit">
+		<hr />
+		Documentation generated on Mon, 11 Jul 2016 21:51:42 +0800 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.4</a>
+	</div>
+</body>
+</html>
+

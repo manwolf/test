@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Docs For Class CBehavior</title>
+  <link rel="stylesheet" href="../media/stylesheet.css" />
+  <script src="../media/lib/classTree.js"></script>
+<link id="webfx-tab-style-sheet" type="text/css" rel="stylesheet" href="../media/lib/tab.webfx.css" />
+<script type="text/javascript" src="../media/lib/tabpane.js"></script>
+  <script language="javascript" type="text/javascript" src="../media/lib/ua.js"></script>
+<script language="javascript" type="text/javascript">
+	var imgPlus = new Image();
+	var imgMinus = new Image();
+	imgPlus.src = "../media/images/plus.gif";
+	imgMinus.src = "../media/images/minus.gif";
+	
+	function showNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgMinus.src;
+		oTable.style.display = "block";
+	}
+	
+	function hideNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgPlus.src;
+		oTable.style.display = "none";
+	}
+	
+	function nodeIsVisible(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+        		break;
+        }
+		return (oTable && oTable.style.display == "block");
+	}
+	
+	function toggleNodeVisibility(Node){
+		if (nodeIsVisible(Node)){
+			hideNode(Node);
+		}else{
+			showNode(Node);
+		}
+	}
+</script>
+<!-- template designed by Julien Damon based on PHPEdit's generated templates, and tweaked by Greg Beaver -->
+<body bgcolor="#ffffff" >
+
+<!-- Start of Class Data -->
+<h2>
+	Class CBehavior
+</h2> (line <span class="linenumber">20</span>)
+<div class="tab-pane" id="tabPane1">
+<script type="text/javascript">
+tp1 = new WebFXTabPane( document.getElementById( "tabPane1" ));
+</script>
+
+<div class="tab-page" id="Description">
+<h2 class="tab">Description</h2>
+<pre>
+<a href="../system-base/CComponent.html">CComponent</a>
+   |
+   --CBehavior</pre>
+<p>
+	<b><i>Located in File: <a href="_CBehavior.php.html">/CBehavior.php</a></i></b><br>
+</p>
+<!-- ========== Info from phpDoc block ========= -->
+<h5>CBehavior is a convenient base class for behavior classes.</h5>
+<ul>
+		<li><strong>property:</strong> - <a href="../system-base/CComponent.html">CComponent</a> $owner: The owner component that this behavior is attached to.</li>
+		<li><strong>property:</strong> - boolean $enabled: Whether this behavior is enabled.</li>
+		<li><strong>author:</strong> - Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+	</ul>
+
+<br /><hr />
+<span class="type">Classes extended from CBehavior:</span>
+ 		<dl>
+	<dt><a href="../system-base/CModelBehavior.html">CModelBehavior</a></dt>
+		<dd>CModelBehavior is a base class for behaviors that are attached to a model component.</dd>
+	</dl>
+	</p>
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "Description" ) );</script>
+<div class="tab-page" id="tabPage1">
+<h2 class="tab">Class Variables</h2>
+<!-- ============ VARIABLE DETAIL =========== -->
+<strong>Summary:</strong><br />
+<hr />
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage1" ) );</script>
+
+
+</div>
+<div class="tab-page" id="constantsTabpage">
+<h2 class="tab">Class Constants</h2>
+<!-- ============ VARIABLE DETAIL =========== -->
+<strong>Summary:</strong><br />
+<hr />
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "constantsTabpage" ) );</script>
+
+
+</div>
+<div class="tab-page" id="tabPage2">
+<h2 class="tab">Method Detail</h2>
+<!-- ============ METHOD DETAIL =========== -->
+<strong>Summary:</strong><br />
+<div class="method-summary">
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodattach" title="details" class="method-name">attach</a>
+        (<span class="var-type"><a href="../system-base/CComponent.html">CComponent</a></span>&nbsp;<span class="var-name">$owner</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methoddetach" title="details" class="method-name">detach</a>
+        (<span class="var-type"><a href="../system-base/CComponent.html">CComponent</a></span>&nbsp;<span class="var-name">$owner</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">array</span>
+        <a href="#methodevents" title="details" class="method-name">events</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">boolean</span>
+        <a href="#methodgetEnabled" title="details" class="method-name">getEnabled</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result"><a href="../system-base/CComponent.html">CComponent</a></span>
+        <a href="#methodgetOwner" title="details" class="method-name">getOwner</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodsetEnabled" title="details" class="method-name">setEnabled</a>
+        (<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+        </div>
+</div>
+<hr />
+<A NAME='method_detail'></A>
+
+
+<a name="methodattach" id="methodattach"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method attach</strong> (line <span class="linenumber">47</span>)
+ </h4> 
+<h4><i>void</i> <strong>attach(
+<a href="../system-base/CComponent.html">CComponent</a>
+$owner)</strong></h4>
+
+			<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../system-base/IBehavior.html#methodattach">IBehavior::attach()</a></dt>
+						<dd>Attaches the behavior object to the component.</dd>
+					</dl>
+		<!-- ========== Info from phpDoc block ========= -->
+<h5>Attaches the behavior object to the component.</h5>
+<div class="desc"><p>The default implementation will set the owner property  and attach event handlers as declared in <a href="../system-base/CBehavior.html#methodevents">events</a>.  This method will also set enabled to true.  Make sure you've declared handler as public and call the parent implementation if you override this method.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong><a href="../system-base/CComponent.html">CComponent</a> $owner</strong>: the component that this behavior is to be attached to.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methoddetach" id="methoddetach"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method detach</strong> (line <span class="linenumber">62</span>)
+ </h4> 
+<h4><i>void</i> <strong>detach(
+<a href="../system-base/CComponent.html">CComponent</a>
+$owner)</strong></h4>
+
+			<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../system-base/IBehavior.html#methoddetach">IBehavior::detach()</a></dt>
+						<dd>Detaches the behavior object from the component.</dd>
+					</dl>
+		<!-- ========== Info from phpDoc block ========= -->
+<h5>Detaches the behavior object from the component.</h5>
+<div class="desc"><p>The default implementation will unset the owner property  and detach event handlers declared in <a href="../system-base/CBehavior.html#methodevents">events</a>.  This method will also set enabled to false.  Make sure you call the parent implementation if you override this method.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong><a href="../system-base/CComponent.html">CComponent</a> $owner</strong>: the component that this behavior is to be detached from.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodevents" id="methodevents"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method events</strong> (line <span class="linenumber">34</span>)
+ </h4> 
+<h4><i>array</i> <strong>events(
+)</strong></h4>
+	<p>Overridden in child classes as:<br />
+		<dl>
+	<dt><a href="../system-base/CModelBehavior.html#methodevents">CModelBehavior::events()</a></dt>
+		<dd>Declares events and the corresponding event handler methods.</dd>
+	</dl>
+	</p>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Declares events and the corresponding event handler methods.</h5>
+<div class="desc"><p>The events are defined by the owner component, while the handler  methods by the behavior class. The handlers will be attached to the corresponding  events when the behavior is attached to the owner component; and they  will be detached from the events when the behavior is detached from the component.  Make sure you've declared handler method as public.</p></div>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - events (array keys) and the corresponding event handler methods (array values).</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetEnabled" id="methodgetEnabled"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getEnabled</strong> (line <span class="linenumber">81</span>)
+ </h4> 
+<h4><i>boolean</i> <strong>getEnabled(
+)</strong></h4>
+
+			<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../system-base/IBehavior.html#methodgetEnabled">IBehavior::getEnabled()</a></dt>
+					</dl>
+		<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - whether this behavior is enabled</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetOwner" id="methodgetOwner"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getOwner</strong> (line <span class="linenumber">73</span>)
+ </h4> 
+<h4><i><a href="../system-base/CComponent.html">CComponent</a></i> <strong>getOwner(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the owner component that this behavior is attached to.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodsetEnabled" id="methodsetEnabled"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method setEnabled</strong> (line <span class="linenumber">89</span>)
+ </h4> 
+<h4><i>void</i> <strong>setEnabled(
+boolean
+$value)</strong></h4>
+
+			<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../system-base/IBehavior.html#methodsetEnabled">IBehavior::setEnabled()</a></dt>
+					</dl>
+		<!-- ========== Info from phpDoc block ========= -->
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>boolean $value</strong>: whether this behavior is enabled</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage2" ) );</script>
+
+</div>
+<div class="tab-page" id="iVars">
+<h2 class="tab">Inherited Variables</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "iVars" ) );</script>
+<!-- =========== VAR INHERITED SUMMARY =========== -->
+<A NAME='var_inherited_summary'><!-- --></A>
+<h3>Inherited Class Variable Summary</h3>
+
+	</div>
+<div class="tab-page" id="iMethods">
+<h2 class="tab">Inherited Methods</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "iMethods" ) );</script>
+<!-- =========== INHERITED METHOD SUMMARY =========== -->
+<A NAME='functions_inherited'><!-- --></A>
+<h3>Inherited Method Summary</h3>
+
+		<!-- =========== Summary =========== -->
+	<h4>Inherited From Class <a href="../system-base/CComponent.html">CComponent</a></h4>
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodasa">CComponent::asa()</a></strong> - Returns the named behavior object.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodattachBehavior">CComponent::attachBehavior()</a></strong> - Attaches a behavior to this component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodattachBehaviors">CComponent::attachBehaviors()</a></strong> - Attaches a list of behaviors to the component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodattachEventHandler">CComponent::attachEventHandler()</a></strong> - Attaches an event handler to an event.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodcanGetProperty">CComponent::canGetProperty()</a></strong> - Determines whether a property can be read.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodcanSetProperty">CComponent::canSetProperty()</a></strong> - Determines whether a property can be set.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddetachBehavior">CComponent::detachBehavior()</a></strong> - Detaches a behavior from the component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddetachBehaviors">CComponent::detachBehaviors()</a></strong> - Detaches all behaviors from the component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddetachEventHandler">CComponent::detachEventHandler()</a></strong> - Detaches an existing event handler.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddisableBehavior">CComponent::disableBehavior()</a></strong> - Disables an attached behavior.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddisableBehaviors">CComponent::disableBehaviors()</a></strong> - Disables all behaviors attached to this component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodenableBehavior">CComponent::enableBehavior()</a></strong> - Enables an attached behavior.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodenableBehaviors">CComponent::enableBehaviors()</a></strong> - Enables all behaviors attached to this component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodevaluateExpression">CComponent::evaluateExpression()</a></strong> - Evaluates a PHP expression or callback under the context of this component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodgetEventHandlers">CComponent::getEventHandlers()</a></strong> - Returns the list of attached event handlers for an event.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodhasEvent">CComponent::hasEvent()</a></strong> - Determines whether an event is defined.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodhasEventHandler">CComponent::hasEventHandler()</a></strong> - Checks whether the named event has attached handlers.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodhasProperty">CComponent::hasProperty()</a></strong> - Determines whether a property is defined.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodraiseEvent">CComponent::raiseEvent()</a></strong> - Raises an event.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__call">CComponent::__call()</a></strong> - Calls the named method which is not a class method.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__get">CComponent::__get()</a></strong> - Returns a property value, an event handler list or a behavior based on its name.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__isset">CComponent::__isset()</a></strong> - Checks if a property value is null.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__set">CComponent::__set()</a></strong> - Sets value of a component property.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__unset">CComponent::__unset()</a></strong> - Sets a component property to be null.
+		</h4> 
+
+				<br />
+	</div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+
+setupAllTabs();
+
+//]]>
+</script>
+	<div id="credit">
+		<hr />
+		Documentation generated on Mon, 11 Jul 2016 21:51:43 +0800 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.4</a>
+	</div>
+</body>
+</html>
+

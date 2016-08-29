@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Docs For Class CEvent</title>
+  <link rel="stylesheet" href="../media/stylesheet.css" />
+  <script src="../media/lib/classTree.js"></script>
+<link id="webfx-tab-style-sheet" type="text/css" rel="stylesheet" href="../media/lib/tab.webfx.css" />
+<script type="text/javascript" src="../media/lib/tabpane.js"></script>
+  <script language="javascript" type="text/javascript" src="../media/lib/ua.js"></script>
+<script language="javascript" type="text/javascript">
+	var imgPlus = new Image();
+	var imgMinus = new Image();
+	imgPlus.src = "../media/images/plus.gif";
+	imgMinus.src = "../media/images/minus.gif";
+	
+	function showNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgMinus.src;
+		oTable.style.display = "block";
+	}
+	
+	function hideNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgPlus.src;
+		oTable.style.display = "none";
+	}
+	
+	function nodeIsVisible(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+        		break;
+        }
+		return (oTable && oTable.style.display == "block");
+	}
+	
+	function toggleNodeVisibility(Node){
+		if (nodeIsVisible(Node)){
+			hideNode(Node);
+		}else{
+			showNode(Node);
+		}
+	}
+</script>
+<!-- template designed by Julien Damon based on PHPEdit's generated templates, and tweaked by Greg Beaver -->
+<body bgcolor="#ffffff" >
+
+<!-- Start of Class Data -->
+<h2>
+	Class CEvent
+</h2> (line <span class="linenumber">636</span>)
+<div class="tab-pane" id="tabPane1">
+<script type="text/javascript">
+tp1 = new WebFXTabPane( document.getElementById( "tabPane1" ));
+</script>
+
+<div class="tab-page" id="Description">
+<h2 class="tab">Description</h2>
+<pre>
+<a href="../system-base/CComponent.html">CComponent</a>
+   |
+   --CEvent</pre>
+<p>
+	<b><i>Located in File: <a href="_CComponent.php.html">/CComponent.php</a></i></b><br>
+</p>
+<!-- ========== Info from phpDoc block ========= -->
+<h5>CEvent is the base class for all event classes.</h5>
+<div class="desc"><p>It encapsulates the parameters associated with an event.  The <a href="../system-base/CEvent.html#var$sender">sender</a> property describes who raises the event.  And the <a href="../system-base/CEvent.html#var$handled">handled</a> property indicates if the event is handled.  If an event handler sets <a href="../system-base/CEvent.html#var$handled">handled</a> to true, those handlers  that are not invoked yet will not be invoked anymore.</p></div>
+<ul>
+		<li><strong>author:</strong> - Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+		<li><strong>since:</strong> - 1.0</li>
+	</ul>
+
+<br /><hr />
+<span class="type">Classes extended from CEvent:</span>
+ 		<dl>
+	<dt><a href="../system-base/CModelEvent.html">CModelEvent</a></dt>
+		<dd>CModelEvent class.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../system-base/CErrorEvent.html">CErrorEvent</a></dt>
+		<dd>CErrorEvent represents the parameter for the CApplication::onError event.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../system-base/CExceptionEvent.html">CExceptionEvent</a></dt>
+		<dd>CExceptionEvent represents the parameter for the CApplication::onException event.</dd>
+	</dl>
+	</p>
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "Description" ) );</script>
+<div class="tab-page" id="tabPage1">
+<h2 class="tab">Class Variables</h2>
+<!-- ============ VARIABLE DETAIL =========== -->
+<strong>Summary:</strong><br />
+<div class="var-title">
+    <span class="var-type">boolean</span>
+    <a href="#var$handled" title="details" class="property"><strong>$handled</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$params" title="details" class="property"><strong>$params</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">object the</span>
+    <a href="#var$sender" title="details" class="property"><strong>$sender</strong></a>
+</div>
+<hr />
+<a name="var$handled" id="var$handled"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$handled = false</strong> (line <span class="linenumber">646</span>)
+ </h4>
+<h4>Data type : boolean</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+		<li><strong>var:</strong> - whether the event is handled. Defaults to false.  When a handler sets this true, the rest of the uninvoked event handlers will not be invoked anymore.</li>
+		<li><strong>access:</strong> - public</li>
+	</ul>
+
+</div>
+<a name="var$params" id="var$params"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$params</strong> (line <span class="linenumber">651</span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+		<li><strong>var:</strong> - additional event parameters.</li>
+		<li><strong>since:</strong> - 1.1.7</li>
+		<li><strong>access:</strong> - public</li>
+	</ul>
+
+</div>
+<a name="var$sender" id="var$sender"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$sender</strong> (line <span class="linenumber">641</span>)
+ </h4>
+<h4>Data type : object the</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+		<li><strong>var:</strong> - sender of this event</li>
+		<li><strong>access:</strong> - public</li>
+	</ul>
+
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage1" ) );</script>
+
+
+</div>
+<div class="tab-page" id="constantsTabpage">
+<h2 class="tab">Class Constants</h2>
+<!-- ============ VARIABLE DETAIL =========== -->
+<strong>Summary:</strong><br />
+<hr />
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "constantsTabpage" ) );</script>
+
+
+</div>
+<div class="tab-page" id="tabPage2">
+<h2 class="tab">Method Detail</h2>
+<!-- ============ METHOD DETAIL =========== -->
+<strong>Summary:</strong><br />
+<div class="method-summary">
+    <div class="method-definition">
+            <span class="method-result">CEvent</span>
+        <a href="#method__construct" title="details" class="method-name">__construct</a>
+        ([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sender</span> = <span class="var-default">null</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>])
+        </div>
+</div>
+<hr />
+<A NAME='method_detail'></A>
+
+
+<a name="method__construct" id="method__construct"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/Constructor.gif" border="0" /> <strong class="method">Constructor __construct</strong> (line <span class="linenumber">658</span>)
+ </h4> 
+<h4><i>CEvent</i> <strong>__construct(
+[mixed
+$sender = null], [mixed
+$params = null])</strong></h4>
+	<p>Overridden in child classes as:<br />
+		<dl>
+	<dt><a href="../system-base/CErrorEvent.html#method__construct">CErrorEvent::__construct()</a></dt>
+		<dd>Constructor.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../system-base/CExceptionEvent.html#method__construct">CExceptionEvent::__construct()</a></dt>
+		<dd>Constructor.</dd>
+	</dl>
+	</p>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Constructor.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>mixed $sender</strong>: sender of the event</li>
+			<li><strong>mixed $params</strong>: additional parameters for the event</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage2" ) );</script>
+
+</div>
+<div class="tab-page" id="iVars">
+<h2 class="tab">Inherited Variables</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "iVars" ) );</script>
+<!-- =========== VAR INHERITED SUMMARY =========== -->
+<A NAME='var_inherited_summary'><!-- --></A>
+<h3>Inherited Class Variable Summary</h3>
+
+	</div>
+<div class="tab-page" id="iMethods">
+<h2 class="tab">Inherited Methods</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "iMethods" ) );</script>
+<!-- =========== INHERITED METHOD SUMMARY =========== -->
+<A NAME='functions_inherited'><!-- --></A>
+<h3>Inherited Method Summary</h3>
+
+		<!-- =========== Summary =========== -->
+	<h4>Inherited From Class <a href="../system-base/CComponent.html">CComponent</a></h4>
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodasa">CComponent::asa()</a></strong> - Returns the named behavior object.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodattachBehavior">CComponent::attachBehavior()</a></strong> - Attaches a behavior to this component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodattachBehaviors">CComponent::attachBehaviors()</a></strong> - Attaches a list of behaviors to the component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodattachEventHandler">CComponent::attachEventHandler()</a></strong> - Attaches an event handler to an event.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodcanGetProperty">CComponent::canGetProperty()</a></strong> - Determines whether a property can be read.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodcanSetProperty">CComponent::canSetProperty()</a></strong> - Determines whether a property can be set.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddetachBehavior">CComponent::detachBehavior()</a></strong> - Detaches a behavior from the component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddetachBehaviors">CComponent::detachBehaviors()</a></strong> - Detaches all behaviors from the component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddetachEventHandler">CComponent::detachEventHandler()</a></strong> - Detaches an existing event handler.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddisableBehavior">CComponent::disableBehavior()</a></strong> - Disables an attached behavior.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddisableBehaviors">CComponent::disableBehaviors()</a></strong> - Disables all behaviors attached to this component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodenableBehavior">CComponent::enableBehavior()</a></strong> - Enables an attached behavior.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodenableBehaviors">CComponent::enableBehaviors()</a></strong> - Enables all behaviors attached to this component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodevaluateExpression">CComponent::evaluateExpression()</a></strong> - Evaluates a PHP expression or callback under the context of this component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodgetEventHandlers">CComponent::getEventHandlers()</a></strong> - Returns the list of attached event handlers for an event.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodhasEvent">CComponent::hasEvent()</a></strong> - Determines whether an event is defined.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodhasEventHandler">CComponent::hasEventHandler()</a></strong> - Checks whether the named event has attached handlers.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodhasProperty">CComponent::hasProperty()</a></strong> - Determines whether a property is defined.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodraiseEvent">CComponent::raiseEvent()</a></strong> - Raises an event.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__call">CComponent::__call()</a></strong> - Calls the named method which is not a class method.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__get">CComponent::__get()</a></strong> - Returns a property value, an event handler list or a behavior based on its name.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__isset">CComponent::__isset()</a></strong> - Checks if a property value is null.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__set">CComponent::__set()</a></strong> - Sets value of a component property.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__unset">CComponent::__unset()</a></strong> - Sets a component property to be null.
+		</h4> 
+
+				<br />
+	</div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+
+setupAllTabs();
+
+//]]>
+</script>
+	<div id="credit">
+		<hr />
+		Documentation generated on Mon, 11 Jul 2016 21:51:43 +0800 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.4</a>
+	</div>
+</body>
+</html>
+

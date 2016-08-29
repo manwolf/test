@@ -1,0 +1,1086 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Docs For Class CModule</title>
+  <link rel="stylesheet" href="../media/stylesheet.css" />
+  <script src="../media/lib/classTree.js"></script>
+<link id="webfx-tab-style-sheet" type="text/css" rel="stylesheet" href="../media/lib/tab.webfx.css" />
+<script type="text/javascript" src="../media/lib/tabpane.js"></script>
+  <script language="javascript" type="text/javascript" src="../media/lib/ua.js"></script>
+<script language="javascript" type="text/javascript">
+	var imgPlus = new Image();
+	var imgMinus = new Image();
+	imgPlus.src = "../media/images/plus.gif";
+	imgMinus.src = "../media/images/minus.gif";
+	
+	function showNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgMinus.src;
+		oTable.style.display = "block";
+	}
+	
+	function hideNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgPlus.src;
+		oTable.style.display = "none";
+	}
+	
+	function nodeIsVisible(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+        		break;
+        }
+		return (oTable && oTable.style.display == "block");
+	}
+	
+	function toggleNodeVisibility(Node){
+		if (nodeIsVisible(Node)){
+			hideNode(Node);
+		}else{
+			showNode(Node);
+		}
+	}
+</script>
+<!-- template designed by Julien Damon based on PHPEdit's generated templates, and tweaked by Greg Beaver -->
+<body bgcolor="#ffffff" >
+
+<!-- Start of Class Data -->
+<h2>
+	Class CModule
+</h2> (line <span class="linenumber">38</span>)
+<div class="tab-pane" id="tabPane1">
+<script type="text/javascript">
+tp1 = new WebFXTabPane( document.getElementById( "tabPane1" ));
+</script>
+
+<div class="tab-page" id="Description">
+<h2 class="tab">Description</h2>
+<pre>
+<a href="../system-base/CComponent.html">CComponent</a>
+   |
+   --CModule</pre>
+<p>
+	<b><i>Located in File: <a href="_CModule.php.html">/CModule.php</a></i></b><br>
+</p>
+<!-- ========== Info from phpDoc block ========= -->
+<h5>CModule is the base class for module and application classes.</h5>
+<div class="desc"><p>CModule mainly manages application components and sub-modules.</p></div>
+<ul>
+		<li><strong>property:</strong> - string $id: The module ID.</li>
+		<li><strong>property:</strong> - string $basePath: The root directory of the module. Defaults to the directory containing the module class.</li>
+		<li><strong>property:</strong> - CAttributeCollection $params: The list of user-defined parameters.</li>
+		<li><strong>property:</strong> - string $modulePath: The directory that contains the application modules. Defaults to the 'modules' subdirectory of basePath.</li>
+		<li><strong>property:</strong> - <a href="../system-base/CModule.html">CModule</a> $parentModule: The parent module. Null if this module does not have a parent.</li>
+		<li><strong>property:</strong> - array $modules: The configuration of the currently installed modules (module ID =&gt; configuration).</li>
+		<li><strong>property:</strong> - array $components: The application components (indexed by their IDs).</li>
+		<li><strong>property:</strong> - array $import: List of aliases to be imported.</li>
+		<li><strong>property:</strong> - array $aliases: List of aliases to be defined. The array keys are root aliases,  while the array values are paths or aliases corresponding to the root aliases.  For example,  <pre> array(
+    'models'=>'application.models',              // an existing alias
+    'extensions'=>'application.extensions',      // an existing alias
+    'backend'=>dirname(__FILE__).'/../backend',  // a directory
+ )</pre>.</li>
+		<li><strong>author:</strong> - Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+		<li><strong>abstract:</strong> - </li>
+	</ul>
+
+<br /><hr />
+<span class="type">Classes extended from CModule:</span>
+ 		<dl>
+	<dt><a href="../system-base/CApplication.html">CApplication</a></dt>
+		<dd>CApplication is the base class for all application classes.</dd>
+	</dl>
+	</p>
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "Description" ) );</script>
+<div class="tab-page" id="tabPage1">
+<h2 class="tab">Class Variables</h2>
+<!-- ============ VARIABLE DETAIL =========== -->
+<strong>Summary:</strong><br />
+<div class="var-title">
+    <span class="var-type">array</span>
+    <a href="#var$behaviors" title="details" class="property"><strong>$behaviors</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">array</span>
+    <a href="#var$preload" title="details" class="property"><strong>$preload</strong></a>
+</div>
+<hr />
+<a name="var$behaviors" id="var$behaviors"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$behaviors = array()</strong> (line <span class="linenumber">49</span>)
+ </h4>
+<h4>Data type : array</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+		<li><strong>var:</strong> - the behaviors that should be attached to the module.  The behaviors will be attached to the module when <a href="../system-base/CModule.html#methodinit">init</a> is called.  Please refer to CModel::behaviors on how to specify the value of this property.</li>
+		<li><strong>access:</strong> - public</li>
+	</ul>
+
+</div>
+<a name="var$preload" id="var$preload"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$preload = array()</strong> (line <span class="linenumber">43</span>)
+ </h4>
+<h4>Data type : array</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+		<li><strong>var:</strong> - the IDs of the application components that should be preloaded.</li>
+		<li><strong>access:</strong> - public</li>
+	</ul>
+
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage1" ) );</script>
+
+
+</div>
+<div class="tab-page" id="constantsTabpage">
+<h2 class="tab">Class Constants</h2>
+<!-- ============ VARIABLE DETAIL =========== -->
+<strong>Summary:</strong><br />
+<hr />
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "constantsTabpage" ) );</script>
+
+
+</div>
+<div class="tab-page" id="tabPage2">
+<h2 class="tab">Method Detail</h2>
+<!-- ============ METHOD DETAIL =========== -->
+<strong>Summary:</strong><br />
+<div class="method-summary">
+    <div class="method-definition">
+            <span class="method-result">CModule</span>
+        <a href="#method__construct" title="details" class="method-name">__construct</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>, <span class="var-type"><a href="../system-base/CModule.html">CModule</a></span>&nbsp;<span class="var-name">$parent</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$config</span> = <span class="var-default">null</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodconfigure" title="details" class="method-name">configure</a>
+        (<span class="var-type">array</span>&nbsp;<span class="var-name">$config</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodgetBasePath" title="details" class="method-name">getBasePath</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result"><a href="../system-base/IApplicationComponent.html">IApplicationComponent</a></span>
+        <a href="#methodgetComponent" title="details" class="method-name">getComponent</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$createIfNull</span> = <span class="var-default">true</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">array</span>
+        <a href="#methodgetComponents" title="details" class="method-name">getComponents</a>
+        ([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$loadedOnly</span> = <span class="var-default">true</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodgetId" title="details" class="method-name">getId</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result"><a href="../system-base/CModule.html">CModule</a></span>
+        <a href="#methodgetModule" title="details" class="method-name">getModule</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">string</span>
+        <a href="#methodgetModulePath" title="details" class="method-name">getModulePath</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">array</span>
+        <a href="#methodgetModules" title="details" class="method-name">getModules</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">CAttributeCollection</span>
+        <a href="#methodgetParams" title="details" class="method-name">getParams</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result"><a href="../system-base/CModule.html">CModule</a></span>
+        <a href="#methodgetParentModule" title="details" class="method-name">getParentModule</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">boolean</span>
+        <a href="#methodhasComponent" title="details" class="method-name">hasComponent</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">boolean</span>
+        <a href="#methodhasModule" title="details" class="method-name">hasModule</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodinit" title="details" class="method-name">init</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodpreinit" title="details" class="method-name">preinit</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodpreloadComponents" title="details" class="method-name">preloadComponents</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodsetAliases" title="details" class="method-name">setAliases</a>
+        (<span class="var-type">array</span>&nbsp;<span class="var-name">$mappings</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodsetBasePath" title="details" class="method-name">setBasePath</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodsetComponent" title="details" class="method-name">setComponent</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>, <span class="var-type">array|<a href="../system-base/IApplicationComponent.html">IApplicationComponent</a></span>&nbsp;<span class="var-name">$component</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$merge</span> = <span class="var-default">true</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodsetComponents" title="details" class="method-name">setComponents</a>
+        (<span class="var-type">array</span>&nbsp;<span class="var-name">$components</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$merge</span> = <span class="var-default">true</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodsetId" title="details" class="method-name">setId</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodsetImport" title="details" class="method-name">setImport</a>
+        (<span class="var-type">array</span>&nbsp;<span class="var-name">$aliases</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodsetModulePath" title="details" class="method-name">setModulePath</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodsetModules" title="details" class="method-name">setModules</a>
+        (<span class="var-type">array</span>&nbsp;<span class="var-name">$modules</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$merge</span> = <span class="var-default">true</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodsetParams" title="details" class="method-name">setParams</a>
+        (<span class="var-type">array</span>&nbsp;<span class="var-name">$value</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">mixed</span>
+        <a href="#method__get" title="details" class="method-name">__get</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">boolean</span>
+        <a href="#method__isset" title="details" class="method-name">__isset</a>
+        (<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+        </div>
+</div>
+<hr />
+<A NAME='method_detail'></A>
+
+
+<a name="method__construct" id="method__construct"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/Constructor.gif" border="0" /> <strong class="method">Constructor __construct</strong> (line <span class="linenumber">69</span>)
+ </h4> 
+<h4><i>CModule</i> <strong>__construct(
+string
+$id, <a href="../system-base/CModule.html">CModule</a>
+$parent, [mixed
+$config = null])</strong></h4>
+	<p>Overridden in child classes as:<br />
+		<dl>
+	<dt><a href="../system-base/CApplication.html#method__construct">CApplication::__construct()</a></dt>
+		<dd>Constructor.</dd>
+	</dl>
+	</p>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Constructor.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $id</strong>: the ID of this module</li>
+			<li><strong><a href="../system-base/CModule.html">CModule</a> $parent</strong>: the parent module (if any)</li>
+			<li><strong>mixed $config</strong>: the module configuration. It can be either an array or  the path of a PHP file returning the configuration array.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodconfigure" id="methodconfigure"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method configure</strong> (line <span class="linenumber">515</span>)
+ </h4> 
+<h4><i>void</i> <strong>configure(
+array
+$config)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Configures the module with the specified configuration.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>array $config</strong>: the configuration array</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetBasePath" id="methodgetBasePath"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getBasePath</strong> (line <span class="linenumber">145</span>)
+ </h4> 
+<h4><i>string</i> <strong>getBasePath(
+)</strong></h4>
+	<p>Overridden in child classes as:<br />
+		<dl>
+	<dt><a href="../system-base/CApplication.html#methodgetBasePath">CApplication::getBasePath()</a></dt>
+		<dd>Returns the root path of the application.</dd>
+	</dl>
+	</p>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the root directory of the module.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the root directory of the module. Defaults to the directory containing the module class.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetComponent" id="methodgetComponent"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getComponent</strong> (line <span class="linenumber">382</span>)
+ </h4> 
+<h4><i><a href="../system-base/IApplicationComponent.html">IApplicationComponent</a></i> <strong>getComponent(
+string
+$id, [boolean
+$createIfNull = true])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Retrieves the named application component.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $id</strong>: application component ID (case-sensitive)</li>
+			<li><strong>boolean $createIfNull</strong>: whether to create the component if it doesn't exist yet.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the application component instance, null if the application component is disabled or does not exist.</li>
+			<li><strong>see</strong> - <a href="../system-base/CModule.html#methodhasComponent">CModule::hasComponent()</a></li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetComponents" id="methodgetComponents"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getComponents</strong> (line <span class="linenumber">466</span>)
+ </h4> 
+<h4><i>array</i> <strong>getComponents(
+[boolean
+$loadedOnly = true])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the application components.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>boolean $loadedOnly</strong>: whether to return the loaded components only. If this is set false,  then all components specified in the configuration will be returned, whether they are loaded or not.  Loaded components will be returned as objects, while unloaded components as configuration arrays.  This parameter has been available since version 1.1.3.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the application components (indexed by their IDs)</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetId" id="methodgetId"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getId</strong> (line <span class="linenumber">127</span>)
+ </h4> 
+<h4><i>string</i> <strong>getId(
+)</strong></h4>
+	<p>Overridden in child classes as:<br />
+		<dl>
+	<dt><a href="../system-base/CApplication.html#methodgetId">CApplication::getId()</a></dt>
+		<dd>Returns the unique identifier for the application.</dd>
+	</dl>
+	</p>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the module ID.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the module ID.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetModule" id="methodgetModule"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getModule</strong> (line <span class="linenumber">269</span>)
+ </h4> 
+<h4><i><a href="../system-base/CModule.html">CModule</a></i> <strong>getModule(
+string
+$id)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Retrieves the named application module.</h5>
+<div class="desc"><p>The module has to be declared in modules. A new instance will be created  when calling this method with the given ID for the first time.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $id</strong>: application module ID (case-sensitive)</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the module instance, null if the module is disabled or does not exist.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetModulePath" id="methodgetModulePath"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getModulePath</strong> (line <span class="linenumber">199</span>)
+ </h4> 
+<h4><i>string</i> <strong>getModulePath(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the directory that contains the application modules.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the directory that contains the application modules. Defaults to the 'modules' subdirectory of basePath.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetModules" id="methodgetModules"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getModules</strong> (line <span class="linenumber">305</span>)
+ </h4> 
+<h4><i>array</i> <strong>getModules(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the configuration of the currently installed modules.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the configuration of the currently installed modules (module ID =&gt; configuration)</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetParams" id="methodgetParams"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getParams</strong> (line <span class="linenumber">172</span>)
+ </h4> 
+<h4><i>CAttributeCollection</i> <strong>getParams(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns user-defined parameters.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the list of user-defined parameters</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodgetParentModule" id="methodgetParentModule"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getParentModule</strong> (line <span class="linenumber">257</span>)
+ </h4> 
+<h4><i><a href="../system-base/CModule.html">CModule</a></i> <strong>getParentModule(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns the parent module.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the parent module. Null if this module does not have a parent.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodhasComponent" id="methodhasComponent"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method hasComponent</strong> (line <span class="linenumber">370</span>)
+ </h4> 
+<h4><i>boolean</i> <strong>hasComponent(
+string
+$id)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Checks whether the named component exists.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $id</strong>: application component ID</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - whether the named application component exists (including both loaded and disabled.)</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodhasModule" id="methodhasModule"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method hasModule</strong> (line <span class="linenumber">296</span>)
+ </h4> 
+<h4><i>boolean</i> <strong>hasModule(
+string
+$id)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Returns a value indicating whether the specified module is installed.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $id</strong>: the module ID</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - whether the specified module is installed.</li>
+			<li><strong>since</strong> - 1.1.2</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodinit" id="methodinit"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method init</strong> (line <span class="linenumber">551</span>)
+ </h4> 
+<h4><i>void</i> <strong>init(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Initializes the module.</h5>
+<div class="desc"><p>This method is called at the end of the module constructor.  Note that at this moment, the module has been configured, the behaviors  have been attached and the application components have been registered.</p></div>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>see</strong> - <a href="../system-base/CModule.html#methodpreinit">CModule::preinit()</a></li>
+			<li><strong>access</strong> - protected</li>
+		</ul>
+
+</div>
+<a name="methodpreinit" id="methodpreinit"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method preinit</strong> (line <span class="linenumber">540</span>)
+ </h4> 
+<h4><i>void</i> <strong>preinit(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Preinitializes the module.</h5>
+<div class="desc"><p>This method is called at the beginning of the module constructor.  You may override this method to do some customized preinitialization work.  Note that at this moment, the module is not configured yet.</p></div>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>see</strong> - <a href="../system-base/CModule.html#methodinit">CModule::init()</a></li>
+			<li><strong>access</strong> - protected</li>
+		</ul>
+
+</div>
+<a name="methodpreloadComponents" id="methodpreloadComponents"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method preloadComponents</strong> (line <span class="linenumber">527</span>)
+ </h4> 
+<h4><i>void</i> <strong>preloadComponents(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Loads static application components.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - protected</li>
+		</ul>
+
+</div>
+<a name="methodsetAliases" id="methodsetAliases"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method setAliases</strong> (line <span class="linenumber">242</span>)
+ </h4> 
+<h4><i>void</i> <strong>setAliases(
+array
+$mappings)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Defines the root aliases.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>array $mappings</strong>: list of aliases to be defined. The array keys are root aliases,  while the array values are paths or aliases corresponding to the root aliases.  For example,  <pre> array(
+    'models'=>'application.models',              // an existing alias
+    'extensions'=>'application.extensions',      // an existing alias
+    'backend'=>dirname(__FILE__).'/../backend',  // a directory
+ )</pre></li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodsetBasePath" id="methodsetBasePath"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method setBasePath</strong> (line <span class="linenumber">161</span>)
+ </h4> 
+<h4><i>void</i> <strong>setBasePath(
+string
+$path)</strong></h4>
+	<p>Overridden in child classes as:<br />
+		<dl>
+	<dt><a href="../system-base/CApplication.html#methodsetBasePath">CApplication::setBasePath()</a></dt>
+		<dd>Sets the root directory of the application.</dd>
+	</dl>
+	</p>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Sets the root directory of the module.</h5>
+<div class="desc"><p>This method can only be invoked at the beginning of the constructor.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $path</strong>: the root directory of the module.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>throws</strong> - CException if the directory does not exist.</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodsetComponent" id="methodsetComponent"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method setComponent</strong> (line <span class="linenumber">414</span>)
+ </h4> 
+<h4><i>void</i> <strong>setComponent(
+string
+$id, array|<a href="../system-base/IApplicationComponent.html">IApplicationComponent</a>
+$component, [boolean
+$merge = true])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Puts a component under the management of the module.</h5>
+<div class="desc"><p>The component will be initialized by calling its <a href="../system-base/CApplicationComponent.html#methodinit">init()</a>  method if it has not done so.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $id</strong>: component ID</li>
+			<li><strong>array|<a href="../system-base/IApplicationComponent.html">IApplicationComponent</a> $component</strong>: application component  (either configuration array or instance). If this parameter is null,  component will be unloaded from the module.</li>
+			<li><strong>boolean $merge</strong>: whether to merge the new component configuration  with the existing one. Defaults to true, meaning the previously registered  component configuration with the same ID will be merged with the new configuration.  If set to false, the existing configuration will be replaced completely.  This parameter is available since 1.1.13.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodsetComponents" id="methodsetComponents"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method setComponents</strong> (line <span class="linenumber">505</span>)
+ </h4> 
+<h4><i>void</i> <strong>setComponents(
+array
+$components, [boolean
+$merge = true])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Sets the application components.</h5>
+<div class="desc"><p>When a configuration is used to specify a component, it should consist of  the component's initial property values (name-value pairs). Additionally,  a component can be enabled (default) or disabled by specifying the 'enabled' value  in the configuration.</p><p>If a configuration is specified with an ID that is the same as an existing  component or configuration, the existing one will be replaced silently.</p><p>The following is the configuration for two components:  <pre> array(
+     'db'=>array(
+         'class'=>'CDbConnection',
+         'connectionString'=>'sqlite:path/to/file.db',
+     ),
+     'cache'=>array(
+         'class'=>'CDbCache',
+         'connectionID'=>'db',
+         'enabled'=>!YII_DEBUG,  // enable caching in non-debug mode
+     ),
+ )</pre></p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>array $components</strong>: application components(id=&gt;component configuration or instances)</li>
+			<li><strong>boolean $merge</strong>: whether to merge the new component configuration with the existing one.  Defaults to true, meaning the previously registered component configuration of the same ID  will be merged with the new configuration. If false, the existing configuration will be replaced completely.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodsetId" id="methodsetId"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method setId</strong> (line <span class="linenumber">136</span>)
+ </h4> 
+<h4><i>void</i> <strong>setId(
+string
+$id)</strong></h4>
+	<p>Overridden in child classes as:<br />
+		<dl>
+	<dt><a href="../system-base/CApplication.html#methodsetId">CApplication::setId()</a></dt>
+		<dd>Sets the unique identifier for the application.</dd>
+	</dl>
+	</p>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Sets the module ID.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $id</strong>: the module ID</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodsetImport" id="methodsetImport"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method setImport</strong> (line <span class="linenumber">223</span>)
+ </h4> 
+<h4><i>void</i> <strong>setImport(
+array
+$aliases)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Sets the aliases that are used in the module.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>array $aliases</strong>: list of aliases to be imported</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodsetModulePath" id="methodsetModulePath"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method setModulePath</strong> (line <span class="linenumber">212</span>)
+ </h4> 
+<h4><i>void</i> <strong>setModulePath(
+string
+$value)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Sets the directory that contains the application modules.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $value</strong>: the directory that contains the application modules.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>throws</strong> - CException if the directory is invalid</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodsetModules" id="methodsetModules"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method setModules</strong> (line <span class="linenumber">341</span>)
+ </h4> 
+<h4><i>void</i> <strong>setModules(
+array
+$modules, [boolean
+$merge = true])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Configures the sub-modules of this module.</h5>
+<div class="desc"><p>Call this method to declare sub-modules and configure them with their initial property values.  The parameter should be an array of module configurations. Each array element represents a single module,  which can be either a string representing the module ID or an ID-configuration pair representing  a module with the specified ID and the initial property values.</p><p>For example, the following array declares two modules:  <pre> array(
+     'admin',                // a single module ID
+     'payment'=>array(       // ID-configuration pair
+         'server'=>'paymentserver.com',
+     ),
+ )</pre></p><p>By default, the module class is determined using the expression <div class="src-code"><ol><li><div class="src-line"><a href="http://www.php.net/ucfirst">ucfirst</a><strong>(</strong><strong>$moduleID</strong><strong>)</strong>.<font color="#66cccc">'Module'</font></div></li>
+</ol></div>.  And the class file is located under <div class="src-code"><ol><li><div class="src-line">modules/<strong>$moduleID</strong></div></li>
+</ol></div>.  You may override this default by explicitly specifying the 'class' option in the configuration.</p><p>You may also enable or disable a module by specifying the 'enabled' option in the configuration.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>array $modules</strong>: module configurations.</li>
+			<li><strong>boolean $merge</strong>: whether to merge the new module configuration  with the existing one. Defaults to true, meaning the previously registered  module configuration with the same ID will be merged with the new configuration.  If set to false, the existing configuration will be replaced completely.  This parameter is available since 1.1.16.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="methodsetParams" id="methodsetParams"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method setParams</strong> (line <span class="linenumber">188</span>)
+ </h4> 
+<h4><i>void</i> <strong>setParams(
+array
+$value)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Sets user-defined parameters.</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>array $value</strong>: user-defined parameters. This should be in name-value pairs.</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="method__get" id="method__get"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method __get</strong> (line <span class="linenumber">100</span>)
+ </h4> 
+<h4><i>mixed</i> <strong>__get(
+string
+$name)</strong></h4>
+
+<p><strong>Overrides :</strong> <a href="../system-base/CComponent.html#method__get">CComponent::__get()</a> Returns a property value, an event handler list or a behavior based on its name.</p>
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Getter magic method.</h5>
+<div class="desc"><p>This method is overridden to support accessing application components  like reading module properties.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $name</strong>: application component or property name</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - the named property value</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<a name="method__isset" id="method__isset"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method __isset</strong> (line <span class="linenumber">115</span>)
+ </h4> 
+<h4><i>boolean</i> <strong>__isset(
+string
+$name)</strong></h4>
+
+<p><strong>Overrides :</strong> <a href="../system-base/CComponent.html#method__isset">CComponent::__isset()</a> Checks if a property value is null.</p>
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Checks if a property value is null.</h5>
+<div class="desc"><p>This method overrides the parent implementation by checking  if the named application component is loaded.</p></div>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $name</strong>: the property name or the event name</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>return</strong> - whether the property value is null</li>
+			<li><strong>access</strong> - public</li>
+		</ul>
+
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage2" ) );</script>
+
+</div>
+<div class="tab-page" id="iVars">
+<h2 class="tab">Inherited Variables</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "iVars" ) );</script>
+<!-- =========== VAR INHERITED SUMMARY =========== -->
+<A NAME='var_inherited_summary'><!-- --></A>
+<h3>Inherited Class Variable Summary</h3>
+
+	</div>
+<div class="tab-page" id="iMethods">
+<h2 class="tab">Inherited Methods</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "iMethods" ) );</script>
+<!-- =========== INHERITED METHOD SUMMARY =========== -->
+<A NAME='functions_inherited'><!-- --></A>
+<h3>Inherited Method Summary</h3>
+
+		<!-- =========== Summary =========== -->
+	<h4>Inherited From Class <a href="../system-base/CComponent.html">CComponent</a></h4>
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodasa">CComponent::asa()</a></strong> - Returns the named behavior object.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodattachBehavior">CComponent::attachBehavior()</a></strong> - Attaches a behavior to this component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodattachBehaviors">CComponent::attachBehaviors()</a></strong> - Attaches a list of behaviors to the component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodattachEventHandler">CComponent::attachEventHandler()</a></strong> - Attaches an event handler to an event.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodcanGetProperty">CComponent::canGetProperty()</a></strong> - Determines whether a property can be read.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodcanSetProperty">CComponent::canSetProperty()</a></strong> - Determines whether a property can be set.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddetachBehavior">CComponent::detachBehavior()</a></strong> - Detaches a behavior from the component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddetachBehaviors">CComponent::detachBehaviors()</a></strong> - Detaches all behaviors from the component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddetachEventHandler">CComponent::detachEventHandler()</a></strong> - Detaches an existing event handler.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddisableBehavior">CComponent::disableBehavior()</a></strong> - Disables an attached behavior.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methoddisableBehaviors">CComponent::disableBehaviors()</a></strong> - Disables all behaviors attached to this component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodenableBehavior">CComponent::enableBehavior()</a></strong> - Enables an attached behavior.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodenableBehaviors">CComponent::enableBehaviors()</a></strong> - Enables all behaviors attached to this component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodevaluateExpression">CComponent::evaluateExpression()</a></strong> - Evaluates a PHP expression or callback under the context of this component.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodgetEventHandlers">CComponent::getEventHandlers()</a></strong> - Returns the list of attached event handlers for an event.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodhasEvent">CComponent::hasEvent()</a></strong> - Determines whether an event is defined.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodhasEventHandler">CComponent::hasEventHandler()</a></strong> - Checks whether the named event has attached handlers.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodhasProperty">CComponent::hasProperty()</a></strong> - Determines whether a property is defined.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#methodraiseEvent">CComponent::raiseEvent()</a></strong> - Raises an event.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__call">CComponent::__call()</a></strong> - Calls the named method which is not a class method.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__get">CComponent::__get()</a></strong> - Returns a property value, an event handler list or a behavior based on its name.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__isset">CComponent::__isset()</a></strong> - Checks if a property value is null.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__set">CComponent::__set()</a></strong> - Sets value of a component property.
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../system-base/CComponent.html#method__unset">CComponent::__unset()</a></strong> - Sets a component property to be null.
+		</h4> 
+
+				<br />
+	</div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+
+setupAllTabs();
+
+//]]>
+</script>
+	<div id="credit">
+		<hr />
+		Documentation generated on Mon, 11 Jul 2016 21:51:44 +0800 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.4</a>
+	</div>
+</body>
+</html>
+
